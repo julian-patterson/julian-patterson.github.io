@@ -3,34 +3,68 @@ import {
   Button,
   HStack as Flex,
   Heading,
+  IconButton,
   Spacer,
-  VStack,
   useColorMode,
 } from "@chakra-ui/react";
+import { FaEnvelope, FaGithub, FaLinkedinIn, FaPhone } from "react-icons/fa";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { FC } from "react";
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box
-      paddingTop={"3"}
-      display={"grid"}
-      justifyItems="left"
-      paddingLeft={"3"}
-    >
+    <Box padding={"3"}>
       <Flex flexDirection={"row"} width={"100%"}>
-        <VStack spacing={"1"}>
-          <Heading size="3xl" fontWeight="Semibold">
-            Welcome!
-          </Heading>
-          <Heading size="lg" fontWeight={"Thin"} justifyContent="center">
-            Hi, my name is Julian Patterson
-          </Heading>
-        </VStack>
+        <Heading fontSize="40px" fontWeight="black" letterSpacing="widest">
+          JP
+        </Heading>
         <Spacer />
-        <Button variant="solid" colorScheme="teal" onClick={toggleColorMode}>
-          Toggle {colorMode === "light" ? "Dark" : "Light"}
+        <IconButton
+          colorScheme="gray"
+          aria-label="Github"
+          size="sm"
+          icon={<FaGithub />}
+          onClick={() =>
+            window.open("https://github.com/julian-patterson", "_blank")
+          }
+        ></IconButton>
+        <IconButton
+          colorScheme="gray"
+          aria-label="Linked-In"
+          size="sm"
+          icon={<FaLinkedinIn />}
+          onClick={() =>
+            window.open(
+              "https://ca.linkedin.com/in/julian-e-patterson",
+              "_blank"
+            )
+          }
+        ></IconButton>
+        <IconButton
+          colorScheme="gray"
+          aria-label="Email"
+          size="sm"
+          icon={<FaEnvelope />}
+          onClick={() =>
+            (window.location.href = "mailto:julian.e.patterson@icloud.com")
+          }
+        ></IconButton>
+        <IconButton
+          colorScheme="gray"
+          aria-label="Phone"
+          size="sm"
+          icon={<FaPhone />}
+          onClick={() => (window.location.href = "tel:514-929-1119")}
+        ></IconButton>
+        <Button
+          variant="solid"
+          colorScheme="gray"
+          onClick={toggleColorMode}
+          size="sm"
+        >
+          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </Button>
       </Flex>
     </Box>
