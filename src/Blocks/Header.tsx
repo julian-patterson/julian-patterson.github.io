@@ -5,15 +5,10 @@ import {
   Heading,
   Spacer,
   VStack,
-  defineStyleConfig,
   useColorMode,
 } from "@chakra-ui/react";
 
 import { FC } from "react";
-
-const headerStyle = defineStyleConfig({
-  defaultProps: {},
-});
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -35,7 +30,7 @@ const Header: FC = () => {
         </VStack>
         <Spacer />
         <Button variant="solid" colorScheme="teal" onClick={toggleColorMode}>
-          Toggle {colorMode == "light" ? "Dark" : "Light"}
+          Toggle {colorMode === "light" ? "Dark" : "Light"}
         </Button>
       </Flex>
     </Box>
