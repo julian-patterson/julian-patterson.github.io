@@ -1,33 +1,29 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  VStack,
-  defineStyleConfig,
-} from "@chakra-ui/react";
+import { Box, Heading, VStack, defineStyleConfig } from "@chakra-ui/react";
 
 import { FC } from "react";
 
-const headingTextStyle = defineStyleConfig({
-  defaultProps: {
-    size: "4xl",
-  },
+const headerStyle = defineStyleConfig({
+  defaultProps: {},
 });
 
 const Header: FC = () => {
   return (
-    <Flex paddingTop={"3"}>
+    <Box
+      paddingTop={"3"}
+      position={"-webkit-sticky"}
+      alignItems="center"
+      justifyContent={"start"}
+      paddingLeft={"3"}
+    >
       <VStack spacing={"1"}>
-        <Box>
-          <Heading size="lg" fontWeight={"Bold"}>
-            Welcome!
-          </Heading>
-        </Box>
-        <Heading size="lg" fontWeight={"Thin"}>
+        <Heading size="3xl" fontWeight="Semibold">
+          Welcome!
+        </Heading>
+        <Heading size="lg" fontWeight={"Thin"} justifyContent="center">
           Hi, my name is Julian Patterson
         </Heading>
       </VStack>
-    </Flex>
+    </Box>
   );
 };
 
