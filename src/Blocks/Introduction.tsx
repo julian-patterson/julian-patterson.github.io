@@ -1,5 +1,8 @@
+import "animate.css";
+
 import { Box, Center, VStack } from "@chakra-ui/react";
 
+import { AnimationOnScroll } from "react-animation-on-scroll";
 import { FC } from "react";
 import Typed from "react-typed";
 
@@ -21,6 +24,13 @@ const Introduction: FC = () => {
             startDelay={3500}
             backDelay={100}
           />
+          <AnimationOnScroll
+            animateIn="animate__animated animate__slideInUp"
+            animatePreScroll={false}
+          >
+            <h2>Test</h2>
+          </AnimationOnScroll>
+          <Box paddingTop={"1000px"}></Box>
         </VStack>
       </Center>
     </Box>
