@@ -1,4 +1,4 @@
-import { Box, Center, SlideFade, VStack } from "@chakra-ui/react";
+import { Box, Center, VStack } from "@chakra-ui/react";
 
 import { FC } from "react";
 import Typed from "react-typed";
@@ -21,7 +21,6 @@ const Introduction: FC = () => {
             startDelay={3500}
             backDelay={100}
           />
-          <SlideFade>Test</SlideFade>
         </VStack>
       </Center>
     </Box>
