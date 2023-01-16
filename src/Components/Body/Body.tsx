@@ -17,10 +17,10 @@ const Body: FC = () => {
           />
           <Typed
             style={{ fontWeight: "Thin", fontSize: "30px" }}
-            strings={["Here is a little about me:"]}
+            strings={["Here is a little about me:", "Scroll to see more"]}
             typeSpeed={100}
-            startDelay={3500}
-            backDelay={100}
+            loop={true}
+            backDelay={1000}
           />
           <VStack spacing={"100px"} paddingTop={"400px"}>
             <CardGroup />
