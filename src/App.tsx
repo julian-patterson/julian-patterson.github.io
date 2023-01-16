@@ -1,8 +1,8 @@
 import { Box, ChakraProvider } from "@chakra-ui/react";
 
 import { FC } from "react";
-import Header from "./Blocks/Header";
-import Introduction from "./Blocks/Introduction";
+import Header from "./Components/Header/Header";
+import Introduction from "./Components/Introduction/Introduction";
 import theme from "./Styles/Theme";
 
 const App: FC = () => {

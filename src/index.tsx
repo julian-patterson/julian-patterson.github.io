@@ -1,4 +1,4 @@
-import "./index.css";
+import "./Styles/index.css";
 
 import App from "./App";
 import { ColorModeScript } from "@chakra-ui/react";
