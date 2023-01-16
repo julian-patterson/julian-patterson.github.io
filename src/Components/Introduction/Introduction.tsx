@@ -6,7 +6,7 @@ import Typed from "react-typed";
 
 const Introduction: FC = () => {
   return (
-    <Box paddingTop={"100px"}>
+    <Box paddingTop={"200px"} paddingBottom={"500px"}>
       <Center>
         <VStack spacing={0.25}>
           <Typed
@@ -22,8 +22,9 @@ const Introduction: FC = () => {
             startDelay={3500}
             backDelay={100}
           />
-          <CardGroup />
-          <Box paddingTop={"1000px"}></Box>
+          <VStack spacing={"100px"} paddingTop={"400px"}>
+            <CardGroup />
+          </VStack>
         </VStack>
       </Center>
     </Box>
