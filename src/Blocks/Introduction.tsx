@@ -1,6 +1,16 @@
 import "animate.css";
 
-import { Box, Center, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Center,
+  Heading,
+  Spacer,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { FC } from "react";
@@ -19,16 +29,25 @@ const Introduction: FC = () => {
           />
           <Typed
             style={{ fontWeight: "Thin", fontSize: "30px" }}
-            strings={["Here is all about me:"]}
+            strings={["Here is a little about me:"]}
             typeSpeed={100}
             startDelay={3500}
             backDelay={100}
           />
+          <Spacer />
           <AnimationOnScroll
             animateIn="animate__animated animate__slideInUp"
-            animatePreScroll={false}
+            animatePreScroll={true}
           >
-            <h2>Test</h2>
+            <Card size="sm">
+              <CardHeader>
+                <Heading size="md">Introduction:</Heading>
+              </CardHeader>
+              <CardBody>
+                <Heading size="sm">Subsection</Heading>
+                <Text>Example body texy</Text>
+              </CardBody>
+            </Card>
           </AnimationOnScroll>
           <Box paddingTop={"1000px"}></Box>
         </VStack>
