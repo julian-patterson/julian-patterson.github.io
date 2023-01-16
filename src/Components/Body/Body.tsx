@@ -4,7 +4,7 @@ import CardGroup from "./CardGroup";
 import { FC } from "react";
 import Typed from "react-typed";
 
-const Introduction: FC = () => {
+const Body: FC = () => {
   return (
     <Box paddingTop={"200px"} paddingBottom={"500px"}>
       <Center>
@@ -31,4 +31,4 @@ const Introduction: FC = () => {
   );
 };
 
-export default Introduction;
+export default Body;

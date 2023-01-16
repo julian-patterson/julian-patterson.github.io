@@ -1,8 +1,8 @@
 import { Box, ChakraProvider } from "@chakra-ui/react";
 
+import Body from "./Components/Body/Body";
 import { FC } from "react";
 import Header from "./Components/Header/Header";
-import Introduction from "./Components/Introduction/Introduction";
 import theme from "./Styles/Theme";
 
 const App: FC = () => {
@@ -10,7 +10,7 @@ const App: FC = () => {
     <ChakraProvider theme={theme}>
       <Box>
         <Header />
-        <Introduction />
+        <Body />
       </Box>
     </ChakraProvider>
   );
