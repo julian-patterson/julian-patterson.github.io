@@ -9,6 +9,8 @@ import {
 
 import { cardAnatomy } from "@chakra-ui/anatomy";
 
+// Theming for all components on the website
+
 //Config and Global theming
 const config: ThemeConfig = {
   initialColorMode: "system",

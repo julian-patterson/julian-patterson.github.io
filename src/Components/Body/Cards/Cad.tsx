@@ -14,6 +14,7 @@ import {
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { FC } from "react";
 
+// Cad card
 const Cad: FC = () => {
   const { isOpen, onToggle } = useDisclosure();
   return (

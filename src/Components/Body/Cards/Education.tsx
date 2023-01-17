@@ -10,6 +10,7 @@ import {
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { FC } from "react";
 
+// Education card
 const Education: FC = () => {
   return (
     <AnimationOnScroll

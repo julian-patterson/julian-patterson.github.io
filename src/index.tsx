@@ -6,6 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import theme from "./Styles/Theme";
 
+// React router and the theme configuration
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

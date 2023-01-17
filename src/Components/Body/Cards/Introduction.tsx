@@ -3,6 +3,7 @@ import { Card, CardBody, CardHeader, Heading, Text } from "@chakra-ui/react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { FC } from "react";
 
+// Introduction Card
 const Introduction: FC = () => {
   return (
     <AnimationOnScroll

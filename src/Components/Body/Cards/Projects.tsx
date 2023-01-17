@@ -13,6 +13,7 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import { FC } from "react";
 import { FaGithub } from "react-icons/fa";
 
+// Projects card
 const Projects: FC = () => {
   return (
     <AnimationOnScroll

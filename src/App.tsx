@@ -5,6 +5,7 @@ import { FC } from "react";
 import Header from "./Components/Header/Header";
 import theme from "./Styles/Theme";
 
+// Home page composed of the header and body. Needed in order to implement the theme
 const App: FC = () => {
   return (
     <ChakraProvider theme={theme}>

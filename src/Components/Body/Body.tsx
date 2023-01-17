@@ -4,6 +4,7 @@ import CardGroup from "./CardGroup";
 import { FC } from "react";
 import Typed from "react-typed";
 
+//Body of the website, everything other than the heading
 const Body: FC = () => {
   return (
     <Box paddingTop={"200px"} paddingBottom={"500px"}>
