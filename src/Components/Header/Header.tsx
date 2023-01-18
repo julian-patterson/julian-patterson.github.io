@@ -30,7 +30,7 @@ const Header: FC = () => {
           onClick={() =>
             window.open("https://github.com/julian-patterson", "_blank")
           }
-        ></IconButton>
+        />
         <IconButton
           colorScheme="gray"
           aria-label="Linked-In"
@@ -42,7 +42,7 @@ const Header: FC = () => {
               "_blank"
             )
           }
-        ></IconButton>
+        />
         <IconButton
           colorScheme="gray"
           aria-label="Email"
@@ -58,7 +58,7 @@ const Header: FC = () => {
           size="sm"
           icon={<FaPhone />}
           onClick={() => (window.location.href = "tel:514-929-1119")}
-        ></IconButton>
+        />
         <Button
           variant="solid"
           colorScheme="gray"
