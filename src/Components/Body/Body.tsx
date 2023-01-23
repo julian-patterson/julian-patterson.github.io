@@ -3,19 +3,27 @@ import { Box, Center, VStack } from "@chakra-ui/react";
 import CardGroup from "./CardGroup";
 import { FC } from "react";
 import Typed from "react-typed";
+import styled from "styled-components";
+
+const boldTypedStyle = {
+  fontWeight: "Bold",
+  fontSize: "30px",
+};
+
+const thinTypedStyle = {
+  fontWeight: "Thin",
+  fontSize: "30px",
+};
+
+const StyledBox = styled(Box)`
+  padding-top: 200px;
+  padding-bottom: 500px;
+`;
 
 //Body of the website, everything other than the heading
 const Body: FC = () => {
-  const boldTypedStyle = {
-    fontWeight: "Bold",
-    fontSize: "30px",
-  };
-  const thinTypedStyle = {
-    fontWeight: "Thin",
-    fontSize: "30px",
-  };
   return (
-    <Box paddingTop={"200px"} paddingBottom={"500px"}>
+    <StyledBox>
       <Center>
         <VStack spacing={0.25}>
           <Typed
@@ -36,7 +44,7 @@ const Body: FC = () => {
           </VStack>
         </VStack>
       </Center>
-    </Box>
+    </StyledBox>
   );
 };
 

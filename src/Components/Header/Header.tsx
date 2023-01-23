@@ -51,7 +51,7 @@ const Header: FC = () => {
           onClick={() =>
             (window.location.href = "mailto:julian.e.patterson@icloud.com")
           }
-        ></IconButton>
+        />
         <IconButton
           colorScheme="gray"
           aria-label="Phone"
