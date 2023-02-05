@@ -7,6 +7,7 @@ import Introduction from "./Cards/Introduction";
 import Projects from "./Cards/Projects";
 import { VStack } from "@chakra-ui/react";
 
+//Consists of all the cards located in the "cards" folder
 const CardGroup: FC = () => {
   return (
     <VStack spacing={"20px"}>

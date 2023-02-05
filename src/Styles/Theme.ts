@@ -4,10 +4,12 @@ import {
   createMultiStyleConfigHelpers,
   defineStyle,
   defineStyleConfig,
-  extendTheme,
+  extendTheme
 } from "@chakra-ui/react";
 
 import { cardAnatomy } from "@chakra-ui/anatomy";
+
+// Theming for all components on the website
 
 //Config and Global theming
 const config: ThemeConfig = {

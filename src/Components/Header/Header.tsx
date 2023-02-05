@@ -1,7 +1,7 @@
 import {
   Box,
   Button,
-  HStack as Flex,
+  HStack,
   Heading,
   IconButton,
   Spacer,
@@ -12,12 +12,13 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { FC } from "react";
 
+// Header of the website, includes the toggle for dark mode
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box padding={"3"}>
-      <Flex flexDirection={"row"} width={"100%"}>
-        <Heading fontSize="40px" fontWeight="black" letterSpacing="widest">
+      <HStack flexDirection={"row"} width={"100%"}>
+        <Heading fontSize={"40px"} fontWeight="black" letterSpacing="widest">
           JP
         </Heading>
         <Spacer />
@@ -29,7 +30,7 @@ const Header: FC = () => {
           onClick={() =>
             window.open("https://github.com/julian-patterson", "_blank")
           }
-        ></IconButton>
+        />
         <IconButton
           colorScheme="gray"
           aria-label="Linked-In"
@@ -41,7 +42,7 @@ const Header: FC = () => {
               "_blank"
             )
           }
-        ></IconButton>
+        />
         <IconButton
           colorScheme="gray"
           aria-label="Email"
@@ -50,14 +51,14 @@ const Header: FC = () => {
           onClick={() =>
             (window.location.href = "mailto:julian.e.patterson@icloud.com")
           }
-        ></IconButton>
+        />
         <IconButton
           colorScheme="gray"
           aria-label="Phone"
           size="sm"
           icon={<FaPhone />}
           onClick={() => (window.location.href = "tel:514-929-1119")}
-        ></IconButton>
+        />
         <Button
           variant="solid"
           colorScheme="gray"
@@ -66,7 +67,7 @@ const Header: FC = () => {
         >
           {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </Button>
-      </Flex>
+      </HStack>
     </Box>
   );
 };
