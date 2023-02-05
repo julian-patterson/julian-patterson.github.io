@@ -1,7 +1,7 @@
 import {
   Box,
   Button,
-  HStack as Flex,
+  Flex,
   Heading,
   IconButton,
   Spacer,
@@ -11,16 +11,26 @@ import { FaEnvelope, FaGithub, FaLinkedinIn, FaPhone } from "react-icons/fa";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { FC } from "react";
+import styled from "styled-components";
+
+const StyledFlex = styled(Flex)`
+  flex-direction: row;
+  width: 100%;
+`;
+
+const StyledHeading = styled(Heading)`
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+`;
 
 // Header of the website, includes the toggle for dark mode
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box padding={"3"}>
-      <Flex flexDirection={"row"} width={"100%"}>
-        <Heading fontSize="40px" fontWeight="black" letterSpacing="widest">
-          JP
-        </Heading>
+      <StyledFlex>
+        <StyledHeading>JP</StyledHeading>
         <Spacer />
         <IconButton
           colorScheme="gray"
@@ -67,7 +77,7 @@ const Header: FC = () => {
         >
           {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </Button>
-      </Flex>
+      </StyledFlex>
     </Box>
   );
 };
