@@ -1,5 +1,4 @@
 import AnimatedCard from "./Components/AnimatedCard";
-import { Box } from "@chakra-ui/react";
 import CardBody from "./Components/CardBody";
 import { FC } from "react";
 
@@ -10,10 +9,10 @@ const Introduction: FC = () => {
       animationOffset={100}
       title="Introduction"
       body={
-        <Box>
-          <CardBody subtitle="About Me" body="example" divider={true} />
-          <CardBody subtitle="blah" body="ex" subsection={true} />
-        </Box>
+        <CardBody
+          subtitle="About Me"
+          body="Hello! My name is Julian Patterson and welcome to my website. I am currently a student at Marianopolis College in Pure and Applied Sciences. My interests span from coding, CADing, skiing, and exploring the world around us."
+        />
       }
     />
   );
