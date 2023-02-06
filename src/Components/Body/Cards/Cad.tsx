@@ -1,8 +1,7 @@
+import { FC } from "react";
 import AnimatedCard from "./Components/AnimatedCard";
 import CardBody from "./Components/CardBody";
-import { FC } from "react";
 
-// Cad card
 const Cad: FC = () => {
   return (
     <AnimatedCard

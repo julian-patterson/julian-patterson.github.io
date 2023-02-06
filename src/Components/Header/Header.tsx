@@ -1,18 +1,17 @@
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
-  HStack,
   Heading,
+  HStack,
   IconButton,
   Spacer,
   useColorMode,
 } from "@chakra-ui/react";
 import { FaEnvelope, FaGithub, FaLinkedinIn, FaPhone } from "react-icons/fa";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { FC } from "react";
 
-// Header of the website, includes the toggle for dark mode
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
