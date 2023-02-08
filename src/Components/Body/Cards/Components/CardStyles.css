@@ -10,6 +10,10 @@
     transform: translateY(0);
 }
 
+.section {
+    min-height: 100vh;
+}
+
 
 
 @media(prefers-reduced-motion) {

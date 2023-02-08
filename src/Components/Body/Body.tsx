@@ -1,9 +1,9 @@
 import { Box, Center, VStack } from "@chakra-ui/react";
 
+import CardGroup from "./CardGroup";
 import { FC } from "react";
 import Typed from "react-typed";
 import styled from "styled-components";
-import CardGroup from "./CardGroup";
 
 const boldTypedStyle = {
   fontWeight: "Bold",
@@ -16,8 +16,9 @@ const thinTypedStyle = {
 };
 
 const StyledBox = styled(Box)`
+  min-height: 100vh;
   padding-top: 200px;
-  padding-bottom: 500px;
+  padding-bottom: 50px;
 `;
 
 const Body: FC = () => {
