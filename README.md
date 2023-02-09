@@ -7,6 +7,7 @@ Source code for personal React.ts built website.
 - chakra-ui
 - react-animation-on-scroll
 - react-icons
+- styled-components
 - react-typed
 
 ## Ui Design
