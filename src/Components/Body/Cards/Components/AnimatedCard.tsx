@@ -15,15 +15,16 @@ const AnimatedCard: FC<IAnimatedCard> = (props) => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.className.replace("hidden", "show");
+        entry.target.classList.add("show");
       } else {
-        entry.target.className.replace("show", "hidden");
+        entry.target.classList.remove("show");
       }
     });
   });
 
   const hiddenElements = document.querySelectorAll(".hidden");
   hiddenElements.forEach((el) => observer.observe(el));
+
   return (
     <div className="hidden">
       <Card>
