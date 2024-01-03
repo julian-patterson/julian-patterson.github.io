@@ -10,7 +10,7 @@ const Introduction: FC = () => {
       body={
         <CardBody
           subtitle="About Me"
-          body="Hello! My name is Julian Patterson and welcome to my website. I am currently a student at Marianopolis College in Pure and Applied Sciences. My interests span from coding, CADing, skiing, and exploring the world around us."
+          body="Hello! My name is Julian Patterson! I am currently a student at McGill University studying software engineerings. In my freetime, I enjoy exploring the outdoors by skiing and hiking as well as learning about new technologies. "
         />
       }
     />
