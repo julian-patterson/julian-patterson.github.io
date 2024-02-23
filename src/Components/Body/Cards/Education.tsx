@@ -1,11 +1,11 @@
 import { Box } from "@chakra-ui/react";
 import { FC } from "react";
-import AnimatedCard from "./Components/AnimatedCard";
+import ButtonCard from "./Components/ButtonCard";
 import CardBody from "./Components/CardBody";
 
 const Education: FC = () => {
   return (
-    <AnimatedCard
+    <ButtonCard
       title="Education"
       animationOffset={50}
       body={
