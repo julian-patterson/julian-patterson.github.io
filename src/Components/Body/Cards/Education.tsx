@@ -11,8 +11,14 @@ const Education: FC = () => {
       body={
         <Box>
           <CardBody
+            subtitle="McGill University"
+            body="Software Engineering (BSc)"
+            divider={true}
+          />
+          <CardBody
             subtitle="Marianopolis College"
-            body="Two-year program leading to a DEC discovering topics such as advanced mathematics, biology, chemistry, and physics."
+            body="Two-year program leading to a Pure & Applied Sciences DEC"
+            subsection={true}
             divider={true}
           />
           <CardBody

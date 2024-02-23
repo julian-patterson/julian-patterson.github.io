@@ -1,10 +1,10 @@
 import { FC } from "react";
-import AnimatedCard from "./Components/AnimatedCard";
+import ButtonCard from "./Components/ButtonCard";
 import CardBody from "./Components/CardBody";
 
-const Introduction: FC = () => {
+const ExpButtonGroup: FC = () => {
   return (
-    <AnimatedCard
+    <ButtonCard
       animationOffset={100}
       title="About Me"
       body={<CardBody subtitle="" body="Hello, My name is Julian Patterson!" />}
@@ -12,4 +12,4 @@ const Introduction: FC = () => {
   );
 };
 
-export default Introduction;
+export default ExpButtonGroup;
