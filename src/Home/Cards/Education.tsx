@@ -1,8 +1,8 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
+import { FC } from "react";
 import ButtonCard from "../../Components/ButtonCard";
 import CardBody from "../../Components/CardBody";
-import { FC } from "react";
 
 const Education: FC = () => {
   return (
@@ -21,13 +21,13 @@ const Education: FC = () => {
           />
           <CardBody
             subtitle="Marianopolis College"
-            body="Two-year program leading to a Pure & Applied Sciences DEC"
+            body="Pure & Applied Sciences DEC"
             subsection={true}
             divider={true}
           />
           <CardBody
             subtitle="Loyola High School"
-            body="Secondary School leading to a MEES Diploma"
+            body="MEES Diploma"
             subsection={true}
           />
         </Box>

@@ -1,8 +1,8 @@
 import { Box, Center, VStack } from "@chakra-ui/react";
 
-import CardGroup from "./Components/CardGroup";
 import { FC } from "react";
 import styled from "styled-components";
+import CardGroup from "./Components/CardGroup";
 
 const StyledBox = styled(Box)`
   min-height: 100vh;
@@ -10,21 +10,11 @@ const StyledBox = styled(Box)`
   padding-bottom: 50px;
 `;
 
-const boldTypedStyle = {
-  fontWeight: "Bold",
-  fontSize: "30px",
-};
-
-const thinTypedStyle = {
-  fontWeight: "Thin",
-  fontSize: "30px",
-};
-
 const EducationBody: FC = () => {
   return (
     <StyledBox>
       <Center>
-        <VStack spacing={"100px"}>
+        <VStack>
           <CardGroup />
         </VStack>
       </Center>

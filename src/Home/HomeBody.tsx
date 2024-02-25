@@ -1,9 +1,9 @@
 import { Box, Center, VStack } from "@chakra-ui/react";
 
-import CardGroup from "./Cards/CardGroup";
 import { FC } from "react";
 import Typed from "react-typed";
 import styled from "styled-components";
+import CardGroup from "./CardGroup";
 
 const boldTypedStyle = {
   fontWeight: "Bold",

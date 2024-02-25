@@ -4,14 +4,14 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  HStack,
   Heading,
+  HStack,
 } from "@chakra-ui/react";
 
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-interface IAnimatedCard {
+interface IButtonCard {
   title: string;
   body: any;
   label: any;
@@ -21,7 +21,7 @@ interface IAnimatedCard {
   footer?: any;
 }
 
-const ButtonCard: FC<IAnimatedCard> = (props) => {
+const ButtonCard: FC<IButtonCard> = (props) => {
   return (
     // <AnimationOnScroll
     //   animateIn="animate__animated animate__slideInUp"
