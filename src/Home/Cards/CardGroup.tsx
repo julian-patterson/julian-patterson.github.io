@@ -1,11 +1,11 @@
 import "animate.css";
 
-import { VStack } from "@chakra-ui/react";
+import Cad from "./Cad";
+import Education from "./Education";
 import { FC } from "react";
-import Cad from "./Cards/Cad";
-import Education from "./Cards/Education";
-import Introduction from "./Cards/Introduction";
-import Projects from "./Cards/Projects";
+import Introduction from "./Introduction";
+import Projects from "./Projects";
+import { VStack } from "@chakra-ui/react";
 
 const CardGroup: FC = () => {
   return (

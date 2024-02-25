@@ -1,25 +1,28 @@
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
-  Heading,
   HStack,
+  Heading,
   IconButton,
   Spacer,
   useColorMode,
 } from "@chakra-ui/react";
 import { FaEnvelope, FaGithub, FaLinkedinIn, FaPhone } from "react-icons/fa";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box padding={"3"}>
       <HStack flexDirection={"row"} width={"100%"}>
-        <Heading fontSize={"40px"} fontWeight="black" letterSpacing="widest">
-          JP
-        </Heading>
+        <Link to="/">
+          <Heading fontSize={"40px"} fontWeight="black" letterSpacing="widest">
+            JP
+          </Heading>
+        </Link>
         <Spacer />
         <IconButton
           colorScheme="gray"

@@ -1,7 +1,7 @@
+import AnimatedCard from "../../Components/AnimatedCard";
 import { Box } from "@chakra-ui/react";
+import CardBody from "../../Components/CardBody";
 import { FC } from "react";
-import AnimatedCard from "./Components/AnimatedCard";
-import CardBody from "./Components/CardBody";
 
 const Projects: FC = () => {
   return (

@@ -1,6 +1,6 @@
+import AnimatedCard from "../../Components/AnimatedCard";
+import CardBody from "../../Components/CardBody";
 import { FC } from "react";
-import AnimatedCard from "./Components/AnimatedCard";
-import CardBody from "./Components/CardBody";
 
 const Introduction: FC = () => {
   return (

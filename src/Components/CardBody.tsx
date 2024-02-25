@@ -4,7 +4,7 @@ import { FC } from "react";
 
 interface ICardBody {
   subtitle: string;
-  body: string;
+  body?: string;
   subsection?: boolean;
   divider?: boolean;
 }

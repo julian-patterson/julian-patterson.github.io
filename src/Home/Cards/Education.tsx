@@ -1,15 +1,16 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
+import ButtonCard from "../../Components/ButtonCard";
+import CardBody from "../../Components/CardBody";
 import { FC } from "react";
-import ButtonCard from "./Components/ButtonCard";
-import CardBody from "./Components/CardBody";
 
 const Education: FC = () => {
   return (
     <ButtonCard
       title="Education"
       animationOffset={50}
-      label="DUMMY WIP"
+      link="/education"
+      label="More Info"
       rightIcon={<ArrowForwardIcon />}
       body={
         <Box>

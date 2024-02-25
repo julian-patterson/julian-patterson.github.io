@@ -4,16 +4,18 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Heading,
   HStack,
+  Heading,
 } from "@chakra-ui/react";
 
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 interface IAnimatedCard {
   title: string;
   body: any;
   label: any;
+  link?: any;
   rightIcon?: any;
   animationOffset?: any;
   footer?: any;
@@ -35,6 +37,8 @@ const ButtonCard: FC<IAnimatedCard> = (props) => {
       <CardFooter paddingTop={"5px"}>
         <HStack justify={"right"} width="100%">
           <Button
+            as={Link}
+            to={props.link}
             variant="ghost"
             colorScheme="BlackAlpha"
             rightIcon={props.rightIcon}
