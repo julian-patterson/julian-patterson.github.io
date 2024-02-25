@@ -3,7 +3,7 @@ import { Box, Center, VStack } from "@chakra-ui/react";
 import { FC } from "react";
 import Typed from "react-typed";
 import styled from "styled-components";
-import CardGroup from "./CardGroup";
+import CardGroup from "./Components/CardGroup";
 
 const boldTypedStyle = {
   fontWeight: "Bold",

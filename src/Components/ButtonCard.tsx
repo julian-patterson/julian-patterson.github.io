@@ -14,27 +14,20 @@ import { Link } from "react-router-dom";
 interface IButtonCard {
   title: string;
   body: any;
-  label: any;
+  label?: any;
   link?: any;
   rightIcon?: any;
-  animationOffset?: any;
-  footer?: any;
 }
 
 const ButtonCard: FC<IButtonCard> = (props) => {
   return (
-    // <AnimationOnScroll
-    //   animateIn="animate__animated animate__slideInUp"
-    //   offset={props.animationOffset}
-    //   animateOnce={true}
-    // >
     <Card size="sm">
       <CardHeader>
         <Heading size="md">{props.title}</Heading>
       </CardHeader>
       <CardBody>{props.body}</CardBody>
-      {props.footer}
-      <CardFooter paddingTop={"5px"}>
+
+      <CardFooter paddingTop={"0px"}>
         <HStack justify={"right"} width="100%">
           <Button
             as={Link}
@@ -48,7 +41,6 @@ const ButtonCard: FC<IButtonCard> = (props) => {
         </HStack>
       </CardFooter>
     </Card>
-    // </AnimationOnScroll>
   );
 };
 

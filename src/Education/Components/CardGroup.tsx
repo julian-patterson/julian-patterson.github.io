@@ -3,8 +3,8 @@ import "animate.css";
 import { Text, VStack } from "@chakra-ui/react";
 
 import { FC } from "react";
-import AnimatedCard from "../../Components/AnimatedCard";
 import CardBody from "../../Components/CardBody";
+import InformationCard from "../../Components/InformationCard";
 
 const boldTypedStyle = {
   fontWeight: "Bold",
@@ -15,7 +15,7 @@ const CardGroup: FC = () => {
   return (
     <VStack spacing={"20px"}>
       <Text style={boldTypedStyle}>Education</Text>
-      <AnimatedCard
+      <InformationCard
         title="McGill University"
         body={
           <VStack align={"start"}>
@@ -29,7 +29,7 @@ const CardGroup: FC = () => {
           </VStack>
         }
       />
-      <AnimatedCard
+      <InformationCard
         title="Marianopolis College"
         body={
           <VStack align={"start"}>
@@ -47,7 +47,7 @@ const CardGroup: FC = () => {
           </VStack>
         }
       />
-      <AnimatedCard
+      <InformationCard
         title="Loyola High School"
         body={
           <VStack align={"start"}>

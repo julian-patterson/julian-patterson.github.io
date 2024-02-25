@@ -2,10 +2,10 @@ import "animate.css";
 
 import { VStack } from "@chakra-ui/react";
 import { FC } from "react";
-import Cad from "./Cards/Cad";
-import Education from "./Cards/Education";
-import Introduction from "./Cards/Introduction";
-import Projects from "./Cards/Projects";
+import Education from "./Education";
+import Experience from "./Experience";
+import Introduction from "./Introduction";
+import Projects from "./Projects";
 
 const CardGroup: FC = () => {
   return (
@@ -13,7 +13,7 @@ const CardGroup: FC = () => {
       <Introduction />
       <Education />
       <Projects />
-      <Cad />
+      <Experience />
     </VStack>
   );
 };

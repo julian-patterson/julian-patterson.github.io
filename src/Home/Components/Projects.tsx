@@ -4,30 +4,29 @@ import { FC } from "react";
 import ButtonCard from "../../Components/ButtonCard";
 import CardBody from "../../Components/CardBody";
 
-const Education: FC = () => {
+const Projects: FC = () => {
   return (
     <ButtonCard
-      title="Education"
-      animationOffset={50}
-      link="/education"
-      label="Activities and Coursework"
+      title="Projects"
+      label={"Projects"}
+      link="/projects"
       rightIcon={<ArrowForwardIcon />}
       body={
         <Box>
           <CardBody
-            subtitle="McGill University"
-            body="Software Engineering (BSc)"
+            subtitle="IoT Control Center"
+            body="Smart Home Control Center"
             divider={true}
           />
           <CardBody
-            subtitle="Marianopolis College"
-            body="Pure & Applied Sciences DEC"
+            subtitle="Custom LED Controller"
+            body="LED Controller for custom LED strips"
+            divider={true}
             subsection={true}
-            divider={true}
           />
           <CardBody
-            subtitle="Loyola High School"
-            body="MEES Diploma"
+            subtitle="julian-patterson.github.io"
+            body="This website written in React.ts and designed using Chakra Ui."
             subsection={true}
           />
         </Box>
@@ -36,4 +35,4 @@ const Education: FC = () => {
   );
 };
 
-export default Education;
+export default Projects;
