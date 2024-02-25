@@ -10,7 +10,7 @@ const Education: FC = () => {
       title="Education"
       animationOffset={50}
       link="/education"
-      label="More Info"
+      label="Activities and Coursework"
       rightIcon={<ArrowForwardIcon />}
       body={
         <Box>

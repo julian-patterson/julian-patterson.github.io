@@ -51,9 +51,15 @@ const CardGroup: FC = () => {
         title="Loyola High School"
         body={
           <VStack align={"start"}>
-            <CardBody subtitle="MEES High School " divider={true} />
+            <CardBody subtitle="MEES High School Diploma" divider={true} />
             <CardBody subtitle="Activities:" />
-            <Text>First Robotics Competition Team Mentor</Text>
+            <Text>
+              Member and Mentor of the 296 Northern Knights Robotics team
+              competing in First Robotics Competition. Assigned team lead of the
+              CAD - computer aided design - team for two years. Directed the
+              design of the robot using Autodesk Inventor to create and design
+              over 200 parts.
+            </Text>
           </VStack>
         }
       />
