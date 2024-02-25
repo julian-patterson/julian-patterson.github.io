@@ -4,7 +4,7 @@ import { FC } from "react";
 
 interface ICardBody {
   subtitle: string;
-  body: string;
+  body?: string;
   subsection?: boolean;
   divider?: boolean;
 }
@@ -19,7 +19,7 @@ const CardBody: FC<ICardBody> = (props) => {
         {props.subtitle}
       </Heading>
       <Text>{props.body}</Text>
-      {props.divider === true ? <Divider /> : <div />}
+      {props.divider === true ? <Divider paddingTop={"10px"} /> : <div />}
     </Box>
   );
 };
