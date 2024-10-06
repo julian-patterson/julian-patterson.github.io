@@ -1,11 +1,10 @@
-import { StyleFunctionProps, mode } from "@chakra-ui/theme-tools";
 import {
-  ThemeConfig,
   createMultiStyleConfigHelpers,
   defineStyle,
   defineStyleConfig,
-  extendTheme
+  extendTheme, ThemeConfig
 } from "@chakra-ui/react";
+import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 import { cardAnatomy } from "@chakra-ui/anatomy";
 
@@ -20,8 +19,8 @@ const config: ThemeConfig = {
 const globalStyles = {
   global: (props: StyleFunctionProps) => ({
     body: {
-      color: mode("#291F1F", "#EBE6E6")(props),
-      bg: mode("#EBE6E6", "#291F1F")(props),
+      color: mode("#121212", "#d4faec")(props),
+      bg: mode("#d4faec", "#121212")(props),
     },
   }),
 };
@@ -33,7 +32,7 @@ const { definePartsStyle, defineMultiStyleConfig } =
 const cardBaseStyle = definePartsStyle((props) => {
   return {
     container: {
-      backgroundColor: mode("#f5f2f2", "#3b2d2d")(props),
+      backgroundColor: mode("#f5f2f2", "#282828")(props),
       width: "320px",
       borderRadius: "15px",
       shadow: "2xl",
@@ -51,7 +50,7 @@ const cardTheme = defineMultiStyleConfig({ baseStyle: cardBaseStyle });
 
 const dividerBaseStyle = defineStyle((props) => {
   return {
-    borderColor: mode("#d6c9c9", "#261c1c")(props),
+    borderColor: mode("#d6c9c9", "#121212")(props),
     borderWidth: "3px",
     borderRadius: 2,
   };

@@ -15,6 +15,7 @@ const CardBody: FC<ICardBody> = (props) => {
       <Heading
         size="sm"
         paddingTop={props.subsection === true ? "10px" : "0px"}
+        width="350px"
       >
         {props.subtitle}
       </Heading>

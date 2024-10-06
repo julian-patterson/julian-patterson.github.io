@@ -6,13 +6,17 @@ interface IInformationCard {
   title: string;
   body: any;
   footer?: any;
+  cardIcon?: any;
 }
 
 const InformationCard: FC<IInformationCard> = (props) => {
   return (
-    <Card size="sm">
+    <Card size="sm" width="425px">
       <CardHeader>
-        <Heading size="md">{props.title}</Heading>
+        {props.cardIcon}
+        <Heading paddingTop="10px" size="md">
+          {props.title}
+        </Heading>
       </CardHeader>
       <CardBody>{props.body}</CardBody>
       {props.footer}

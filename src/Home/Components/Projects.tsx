@@ -1,6 +1,7 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 import { FC } from "react";
+import { MdCode } from "react-icons/md";
 import ButtonCard from "../../Components/ButtonCard";
 import CardBody from "../../Components/CardBody";
 
@@ -11,6 +12,7 @@ const Projects: FC = () => {
       label={"Projects"}
       link="/projects"
       rightIcon={<ArrowForwardIcon />}
+      cardIcon={<MdCode size="30px" color="#d4faec" />}
       body={
         <Box>
           <CardBody
