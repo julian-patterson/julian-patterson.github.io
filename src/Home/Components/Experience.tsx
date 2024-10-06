@@ -10,7 +10,7 @@ const Experience: FC = () => {
       title="Experience"
       cardIcon={<MdOutlineWork size="25px" color="#d4faec" />}
       body={
-        <VStack align={"start"}>
+        <VStack align="start">
           <CardBody
             subtitle="Junior Developer @ Prime Freight Logistics"
             body="Job Description TODO"

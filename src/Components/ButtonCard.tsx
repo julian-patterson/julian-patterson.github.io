@@ -23,7 +23,15 @@ interface IButtonCard {
 
 const ButtonCard: FC<IButtonCard> = (props) => {
   return (
-    <Card size="sm" width="425px">
+    <Card
+      size="sm"
+      width={{
+        base: "360px",
+        sm: "360px",
+        md: "360px",
+        lg: "425px",
+      }}
+    >
       <CardHeader>
         <VStack align="flex-start">
           {props.cardIcon}

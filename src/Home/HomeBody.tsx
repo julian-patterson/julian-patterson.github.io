@@ -40,14 +40,52 @@ const StyledBox = styled(Box)`
 const HomeBody: FC = () => {
   return (
     <StyledBox>
-      <Flex justify="space-between" align="start" justifyContent="start">
-        <VStack spacing={0.25} align="flex-end" paddingRight="20px">
+      <Flex
+        direction={{
+          base: "column",
+          sm: "column",
+          md: "column",
+          lg: "row",
+          xl: "row",
+        }}
+        justify="space-between"
+        align={{
+          base: "center",
+          sm: "center",
+          md: "center",
+          lg: "start",
+          xl: "start",
+        }}
+        justifyContent="start"
+      >
+        <VStack
+          spacing={0.25}
+          align="flex-end"
+          paddingRight={{
+            base: "10px",
+            sm: "10px",
+            md: "10px",
+            lg: "20px",
+            xl: "20px",
+          }}
+        >
           <Text style={boldTypedStyle}>Julian Patterson</Text>
           <Text style={thinTypedStyle}>Software Engineering Student</Text>
           <Text style={thinTypedStyle}>@ McGill University</Text>
           <VStack align="end" paddingTop="20px">
             <Text style={titleStyle}>About Me</Text>
-            <Text align="end" width="400px" color="#e6e6e6" fontSize="18">
+            <Text
+              align="end"
+              width={{
+                base: "300px",
+                sm: "300px",
+                md: "300px",
+                lg: "400px",
+                xl: "400px",
+              }}
+              color="#e6e6e6"
+              fontSize="18"
+            >
               U2 Software Engineering student with a minor in Entrepreneurship.
               I'm passionate about exploring new technologies, software design,
               and engineering. My goal is create software projects that are both
@@ -116,7 +154,7 @@ const HomeBody: FC = () => {
             </Button>
             <Button
               as="a"
-              href=".src/CV/Julian_Patterson_CV.pdf"
+              href="/CV/Julian_Patterson_CV.pdf"
               download="Julian_Patterson_CV.pdf"
               target="_blank"
               width="180px"
@@ -134,10 +172,29 @@ const HomeBody: FC = () => {
         </VStack>
         <VStack
           spacing={"100px"}
-          paddingLeft="50px"
+          paddingLeft={{
+            md: "0px",
+            lg: "50px",
+          }}
+          paddingTop={{
+            base: "50px",
+            sm: "50px",
+            md: "50px",
+            lg: "0px",
+          }}
           paddingRight="50"
-          align="flex-start"
-          justify="start"
+          align={{
+            base: "center",
+            sm: "center",
+            md: "center",
+            lg: "flex-start",
+          }}
+          justify={{
+            base: "center",
+            sm: "center",
+            md: "center",
+            lg: "start",
+          }}
         >
           <CardGroup />
         </VStack>

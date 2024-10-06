@@ -11,7 +11,15 @@ interface IInformationCard {
 
 const InformationCard: FC<IInformationCard> = (props) => {
   return (
-    <Card size="sm" width="425px">
+    <Card
+      size="sm"
+      width={{
+        base: "360px",
+        sm: "360px",
+        md: "360px",
+        lg: "425px",
+      }}
+    >
       <CardHeader>
         {props.cardIcon}
         <Heading paddingTop="10px" size="md">

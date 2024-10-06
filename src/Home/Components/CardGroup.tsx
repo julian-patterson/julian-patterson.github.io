@@ -8,7 +8,22 @@ import Projects from "./Projects";
 
 const CardGroup: FC = () => {
   return (
-    <VStack spacing={"20px"} align="flex-start" justify="flex-start">
+    <VStack
+      spacing={"20px"}
+      align={{
+        base: "center",
+        sm: "center",
+        md: "center",
+        lg: "flex-start",
+      }}
+      justify={{
+        base: "center",
+        sm: "center",
+        md: "center",
+        lg: "flex-start",
+      }}
+      paddingLeft="50px"
+    >
       <Experience />
       <Education />
       <Projects />
