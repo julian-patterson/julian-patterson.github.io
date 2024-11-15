@@ -1,18 +1,11 @@
-import {
-  Box,
-  HStack,
-  Heading,
-  IconButton,
-  Spacer,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Heading, HStack, IconButton, Spacer } from "@chakra-ui/react";
 import { FaEnvelope, FaGithub, FaLinkedinIn, FaPhone } from "react-icons/fa";
 
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
 const Header: FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box padding={"3"}>
       <HStack flexDirection={"row"} width={"100%"}>
