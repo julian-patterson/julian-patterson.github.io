@@ -1,15 +1,9 @@
 import { Box, Button, Flex, HStack, Text, VStack } from "@chakra-ui/react";
-import {
-  FaEnvelope,
-  FaFileDownload,
-  FaGithub,
-  FaLinkedin,
-  FaPhone,
-} from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhone } from "react-icons/fa";
 
+import CardGroup from "./Components/CardGroup";
 import { FC } from "react";
 import styled from "styled-components";
-import CardGroup from "./Components/CardGroup";
 
 const boldTypedStyle = {
   fontWeight: "Bold",
@@ -151,22 +145,6 @@ const HomeBody: FC = () => {
               leftIcon={<FaLinkedin />}
             >
               LinkedIn
-            </Button>
-            <Button
-              as="a"
-              href="/CV/Julian_Patterson_CV.pdf"
-              download="Julian_Patterson_CV.pdf"
-              target="_blank"
-              width="180px"
-              rel="nopener noreferrer"
-              bg="#d4faec"
-              color="#000000"
-              border="1px"
-              borderColor="#d4faec"
-              _hover={{ bg: "#121212", color: "#d4faec" }}
-              leftIcon={<FaFileDownload />}
-            >
-              Download My CV
             </Button>
           </HStack>
         </VStack>
