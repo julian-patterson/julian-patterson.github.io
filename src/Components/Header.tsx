@@ -1,9 +1,7 @@
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
-  Heading,
   HStack,
+  Heading,
   IconButton,
   Spacer,
   useColorMode,
@@ -66,14 +64,14 @@ const Header: FC = () => {
           icon={<FaPhone />}
           onClick={() => (window.location.href = "tel:514-929-1119")}
         />
-        <Button
+        {/* <Button
           variant="solid"
           colorScheme="gray"
           onClick={toggleColorMode}
           size="sm"
         >
           {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-        </Button>
+        </Button> */}
       </HStack>
     </Box>
   );

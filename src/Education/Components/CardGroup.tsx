@@ -2,8 +2,8 @@ import "animate.css";
 
 import { Text, VStack } from "@chakra-ui/react";
 
-import { FC } from "react";
 import CardBody from "../../Components/CardBody";
+import { FC } from "react";
 import InformationCard from "../../Components/InformationCard";
 
 const boldTypedStyle = {
@@ -24,7 +24,9 @@ const CardGroup: FC = () => {
             <Text>
               Data Structures and Algorithms, Discrete Mathematics, Linear
               Algebra, Calculus, Programming Languages and Paradigms,
-              Introduction to Computer Systems, Introduction to Software Systems{" "}
+              Introduction to Computer Systems, Introduction to Software
+              Systems, Software Design, Operating Systems, and Software
+              Engineering Project.{" "}
             </Text>
           </VStack>
         }

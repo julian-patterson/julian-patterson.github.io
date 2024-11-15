@@ -4,8 +4,8 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Heading,
   HStack,
+  Heading,
   VStack,
 } from "@chakra-ui/react";
 
@@ -47,7 +47,7 @@ const ButtonCard: FC<IButtonCard> = (props) => {
             to={props.link}
             bg="#00000"
             border="1px"
-            borderColor="#d4faec"
+            borderColor="#282828"
             _hover={{ bg: "#d4faec", color: "#000000" }}
             color="#d4faec"
             rightIcon={props.rightIcon}

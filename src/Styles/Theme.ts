@@ -1,20 +1,26 @@
+import { StyleFunctionProps, mode } from "@chakra-ui/theme-tools";
 import {
+  ThemeConfig,
   createMultiStyleConfigHelpers,
   defineStyle,
   defineStyleConfig,
-  extendTheme, ThemeConfig
+  extendTheme
 } from "@chakra-ui/react";
-import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 import { cardAnatomy } from "@chakra-ui/anatomy";
 
 // Theming for all components on the website
 
 //Config and Global theming
+// const config: ThemeConfig = {
+//   initialColorMode: "system",
+//   useSystemColorMode: false,
+// };
+
 const config: ThemeConfig = {
-  initialColorMode: "system",
+  initialColorMode: "dark",
   useSystemColorMode: false,
-};
+}
 
 const globalStyles = {
   global: (props: StyleFunctionProps) => ({

@@ -89,13 +89,43 @@ const HomeBody: FC = () => {
           <HStack paddingTop="20px">
             <Button
               as="a"
+              href="mailto:julian.e.patterson@icloud.com"
+              target="_blank"
+              rel="nopener noreferrer"
+              bg="#282828"
+              color="#d4faec"
+              border="1px"
+              borderColor="#282828"
+              _hover={{ bg: "#121212", color: "#d4faec" }}
+              leftIcon={<FaEnvelope />}
+            >
+              Email
+            </Button>
+            <Button
+              as="a"
+              href="tel:514-929-1119"
+              target="_blank"
+              rel="nopener noreferrer"
+              bg="#282828"
+              border="1px"
+              color="#d4faec"
+              borderColor="#282828"
+              _hover={{ bg: "#121212", color: "#d4faec" }}
+              leftIcon={<FaPhone />}
+            >
+              Call
+            </Button>
+          </HStack>
+          <HStack paddingTop="10px">
+            <Button
+              as="a"
               href="https://github.com/julian-patterson"
               target="_blank"
               rel="nopener noreferrer"
-              bg="#d4faec"
-              color="#000000"
+              bg="#282828"
               border="1px"
-              borderColor="#d4faec"
+              color="#d4faec"
+              borderColor="#282828"
               _hover={{ bg: "#121212", color: "#d4faec" }}
               leftIcon={<FaGithub />}
             >
@@ -103,44 +133,14 @@ const HomeBody: FC = () => {
             </Button>
             <Button
               as="a"
-              href="mailto:julian.e.patterson@icloud.com"
-              target="_blank"
-              rel="nopener noreferrer"
-              bg="#d4faec"
-              color="#000000"
-              border="1px"
-              borderColor="#d4faec"
-              _hover={{ bg: "#121212", color: "#d4faec" }}
-              leftIcon={<FaEnvelope />}
-            >
-              Email Me
-            </Button>
-            <Button
-              as="a"
-              href="tel:514-929-1119"
-              target="_blank"
-              rel="nopener noreferrer"
-              bg="#d4faec"
-              color="#000000"
-              border="1px"
-              borderColor="#d4faec"
-              _hover={{ bg: "#121212", color: "#d4faec" }}
-              leftIcon={<FaPhone />}
-            >
-              Call Me
-            </Button>
-          </HStack>
-          <HStack paddingTop="10px">
-            <Button
-              as="a"
               href="https://ca.linkedin.com/in/julian-e-patterson"
               target="_blank"
               width="180px"
               rel="nopener noreferrer"
-              bg="#d4faec"
-              color="#000000"
+              bg="#282828"
               border="1px"
-              borderColor="#d4faec"
+              color="#d4faec"
+              borderColor="#282828"
               _hover={{ bg: "#121212", color: "#d4faec" }}
               leftIcon={<FaLinkedin />}
             >

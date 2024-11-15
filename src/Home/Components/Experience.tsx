@@ -1,8 +1,8 @@
-import { VStack } from "@chakra-ui/react";
-import { FC } from "react";
-import { MdOutlineWork } from "react-icons/md";
 import CardBody from "../../Components/CardBody";
+import { FC } from "react";
 import InformationCard from "../../Components/InformationCard";
+import { MdOutlineWork } from "react-icons/md";
+import { VStack } from "@chakra-ui/react";
 
 const Experience: FC = () => {
   return (
@@ -12,12 +12,13 @@ const Experience: FC = () => {
       body={
         <VStack align="start">
           <CardBody
-            subtitle="Junior Developer @ Prime Freight Logistics"
-            body="Job Description TODO"
+            subtitle="Junior Developer at Prime Freight Logistics"
+            body="Developed React-based tools to automate booking processes, utilizing React, JavaScript, and GitHub Actions for production-ready code. 
+            Collaborated with teams and clients to gather requirements, conduct testing, and reduce errors."
             divider={true}
           />
           <CardBody
-            subtitle="296 Northern Knights"
+            subtitle="Team Mentor at 296 Northern Knights"
             body="Member and Mentor of the 296 Northern Knights Robotics team
             competing in First Robotics Competition. Directed the design of the
             robot using Autodesk Inventor to create and design over 200 parts.
