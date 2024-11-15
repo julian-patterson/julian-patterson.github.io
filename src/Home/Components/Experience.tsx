@@ -1,8 +1,8 @@
-import CardBody from "../../Components/CardBody";
-import { FC } from "react";
-import InformationCard from "../../Components/InformationCard";
-import { MdOutlineWork } from "react-icons/md";
 import { VStack } from "@chakra-ui/react";
+import { FC } from "react";
+import { MdOutlineWork } from "react-icons/md";
+import CardBody from "../../Components/CardBody";
+import InformationCard from "../../Components/InformationCard";
 
 const Experience: FC = () => {
   return (
@@ -18,7 +18,7 @@ const Experience: FC = () => {
             divider={true}
           />
           <CardBody
-            subtitle="Team Mentor at 296 Northern Knights"
+            subtitle="Design Team Mentor at 296 Northern Knights"
             body="Member and Mentor of the 296 Northern Knights Robotics team
             competing in First Robotics Competition. Directed the design of the
             robot using Autodesk Inventor to create and design over 200 parts.
