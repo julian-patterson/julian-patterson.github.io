@@ -4,8 +4,9 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Heading,
   HStack,
+  Heading,
+  VStack,
 } from "@chakra-ui/react";
 
 import { FC } from "react";
@@ -17,13 +18,25 @@ interface IButtonCard {
   label?: any;
   link?: any;
   rightIcon?: any;
+  cardIcon?: any;
 }
 
 const ButtonCard: FC<IButtonCard> = (props) => {
   return (
-    <Card size="sm">
+    <Card
+      size="sm"
+      width={{
+        base: "360px",
+        sm: "360px",
+        md: "360px",
+        lg: "425px",
+      }}
+    >
       <CardHeader>
-        <Heading size="md">{props.title}</Heading>
+        <VStack align="flex-start">
+          {props.cardIcon}
+          <Heading size="md">{props.title}</Heading>
+        </VStack>
       </CardHeader>
       <CardBody>{props.body}</CardBody>
 
@@ -32,8 +45,11 @@ const ButtonCard: FC<IButtonCard> = (props) => {
           <Button
             as={Link}
             to={props.link}
-            variant="ghost"
-            colorScheme="BlackAlpha"
+            bg="#00000"
+            border="1px"
+            borderColor="#282828"
+            _hover={{ bg: "#d4faec", color: "#000000" }}
+            color="#d4faec"
             rightIcon={props.rightIcon}
           >
             {props.label}
