@@ -1,6 +1,5 @@
 ---
 title: "Experience"
-layout: "experience"
 url: "/experience"
 summary: "experience"
 ---

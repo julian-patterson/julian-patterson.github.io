@@ -1,6 +1,8 @@
 ---
 title: "Projects"
-layout: "Projects"
-url: "/projects"
+url: "/projects" 
 summary: "projects"
 ---
+
+## test
+- why doesn't this show up 

@@ -1,8 +1,7 @@
 ---
-title: "Hugo Website"
-summary: "First post dictating the transition to Hugo which previously replaced a custom react website"
-date: "2024-12-06"
-tags: ["React", "Personal-Website"]
+title: "Portfolio Website"
+summary: "Quick story about my portfolio website"
+date: "2024-12-07"
+tags: ["Hugo", "Github-Actions"]
 author: ["Julian Patterson"]
 ---
-

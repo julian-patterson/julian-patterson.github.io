@@ -1,6 +1,5 @@
 ---
 title: "Education"
-layout: "education"
 url: "/edu"
 summary: "education"
 ---
