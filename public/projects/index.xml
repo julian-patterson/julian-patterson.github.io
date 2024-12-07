@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on julian.patterson</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on julian.patterson</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Website</title>
+      <link>http://localhost:1313/projects/posts/portfolio-website/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/posts/portfolio-website/</guid>
+      <description>First post dictating the transition to Hugo which previously replaced a custom react website</description>
+    </item>
+  </channel>
+</rss>
