@@ -1,8 +1,8 @@
 ---
 title: "Custom Led Controller"
-summary: "How laziness turned into full scale home-automation"
+summary: "My custom web service to control LEDs. This project includes a mix of multi-threading, web services, docker, Linux, and Rust."
 date: "2024-12-07"
-tags: ["Rust", "IoT", "Restful-API", "Docker", "Docker-Compose", "Actix_web"]
+tags: ["Rust", "IoT", "Restful-API", "Docker", "Docker-Compose", "Actix_web", "Multi-Threading"]
 author: ["Julian Patterson"]
 ---
 
