@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>julian.patterson</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on julian.patterson</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Led Controller</title>
+      <link>http://localhost:1313/projects/posts/custom-led-controller/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/posts/custom-led-controller/</guid>
+      <description>How laziness turned into full scale home-automation</description>
+    </item>
+    <item>
+      <title>IoT Beginnings</title>
+      <link>http://localhost:1313/blog/posts/iot-beginnings/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/iot-beginnings/</guid>
+      <description>How laziness turned into full scale home-automation</description>
+    </item>
+    <item>
+      <title>Portfolio Website</title>
+      <link>http://localhost:1313/projects/posts/portfolio-website/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/posts/portfolio-website/</guid>
+      <description>Quick story about my portfolio website</description>
+    </item>
+    <item>
+      <title>First Post - Transition to Hugo</title>
+      <link>http://localhost:1313/blog/posts/first_post/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/first_post/</guid>
+      <description>First post dictating the transition to Hugo which previously replaced a custom react website</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/blog/posts/home-assistant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/home-assistant/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
