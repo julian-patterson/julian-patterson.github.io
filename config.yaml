@@ -21,11 +21,10 @@ menu:
       name: experience
       url: /experience
       weight: 40
-    - identifier: search 
+    - identifier: search
       name: search
       url: /search
       weight: 50
-
 
 params:
   profileMode:
@@ -36,10 +35,10 @@ params:
     imageTitle: " " # optional
     imageWidth: 120 # custom size
     imageHeight: 120 # custom size
-    ShowReadingTime: true 
+    ShowReadingTime: true
     ShowBreadCrumbs: true
 
-  socialIcons: # optional 
+  socialIcons: # optional
     - name: "github"
       url: "https://github.com/julian-patterson"
     - name: "linkedin"
@@ -47,10 +46,9 @@ params:
     - name: "email"
       url: "mailto:julian.e.patterson@icloud.com"
     - name: "phone"
-      url: "tell:514-929-1119"
+      url: "tel:514-929-1119"
 
   outputs:
     home:
       - HTML
       - JSON
-  
