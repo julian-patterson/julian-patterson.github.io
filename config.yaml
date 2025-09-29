@@ -1,40 +1,48 @@
 baseURL: https://example.org/
 languageCode: en-us
 title: julian.patterson
-themes: ["PaperMod"]
+theme: "PaperMod"
+
+outputs:
+  home:
+    - HTML
+    - JSON
 
 menu:
   main:
-    - identifier: blog
-      name: blog
-      url: /blog
+    - identifier: about
+      name: about
+      url: /about
       weight: 10
-    - identifier: projects
-      name: projects
-      url: /projects
+    - identifier: experience
+      name: experience
+      url: /experience
       weight: 20
     - identifier: education
       name: education
       url: /edu
       weight: 30
-    - identifier: experience
-      name: experience
-      url: /experience
+    - identifier: projects
+      name: projects
+      url: /projects
       weight: 40
-    - identifier: search
-      name: search
-      url: /search
-      weight: 50
+    # - identifier: search
+    #   name: search
+    #   url: /search
+    #   weight: 50
 
 params:
+  assets:
+    css:
+      - css/custom.css # custom CSS file
   profileMode:
     enabled: true
     title: "Julian Patterson"
-    subtitle: "As a U2 Software Engineering student minoring in Statistics, I enjoy creating software that makes a difference in people's lives. With a minor in Statistics, I aim to develop useful analytic and problem solving skills to enhance my software projects. Other than that, I enjoy running, reading, hiking, skiing and socializing. Feel free to reach out using the links below, I would love to chat!"
-    imageUrl: "https://media.licdn.com/dms/image/v2/D4E03AQE0FFKJgb91Ig/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1711125430731?e=1738800000&v=beta&t=R-D7kx7ZiN7-RUD4KIivNA_1wqwPOr08YH4IywatH1w" # optional
+    subtitle: "I am a passionate Software Engineering student driven to create impact-driven software that genuinely improves people's lives. My academic journey is enhanced by a minor in Statistics, which provides me with a strong foundation in analytical problem-solving and developing data-enhanced solutions. Outside of development, I recharge by running, hiking, and skiing, as well as connecting with new people. I'm eager to discuss new opportunities or projects—feel free to reach out using the links below, I'd love to chat!"
+    imageUrl: "headshot_cropped.jpg" # optional
     imageTitle: " " # optional
-    imageWidth: 120 # custom size
-    imageHeight: 120 # custom size
+    # imageWidth: 120 # custom size
+    # imageHeight: 120 # custom size
     ShowReadingTime: true
     ShowBreadCrumbs: true
 
@@ -47,8 +55,3 @@ params:
       url: "mailto:julian.e.patterson@icloud.com"
     - name: "phone"
       url: "tel:514-929-1119"
-
-  outputs:
-    home:
-      - HTML
-      - JSON
