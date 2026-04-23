@@ -1,8 +1,0 @@
-.profile img {
-    object-fit: cover !important;
-    object-position: center !important;
-    border-radius: 50%;
-    width: 150px !important;
-    height: 150px !important;
-    display: block;
-}

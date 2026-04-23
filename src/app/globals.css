@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #f7f5f0;
+  --bg-surface: #edeae3;
+  --bg-accent-soft: #ebf2f7;
+
+  --text-primary: #1c1c1a;
+  --text-secondary: #5a5855;
+  --text-tertiary: #9a9793;
+
+  --accent-navy: #1b3a5c;
+  --accent-brass: #c17d3c;
+
+  --border: rgba(28, 28, 26, 0.1);
+  --border-strong: rgba(28, 28, 26, 0.2);
+
+  --font-display: "DM Serif Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent-navy);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Project card hover */
+.project-card {
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Char spans for letter explosion */
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Smooth scroll offset for fixed nav */
+section[id] {
+  scroll-margin-top: 64px;
+}
