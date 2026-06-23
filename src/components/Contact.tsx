@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { initScrollReveal } from "@/lib/animations";
+import { Email, LogoLinkedin, LogoGithub } from "@carbon/icons-react";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -19,7 +20,7 @@ export default function Contact() {
         padding: "96px 32px 64px",
         maxWidth: "1100px",
         margin: "0 auto",
-        borderTop: "1px solid var(--border)",
+        borderTop: "1px solid var(--border-subtle)",
       }}
     >
       <p
@@ -73,49 +74,61 @@ export default function Contact() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "14px",
+          gap: "16px",
           opacity: 0,
         }}
       >
         <a
           href="mailto:julian.e.patterson@icloud.com"
+          className="carbon-contact-link"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "14px",
             color: "var(--accent-navy)",
-            textDecoration: "underline",
-            textUnderlineOffset: "3px",
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
           }}
         >
-          julian.e.patterson@icloud.com
+          <Email size={20} />
+          <span style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}>julian.e.patterson@icloud.com</span>
         </a>
         <a
           href="https://linkedin.com/in/julian-e-patterson"
           target="_blank"
           rel="noopener noreferrer"
+          className="carbon-contact-link"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "14px",
             color: "var(--accent-navy)",
-            textDecoration: "underline",
-            textUnderlineOffset: "3px",
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
           }}
         >
-          LinkedIn ↗
+          <LogoLinkedin size={20} />
+          <span style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}>LinkedIn ↗</span>
         </a>
         <a
           href="https://julian-patterson.github.io"
           target="_blank"
           rel="noopener noreferrer"
+          className="carbon-contact-link"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: "14px",
             color: "var(--accent-navy)",
-            textDecoration: "underline",
-            textUnderlineOffset: "3px",
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
           }}
         >
-          GitHub ↗
+          <LogoGithub size={20} />
+          <span style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}>GitHub ↗</span>
         </a>
       </div>
 
@@ -124,7 +137,7 @@ export default function Contact() {
         style={{
           marginTop: "80px",
           paddingTop: "24px",
-          borderTop: "1px solid var(--border)",
+          borderTop: "1px solid var(--border-subtle)",
         }}
       >
         <p
@@ -140,6 +153,12 @@ export default function Contact() {
           Built with Next.js · Deployed on Vercel
         </p>
       </div>
+
+      <style>{`
+        .carbon-contact-link:hover span {
+          text-decoration: none !important;
+        }
+      `}</style>
     </section>
   );
 }

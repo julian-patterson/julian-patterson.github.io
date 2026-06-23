@@ -2,13 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { Menu, Close } from "@carbon/icons-react";
 
 const links = [
   { label: "about", href: "#about" },
   { label: "experience", href: "#experience" },
   { label: "projects", href: "#projects" },
-  { label: "research", href: "#research" },
-  { label: "now", href: "#now" },
   { label: "contact", href: "#contact" },
 ];
 
@@ -70,12 +69,14 @@ export default function Nav() {
           left: 0,
           right: 0,
           zIndex: 100,
-          backgroundColor: "var(--bg-primary)",
+          backgroundColor: scrolled ? "rgba(247, 245, 240, 0.35)" : "var(--bg-primary)",
+          backdropFilter: scrolled ? "blur(24px) saturate(200%)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(24px) saturate(200%)" : "none",
           borderBottom: scrolled
-            ? "1px solid var(--border-strong)"
-            : "1px solid var(--border)",
-          boxShadow: scrolled ? "0 2px 16px rgba(28,28,26,0.06)" : "none",
-          transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+            ? "1px solid var(--border-subtle)"
+            : "1px solid transparent",
+          boxShadow: scrolled ? "0 4px 24px -4px rgba(28,28,26,0.08), inset 0 -1px 0 rgba(255,255,255,0.4)" : "none",
+          transition: "background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease",
         }}
       >
         <div
@@ -141,45 +142,14 @@ export default function Nav() {
               background: "none",
               border: "none",
               cursor: "pointer",
-              padding: "4px",
               display: "flex",
-              flexDirection: "column",
-              gap: "5px",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "var(--text-primary)",
             }}
             aria-label="Toggle menu"
           >
-            <span
-              style={{
-                display: "block",
-                width: "22px",
-                height: "1px",
-                backgroundColor: "var(--text-primary)",
-                transition: "transform 0.2s ease, opacity 0.2s ease",
-                transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none",
-              }}
-            />
-            <span
-              style={{
-                display: "block",
-                width: "22px",
-                height: "1px",
-                backgroundColor: "var(--text-primary)",
-                transition: "opacity 0.2s ease",
-                opacity: menuOpen ? 0 : 1,
-              }}
-            />
-            <span
-              style={{
-                display: "block",
-                width: "22px",
-                height: "1px",
-                backgroundColor: "var(--text-primary)",
-                transition: "transform 0.2s ease, opacity 0.2s ease",
-                transform: menuOpen
-                  ? "translateY(-6px) rotate(-45deg)"
-                  : "none",
-              }}
-            />
+            {menuOpen ? <Close size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap, ScrollTrigger } from "@/lib/animations";
+import { gsap } from "gsap";
+import { ArrowRight } from "@carbon/icons-react";
 
 interface ExperienceEntry {
   date: string;
@@ -94,7 +95,7 @@ export default function Experience() {
     items.forEach((item, i) => {
       gsap.fromTo(
         item,
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 16 },
         {
           opacity: 1,
           y: 0,
@@ -113,7 +114,7 @@ export default function Experience() {
     // Label
     gsap.fromTo(
       sectionRef.current.querySelector(".exp-label"),
-      { opacity: 0, y: 14 },
+      { opacity: 0, y: 16 },
       {
         opacity: 1,
         y: 0,
@@ -136,7 +137,7 @@ export default function Experience() {
         padding: "96px 32px",
         maxWidth: "1100px",
         margin: "0 auto",
-        borderTop: "1px solid var(--border)",
+        borderTop: "1px solid var(--border-subtle)",
       }}
     >
       <p
@@ -178,7 +179,7 @@ export default function Experience() {
               display: "grid",
               gridTemplateColumns: `${DATE_COL}px 1fr`,
               gap: `${GAP}px`,
-              marginBottom: i < entries.length - 1 ? "52px" : 0,
+              marginBottom: i < entries.length - 1 ? "48px" : 0,
               opacity: 0,
               position: "relative",
             }}
@@ -189,7 +190,7 @@ export default function Experience() {
                 fontFamily: "var(--font-mono)",
                 fontSize: "11px",
                 color: "var(--text-tertiary)",
-                paddingTop: "5px",
+                paddingTop: "4px",
                 textAlign: "right",
                 letterSpacing: "0.04em",
               }}
@@ -199,20 +200,19 @@ export default function Experience() {
 
             {/* Content — sits to the right of the line */}
             <div style={{ paddingLeft: "24px", position: "relative" }}>
-              {/* Dot on the line */}
+              {/* Dot on the line - now a square node */}
               <div
                 style={{
                   position: "absolute",
                   left: "-28px",     // pulls back to sit on the line (24px padding + 4px offset)
-                  top: "5px",
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
+                  top: "4px",
+                  width: "9px",
+                  height: "9px",
+                  borderRadius: "0px",
                   backgroundColor:
                     i === 0 ? "var(--accent-brass)" : "var(--accent-navy)",
                   border: "2px solid var(--bg-primary)",
                   zIndex: 2,
-                  boxShadow: i === 0 ? "0 0 0 3px rgba(193,125,60,0.18)" : "none",
                 }}
               />
 
@@ -220,10 +220,10 @@ export default function Experience() {
               <h3
                 style={{
                   fontFamily: "var(--font-body)",
-                  fontSize: "17px",
+                  fontSize: "16px",
                   fontWeight: 500,
                   color: "var(--text-primary)",
-                  marginBottom: "2px",
+                  marginBottom: "4px",
                 }}
               >
                 {entry.role}
@@ -233,7 +233,7 @@ export default function Experience() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "12px",
                   color: "var(--text-secondary)",
-                  marginBottom: "12px",
+                  marginBottom: "16px",
                   letterSpacing: "0.03em",
                 }}
               >
@@ -246,8 +246,8 @@ export default function Experience() {
                   style={{
                     display: "flex",
                     flexWrap: "wrap",
-                    gap: "6px",
-                    marginBottom: "14px",
+                    gap: "8px",
+                    marginBottom: "16px",
                   }}
                 >
                   {entry.tags.map((tag) => (
@@ -257,9 +257,10 @@ export default function Experience() {
                         fontFamily: "var(--font-mono)",
                         fontSize: "11px",
                         color: "var(--text-tertiary)",
-                        border: "1px solid var(--border)",
-                        padding: "2px 8px",
-                        borderRadius: "2px",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-surface)",
+                        padding: "4px 8px",
+                        borderRadius: "0px",
                       }}
                     >
                       {tag}
@@ -279,8 +280,8 @@ export default function Experience() {
                         fontSize: "14px",
                         color: "var(--text-secondary)",
                         lineHeight: 1.7,
-                        marginBottom: "7px",
-                        paddingLeft: "14px",
+                        marginBottom: "8px",
+                        paddingLeft: "24px",
                         position: "relative",
                       }}
                     >
@@ -288,11 +289,11 @@ export default function Experience() {
                         style={{
                           position: "absolute",
                           left: 0,
-                          color: "var(--accent-brass)",
-                          fontWeight: 400,
+                          top: "4px",
+                          color: "var(--accent-navy)",
                         }}
                       >
-                        —
+                        <ArrowRight size={12} />
                       </span>
                       {b}
                     </li>
@@ -323,7 +324,7 @@ export default function Experience() {
         @media (max-width: 768px) {
           .timeline-entry {
             grid-template-columns: 1fr !important;
-            gap: 6px !important;
+            gap: 8px !important;
           }
           .timeline-entry > div:first-child {
             text-align: left !important;
