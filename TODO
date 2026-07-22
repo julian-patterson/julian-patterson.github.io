@@ -1,18 +1,9 @@
-[ ] Make content disappear after we scroll up the website 
-[ ] Add some interactive features (spotify, strava, etc)
-[ ] Remove the shipping emphasis -> focus more on developing an generic brand
-[ ] Remove all AI slop or extra sections
-[ ] mobile layout 
-[ ] Refine skills
-[ ] Think of system to keep information up to date
-[ ] Add all anytime information 
-[ ] Keep sans serif font 
-[ ] Update AnyTime Website
+# Backlog moved
 
-[ ] Update Projects
+The original TODO items and research links were migrated on 2026-07-22.
 
-Open Links:
-https://darioamodei.com/ 
-https://www.bettinasosa.com/about
-https://carbondesignsystem.com/elements/icons/library/
-https://fluent2.microsoft.design/
+- Active ordered tickets: `agents/TICKETS.md`
+- Design/research links: `agents/REFERENCES.md`
+- Agent operating instructions: `agents/AGENTS.md`
+
+Add new work as a structured ticket. Do not recreate a second checkbox backlog here.
