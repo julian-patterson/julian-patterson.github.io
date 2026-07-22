@@ -28,3 +28,9 @@ Owner questions:
 - Is the formal degree title correct?
 - Which coursework and activities are accurate and worth keeping?
 - Are honors, awards, research, leadership, or selected coursework missing?
+
+Owner input received 2026-07-22:
+
+- source_status: Requested change
+- McGill remains ongoing and Julian plans to return to complete it.
+- A separate positioning draft supplied the phrase “graduating Winter 2026.” Because these statements are not sufficiently reconciled, PORT-035/RQ-001 must establish exact public wording before code changes.

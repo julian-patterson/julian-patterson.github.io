@@ -42,4 +42,4 @@ The current GitHub activity implementation calls a Next.js API route even though
 
 ## Agent workflow
 
-Read [`AGENTS.md`](AGENTS.md) and [`agents/README.md`](agents/README.md). The production code under `src/` is the source of accuracy; the agent documentation mirrors it. The ordered backlog is [`agents/TICKETS.md`](agents/TICKETS.md).
+Read [`AGENTS.md`](AGENTS.md) and [`agents/README.md`](agents/README.md). The production code under `src/` is the source of accuracy; the agent documentation mirrors it. [`agents/TICKETS.md`](agents/TICKETS.md) is the ordered work index and links to one detail file per ticket under [`agents/ticket/`](agents/ticket/).

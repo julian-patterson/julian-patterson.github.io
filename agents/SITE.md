@@ -55,6 +55,32 @@ Observed validation on 2026-07-22:
 
 Navigation exposes only About, Experience, Projects, and Contact, with a mobile full-screen menu.
 
+## Approved future section plan
+
+ADR-007 records Julian's requested direction. This table describes planned work, not the current production page above.
+
+| Current section | Approved direction | Ticket |
+| --- | --- | --- |
+| Hero | Keep; update outdated relocation/positioning copy and visual | `PORT-020` |
+| About | Keep; audit and clean up information | `PORT-021` |
+| Experience | Keep; update Hapag-Lloyd and later AnyTime details | `PORT-022` |
+| Projects | Keep; clean up approved projects and links | `PORT-023` |
+| Stats | Keep provisionally; decide removal versus approved evidence | `PORT-024` |
+| Skills Graph | Keep; rebuild from the evidence-backed skills review | `PORT-025` |
+| Freight Explainer | Keep; update and combine coherently with Freight Network | `PORT-026`, `PORT-031` |
+| Journey | Remove | `PORT-027` |
+| Now | Remove | `PORT-028` |
+| Reading | Keep; replace stale current-reading framing after owner review | `PORT-029` |
+| GitHub Activity | Keep as an accountability feature after data-path repair | `PORT-030` |
+| Freight Network | Keep beside/within the freight explainer area | `PORT-031` |
+| Marathon | Keep only with honest data and a safe/practical Strava path | `PORT-032` |
+| Terminal | Provisional; redesign usefully or remove after owner decision | `PORT-033` |
+| Contact | Keep; audit labels, destinations, and status copy | `PORT-034` |
+
+## Planned shared résumé output
+
+ADR-009 and PORT-037 define a future, not-yet-implemented capability: the typed content model from PORT-006 will feed both the portfolio and a semantic `/resume/` route plus a reproducibly generated LaTeX/PDF résumé. The HTML route and PDF will remain compatible with static GitHub Pages; the PDF viewer is an enhancement with a complete HTML fallback. No résumé route, source, generator, build command, or PDF asset exists yet.
+
 ## Fact-bearing surfaces
 
 When personal information changes, search all of these rather than updating only the obvious card:
@@ -73,7 +99,7 @@ Use `rg` for both the old value and likely variants before closing a content tic
 
 ## Verified review findings
 
-These are observed code/runtime facts. Their remediation is tracked separately in `TICKETS.md`.
+These are observed code/runtime facts. Their remediation is indexed in `TICKETS.md` and specified in the linked files under `agents/ticket/`.
 
 - At 1280px the page is roughly 11,023px tall; at 390px it is roughly 15,585px tall. There was no horizontal overflow at 390px in the browser review, but the page is unusually dense.
 - The 390px hero fits, uses the hamburger navigation, and preserves both CTAs.

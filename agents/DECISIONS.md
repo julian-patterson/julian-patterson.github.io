@@ -69,7 +69,8 @@ Keep GitHub Pages/static export unless Julian explicitly chooses another host. M
 
 ## ADR-004 — Move toward a general, sans-serif-first brand
 
-- Status: Proposed
+- Status: Superseded
+- Superseded by: ADR-008
 - Date: 2026-07-22
 - Decider: pending Julian
 - Supersedes: shipping-manifest design brief in historical prompts
@@ -85,3 +86,108 @@ Use a general personal brand with sans-serif display/body type, retaining monosp
 ### Consequences if accepted
 
 - Tickets `PORT-004`, `PORT-005`, and `PORT-007` define the exact copy, section, and typography migration.
+
+## ADR-005 — Use one owner approval queue
+
+- Status: Accepted
+- Date: 2026-07-22
+- Decider: Julian Patterson
+- Supersedes: scattered owner questions in ticket blockers
+
+### Context
+
+Several tickets are blocked by personal facts, brand choices, publication consent, URLs, interaction behavior, or repository scope. Keeping those inputs only in individual ticket prose makes it difficult for Julian to review them as one coherent set.
+
+### Decision
+
+Use `agents/REVIEW-QUESTIONS.md` as the single queue for unresolved owner approvals. Every blocked ticket links to all of its required `RQ-###` questions, while ticket state and implementation scope remain in `agents/TICKETS.md`.
+
+### Consequences
+
+- Owner questions can be reviewed and answered in one pass without duplicating backlog state.
+- Indirectly blocked tickets link to the same underlying questions as their dependencies.
+- Agents must not guess missing answers or begin blocked work until the linked approvals are resolved.
+
+<a id="adr-006"></a>
+## ADR-006 — Store each ticket in its own file
+
+- Status: Accepted
+- Date: 2026-07-22
+- Decider: Julian Patterson
+- Refines: ADR-002 and ADR-005
+
+### Context
+
+The original backlog combined ordering, status, dependencies, acceptance criteria, validation, and outcomes in one growing file. Julian asked for one Markdown file per ticket and for `TICKETS.md` to focus on current work and next-agent selection.
+
+### Decision
+
+Store ticket details in `agents/ticket/PORT-###.md`. Keep `agents/TICKETS.md` as the authoritative ordered index of ticket IDs, titles, priorities, statuses, dependencies, and the next eligible ticket. Status changes must update the ticket file and index together.
+
+### Consequences
+
+- Agents open the selected ticket file before beginning work.
+- Every ticket file must be represented exactly once in the index, and every indexed ticket must have a file.
+- Documentation validation checks file/index identity and status consistency.
+
+<a id="adr-007"></a>
+## ADR-007 — Adopt the owner-approved section plan
+
+- Status: Accepted
+- Date: 2026-07-22
+- Decider: Julian Patterson
+- Supersedes: the undecided section proposal in PORT-004
+
+### Decision
+
+- Remove Journey and Now.
+- Keep and revise Hero, About, Experience, Projects, Stats, Skills Graph, Freight Explainer, Reading, GitHub Activity, Freight Network, Marathon, Terminal, and Contact.
+- Treat Stats and Terminal as provisional pending their follow-up owner decisions.
+- Reframe Reading away from an indefinitely stale “currently reading” feed, with favorite reads as the leading option.
+- Present Freight Network and Freight Explainer as one coherent freight-focused area.
+- Keep Marathon as an accountability feature only if a safe, practical Strava path exists; do not add Spotify.
+
+### Consequences
+
+PORT-020 through PORT-034 hold one implementation or decision scope per current section. The live page remains unchanged until those tickets are completed.
+
+<a id="adr-008"></a>
+## ADR-008 — Retain the current typography and supporting freight role
+
+- Status: Accepted
+- Date: 2026-07-22
+- Decider: Julian Patterson
+- Supersedes: ADR-004
+
+### Decision
+
+Retain the current DM Serif Display, DM Sans, and DM Mono implementation. Freight is supporting expertise rather than the portfolio's entire identity. The primary audience, final positioning sentence, voice, CTA, and canonical domain remain open in PORT-005.
+
+### Consequences
+
+- PORT-007 closes without a typography implementation change.
+- Future section revisions preserve the existing type roles unless Julian makes another explicit decision.
+- Freight work may remain prominent as evidence but should not crowd out broader software-engineering positioning.
+
+<a id="adr-009"></a>
+## ADR-009 — Generate the website and résumé from shared structured content
+
+- Status: Accepted
+- Date: 2026-07-23
+- Decider: Julian Patterson
+- Extends: ADR-001
+
+### Context
+
+Julian wants this repository to be the single source of truth for both the portfolio website and a generated LaTeX/PDF résumé, with a résumé view available from the static website.
+
+### Decision
+
+The implemented structured content under `src/` will supply both website and résumé consumers. The LaTeX template, semantic HTML résumé route, and generated PDF may select and format approved records, but none becomes an independently edited factual source. The PDF is a reproducible static build artifact and the knowledge base remains the human-editable mirror defined by ADR-001.
+
+### Consequences
+
+- PORT-006 establishes the shared typed content model; PORT-037 extends it with résumé selection, generation, validation, static publication, and viewer behavior.
+- Only explicitly public, résumé-approved records may enter the generated HTML/PDF output.
+- A clean local/CI build must be able to regenerate the résumé and website from the same repository revision without a runtime service.
+- Generated PDF/TeX intermediates must not be treated as canonical or manually edited.

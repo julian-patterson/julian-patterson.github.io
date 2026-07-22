@@ -18,9 +18,16 @@ The current Marathon component explicitly labels its source data as placeholder 
 
 The current Reading section lists papers, books, and a commercial forecaster. "Currently reading" is time-sensitive; record `started`, `finished`, or `as_of` before publishing.
 
+Owner direction from 2026-07-22: keep a Reading section but avoid a stale feed; a stable favorite-reads format is the leading option, pending RQ-012/PORT-029.
+
 ## Integrations and consent
 
 - Do not connect Spotify, Strava, calendar, or similar accounts without explicit owner approval of the data fields and publication scope.
 - Prefer the minimum public data necessary.
 - Never expose access/refresh tokens to the client or static export.
 - Define behavior for unavailable, revoked, or stale data before adding an integration.
+
+Owner direction from 2026-07-22:
+
+- Do not add Spotify.
+- Assess Strava only for Marathon accountability and table it if a safe implementation does not fit the current static architecture.

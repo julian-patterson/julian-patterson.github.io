@@ -36,6 +36,10 @@ When Julian edits a knowledge-base fact and asks for a website update, the agent
 5. re-read the resulting code and update this knowledge base to match it exactly;
 6. run relevant validation and close or create a ticket.
 
+Ticket status and next-work ordering live in `../TICKETS.md`; each ticket's detailed scope and validation record live in `../ticket/PORT-###.md`.
+
+ADR-009 and PORT-037 plan to make approved structured content feed both the website and a generated résumé. Until that ticket is implemented, this directory remains a mirror of the website code and no résumé output should be inferred from it.
+
 Never automatically rewrite time-sensitive code based only on today's date. For example, a date passing does not authorize changing "incoming" to "current"; that requires an explicit request.
 
 ## Files

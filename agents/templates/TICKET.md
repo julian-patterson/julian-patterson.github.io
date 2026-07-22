@@ -1,9 +1,12 @@
 # PORT-### — Imperative, outcome-focused title
 
+Save as `agents/ticket/PORT-###.md` and add a synchronized row to `agents/TICKETS.md`.
+
 - Status: Ready | In progress | Blocked | Done
 - Priority: P0 | P1 | P2 | P3
 - Source: TODO line, audit finding, owner request, or follow-up ticket
 - Depends on: none or ticket/decision IDs
+- Required approvals: none or links to `REVIEW-QUESTIONS.md` question IDs
 - Owner: unassigned
 - Started: —
 - Completed: —

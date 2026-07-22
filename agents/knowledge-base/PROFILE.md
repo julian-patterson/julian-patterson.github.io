@@ -50,6 +50,8 @@ Last synchronized from code: 2026-07-22
 
 The canonical code describes a software engineer with a statistics minor who is interested in machine learning, network science, logistics, and making complex systems legible. The backlog requests a future move toward a more general brand, but that proposed direction does not replace the current code until implemented.
 
+Owner-supplied positioning context from 2026-07-22 is recorded as a requested change in `BRAND.md` and PORT-005. It describes logistics as supporting expertise and references current Hapag-Lloyd, prior Prime Freight, and AnyTime founding-engineering experience. It is not final public copy; the McGill completion wording must be reconciled in RQ-001.
+
 ## Publication preferences
 
 - Do not publish a precise home address or private contact information.

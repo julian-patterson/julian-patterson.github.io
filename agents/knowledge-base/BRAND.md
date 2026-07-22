@@ -2,21 +2,29 @@
 
 Last decision review: 2026-07-22
 
-## Confirmed direction from the backlog
+## Confirmed future direction
 
 - Move away from a shipping-dominant identity toward a more general personal brand.
 - Remove generic/generated-feeling sections and copy.
-- Keep a sans-serif-first typography system.
+- Retain the current DM Serif Display, DM Sans, and DM Mono implementation.
+- Treat freight as supporting expertise rather than the entire identity.
 - Refine skills and projects around verified evidence.
+- Follow the section plan in ADR-007 and PORT-020 through PORT-034; the current code remains unchanged until those tickets land.
 
 ## Decisions still needed
 
 - Primary audience: recruiters, engineering leaders, founders/customers, research collaborators, or a blend?
-- Primary positioning sentence: TBD
-- Which 4–7 sections earn a place on the final page?
-- Is freight a supporting proof point, a domain specialty, or removed from the headline entirely?
+- Final public positioning sentence: TBD
 - Should personal interests such as running, reading, music, and home automation be present?
 - Canonical domain and primary call to action: TBD
+
+## Owner-supplied positioning context
+
+Source status: Requested change/context, not final website copy.
+
+- Final-year Software Engineering student with a Statistics minor at McGill; exact completion wording remains unresolved in RQ-001.
+- Work at the intersection of logistics and software.
+- Current Hapag-Lloyd AI internship, prior Prime Freight internal-tool work, and CTO/founding-engineering work on AnyTime's multi-tenant sports-facility booking platform.
 
 ## Provisional voice rules
 
@@ -27,9 +35,9 @@ Last decision review: 2026-07-22
 - Prefer short sentences and concrete nouns/verbs.
 - Let metrics appear only when verified and contextualized.
 
-## Provisional visual rules
+## Visual rules
 
-- Sans-serif for display and body; monospace may be used sparingly for metadata.
+- Preserve the current serif display, sans-serif body, and restrained monospace metadata roles.
 - Preserve generous whitespace and strong hierarchy.
 - Interactions need a purpose and a non-animated/reduced-motion equivalent.
 - Visual identity must not depend on maritime diagrams, coordinate motifs, or shipping-manifest styling unless the owner explicitly retains them.

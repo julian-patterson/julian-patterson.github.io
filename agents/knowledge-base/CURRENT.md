@@ -17,4 +17,14 @@ Displayed website update label: April 2026
 
 ## Review ticket
 
-Ticket `PORT-001` asks Julian to review this time-sensitive content. Until that ticket supplies an explicit change, the code and the mirrored facts above remain authoritative.
+Ticket `PORT-001` asks Julian to review this time-sensitive content. PORT-035 holds the requested agent-led discovery conversation. Until implementation is authorized, the code and the mirrored facts above remain authoritative.
+
+## Owner input awaiting implementation
+
+- source_status: Requested change
+- as_of: 2026-07-22
+- McGill remains ongoing and Julian plans to return to complete it; exact completion wording is unresolved.
+- Hapag-Lloyd is in progress; the supplied title is “AI Hub Intern,” with exact dates/public scope unresolved.
+- Prime Freight should remain unchanged for now.
+- AnyTime should remain as currently represented until PORT-011 receives the full role/responsibility update.
+- The Now section is approved for removal under PORT-028.

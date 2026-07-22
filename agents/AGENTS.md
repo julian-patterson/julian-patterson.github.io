@@ -7,10 +7,12 @@ These instructions apply to the whole repository through the root `AGENTS.md` en
 Before starting any ticket, read in this order:
 
 1. `agents/TICKETS.md`
-2. `agents/DECISIONS.md`
-3. `agents/SITE.md`
-4. `agents/knowledge-base/README.md`
-5. Only the knowledge-base files and source files relevant to the selected ticket
+2. The selected `agents/ticket/PORT-###.md` file
+3. `agents/REVIEW-QUESTIONS.md`
+4. `agents/DECISIONS.md`
+5. `agents/SITE.md`
+6. `agents/knowledge-base/README.md`
+7. Only the knowledge-base files and source files relevant to the selected ticket
 
 Do not treat old prompts in `redesign.md`, `edits/`, or git history as current requirements.
 
@@ -19,8 +21,8 @@ Do not treat old prompts in `redesign.md`, `edits/`, or git history as current r
 1. Do not invent a new ticket if an eligible one exists.
 2. Ignore `Done` and `Blocked` tickets.
 3. If a ticket is already `In progress`, continue that ticket before starting another unless it is assigned to a different active agent.
-4. Otherwise select the first `Ready` ticket in the backlog table, ordered by priority (`P0` before `P1`, then `P2`, then `P3`) and finally by table order.
-5. Confirm its dependencies are `Done`. Change its status to `In progress`, add `Owner: <agent or human>` and `Started: YYYY-MM-DD` to its detail block, then implement it.
+4. Otherwise select the first `Ready` ticket in the ordered active backlog, ordered by priority (`P0` before `P1`, then `P2`, then `P3`) and finally by table order.
+5. Confirm its dependencies are `Done`. Change its status to `In progress` in both the index and ticket file, add `Owner: <agent or human>` and `Started: YYYY-MM-DD` to the ticket file, then implement it.
 6. Work on one ticket only. If necessary work is out of scope, add a linked follow-up ticket.
 7. If no ticket is eligible, report the exact blocker or owner question. Never resolve missing personal facts, URLs, brand choices, privacy consent, or credentials by guessing.
 
@@ -30,7 +32,7 @@ Allowed states are `Ready`, `In progress`, `Blocked`, and `Done`.
 
 - `Ready`: sufficiently specified, dependencies complete, can be implemented now.
 - `In progress`: actively owned. Keep notes current enough for another agent to resume.
-- `Blocked`: include a concrete blocker and the smallest owner decision/input needed.
+- `Blocked`: include a concrete blocker. Link unresolved owner decisions to `REVIEW-QUESTIONS.md`; dependency-only blockers use `Required approvals: none`.
 - `Done`: acceptance criteria met, validation recorded, and related documentation synchronized.
 
 When completing a ticket:
@@ -40,7 +42,14 @@ When completing a ticket:
 3. Update `SITE.md` if architecture, routes, sections, integrations, commands, or deployment changed.
 4. Update `knowledge-base/` if owner-approved facts changed.
 5. Add or supersede a decision when a durable choice was made.
-6. Mark the ticket `Done`, set `Completed: YYYY-MM-DD`, and add a short outcome plus changed paths.
+6. Mark the ticket `Done` in both the ticket file and index, set `Completed: YYYY-MM-DD`, and add a short outcome plus changed paths to the ticket file.
+
+## Owner approval queue
+
+- `REVIEW-QUESTIONS.md` is the single queue for unresolved owner approvals; do not duplicate approval questionnaires in tickets or other files.
+- Give each question a stable `RQ-###` ID. Every owner-blocked ticket must link its `Required approvals` field to all questions that must be answered before work can begin.
+- Keep ticket status, priority, title, dependencies, and next-work ordering in `TICKETS.md`; keep scope, approvals, acceptance criteria, validation, and outcome in the linked file under `agents/ticket/`.
+- Never infer an answer from stale content, elapsed time, or private context. Record owner answers before applying them to code, decisions, or the knowledge base.
 
 ## Authority order
 
@@ -101,7 +110,7 @@ If a required check is unavailable because of environment/network constraints, r
 
 ## Maintaining this system
 
-- New work goes in `TICKETS.md`, not `TODO` or prose comments.
+- New work gets one `agents/ticket/PORT-###.md` file plus a synchronized `TICKETS.md` index row, not a `TODO` checkbox or prose comment.
 - New durable choices are appended to `DECISIONS.md`; never rewrite history. Mark old decisions `Superseded` and link the replacement.
 - New personal information supplied through a knowledge-base edit or prompt must be implemented in website code and then reflected in the best matching knowledge-base file.
 - Changes to repository reality must be reflected in `SITE.md` in the same ticket.

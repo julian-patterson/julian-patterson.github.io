@@ -18,6 +18,11 @@ Every record below mirrors the canonical code. Owner questions are proposed back
   - Did the role begin, and what are the exact start/end dates?
   - What title, team, work themes, and technologies may be public?
   - Which future-tense claims should be removed?
+- Owner input received 2026-07-22:
+  - source_status: Requested change
+  - role status: in progress
+  - supplied title: AI Hub Intern
+  - exact dates, team naming, responsibilities, and public scope remain unresolved in PORT-001/PORT-022
 
 ## Prime Freight Logistics
 
@@ -53,6 +58,9 @@ Every record below mirrors the canonical code. Owner questions are proposed back
   - architecture, key technical decisions, scale, outcomes, traction, and screenshots;
   - exact dates/current status;
   - which claims, customers, revenue, metrics, or partner names are public.
+- Owner input received 2026-07-22:
+  - the update applies to the AnyTime presentation in this portfolio, not another repository;
+  - PORT-011 must collect updated role and responsibility details before code changes.
 
 ## Adding an experience
 
