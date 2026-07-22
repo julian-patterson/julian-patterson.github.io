@@ -61,7 +61,7 @@ export default function About() {
               lineHeight: 1.8,
             }}
           >
-            <p style={{ marginBottom: "20px" }}>
+            <p style={{ marginBottom: "24px" }}>
               Software engineer with a statistics minor and an obsession with freight.
               Two internships inside freight forwarding offices taught me where the real
               data problems live. I&apos;m drawn to the intersection of machine learning,
@@ -81,8 +81,9 @@ export default function About() {
           style={{
             opacity: 0,
             backgroundColor: "var(--bg-surface)",
-            border: "1px solid var(--border)",
-            padding: "28px",
+            border: "1px solid var(--border-subtle)",
+            borderRadius: "0px",
+            padding: "24px",
           }}
         >
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -95,8 +96,8 @@ export default function About() {
                       fontSize: "11px",
                       color: "var(--text-tertiary)",
                       letterSpacing: "0.08em",
-                      paddingBottom: "14px",
-                      paddingRight: "20px",
+                      paddingBottom: "16px",
+                      paddingRight: "24px",
                       verticalAlign: "top",
                       whiteSpace: "nowrap",
                     }}
@@ -106,9 +107,9 @@ export default function About() {
                   <td
                     style={{
                       fontFamily: "var(--font-mono)",
-                      fontSize: "12px",
+                      fontSize: "13px",
                       color: "var(--text-primary)",
-                      paddingBottom: "14px",
+                      paddingBottom: "16px",
                       lineHeight: 1.5,
                     }}
                   >

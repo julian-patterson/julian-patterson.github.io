@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import LetterExplosion from "./LetterExplosion";
+import { ArrowRight } from "@carbon/icons-react";
 
 function LiveClock() {
   const [time, setTime] = useState("");
@@ -151,7 +152,7 @@ export default function Hero() {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "10px",
+                gap: "8px",
                 marginBottom: "40px",
                 opacity: 0,
               }}
@@ -162,12 +163,12 @@ export default function Hero() {
                   fontSize: "12px",
                   color: "var(--text-secondary)",
                   border: "1px solid var(--border-strong)",
-                  borderRadius: "2px",
-                  padding: "5px 10px",
+                  borderRadius: "0px",
+                  padding: "4px 8px",
                   backgroundColor: "var(--bg-surface)",
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "6px",
+                  gap: "8px",
                 }}
               >
                 Montréal, QC → Hamburg, DE · <LiveClock />
@@ -178,8 +179,8 @@ export default function Hero() {
                   fontSize: "12px",
                   color: "var(--text-secondary)",
                   border: "1px solid var(--border-strong)",
-                  borderRadius: "2px",
-                  padding: "5px 10px",
+                  borderRadius: "0px",
+                  padding: "4px 8px",
                   backgroundColor: "var(--bg-surface)",
                 }}
               >
@@ -194,35 +195,41 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollTo("projects")}
+                className="carbon-link"
                 style={{
                   background: "none",
                   border: "none",
                   padding: 0,
                   cursor: "pointer",
                   fontFamily: "var(--font-body)",
-                  fontSize: "15px",
+                  fontSize: "16px",
                   color: "var(--accent-navy)",
-                  textDecoration: "underline",
-                  textUnderlineOffset: "3px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "4px",
                 }}
               >
-                View my work ↓
+                <span style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>View my work</span>
+                <ArrowRight size={16} />
               </button>
               <button
                 onClick={() => scrollTo("contact")}
+                className="carbon-link"
                 style={{
                   background: "none",
                   border: "none",
                   padding: 0,
                   cursor: "pointer",
                   fontFamily: "var(--font-body)",
-                  fontSize: "15px",
+                  fontSize: "16px",
                   color: "var(--accent-navy)",
-                  textDecoration: "underline",
-                  textUnderlineOffset: "3px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "4px",
                 }}
               >
-                Get in touch ↓
+                <span style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Get in touch</span>
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -257,6 +264,9 @@ export default function Hero() {
           .hero-coords {
             display: none !important;
           }
+        }
+        .carbon-link:hover span {
+          text-decoration: none;
         }
       `}</style>
     </section>

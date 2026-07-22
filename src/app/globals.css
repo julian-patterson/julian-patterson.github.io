@@ -13,8 +13,10 @@
 
   --accent-navy: #1b3a5c;
   --accent-brass: #c17d3c;
+  --carbon-chart-cyan: #005d5d;
+  --carbon-chart-magenta: #9f1853;
 
-  --border: rgba(28, 28, 26, 0.1);
+  --border-subtle: rgba(28, 28, 26, 0.1);
   --border-strong: rgba(28, 28, 26, 0.2);
 
   --font-display: "DM Serif Display", serif;
