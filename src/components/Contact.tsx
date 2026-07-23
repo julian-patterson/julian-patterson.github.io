@@ -154,11 +154,6 @@ export default function Contact() {
         </p>
       </div>
 
-      <style>{`
-        .carbon-contact-link:hover span {
-          text-decoration: none !important;
-        }
-      `}</style>
     </section>
   );
 }

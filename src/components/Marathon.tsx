@@ -295,14 +295,6 @@ export default function Marathon() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .mara-grid {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -324,24 +324,6 @@ export default function Projects() {
         ))}
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .projects-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .project-card-anim {
-            grid-template-columns: 1fr !important;
-          }
-          .hidden-mobile { display: none !important; }
-        }
-        .carbon-card:hover {
-          border-color: var(--text-primary) !important;
-          transform: translateY(-2px);
-        }
-        .carbon-card:hover .card-icon {
-          opacity: 1 !important;
-        }
-      `}</style>
     </section>
   );
 }

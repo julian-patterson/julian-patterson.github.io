@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-07-22
+Last synchronized from code and runtime: 2026-07-23
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -28,6 +28,13 @@ Observed validation on 2026-07-22:
 - `npm run lint`: opens Next.js's interactive ESLint setup because lint is not configured
 - local browser: rendered after rebuilding a stale `.next` cache; a hydration error overlay remains
 - production build: local audit could not complete because `next/font/google` required network/DNS access
+
+PORT-002 validation on 2026-07-23:
+
+- Moved component media queries, hover rules, and keyframes out of rendered `<style>` elements and into scoped rules in `src/app/globals.css`.
+- Development and production-export browser loads produced no hydration mismatch, root client-render fallback, console warning, or console error at 1280px and 390px.
+- At 390px the responsive Hero, About, Experience, Projects, and navigation rules remained active and document width matched the viewport.
+- `npm run build` completed successfully when the configured Google font fetch had network access.
 
 ## Page composition
 
@@ -103,7 +110,7 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 
 - At 1280px the page is roughly 11,023px tall; at 390px it is roughly 15,585px tall. There was no horizontal overflow at 390px in the browser review, but the page is unusually dense.
 - The 390px hero fits, uses the hamburger navigation, and preserves both CTAs.
-- The local development runtime displayed hydration mismatch errors originating at the inline responsive `<style>` content in `Experience.tsx`; React replaced the server HTML with client content.
+- PORT-002 resolved the hydration mismatch previously caused by HTML escaping differences inside rendered component `<style>` text. Component CSS now lives in the static global stylesheet with section-scoped selectors.
 - `var(--border)` is referenced across later components but `globals.css` defines only `--border-subtle` and `--border-strong`.
 - All five project links in `Projects.tsx` use `href: "#"`.
 - The GitHub-labelled link in `Contact.tsx` points to the portfolio URL.

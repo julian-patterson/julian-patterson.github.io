@@ -481,13 +481,6 @@ export default function FreightNetwork() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .fn-header-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

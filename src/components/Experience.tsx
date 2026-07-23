@@ -320,18 +320,6 @@ export default function Experience() {
         ))}
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .timeline-entry {
-            grid-template-columns: 1fr !important;
-            gap: 8px !important;
-          }
-          .timeline-entry > div:first-child {
-            text-align: left !important;
-            padding-bottom: 4px;
-          }
-        }
-      `}</style>
     </section>
   );
 }

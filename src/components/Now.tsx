@@ -168,14 +168,6 @@ export default function Now() {
         </div>
       </div>
 
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .now-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

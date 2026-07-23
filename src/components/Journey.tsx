@@ -247,23 +247,6 @@ export default function Journey() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes pulse-ring {
-          0% { transform: scale(0.8); opacity: 0.5; }
-          100% { transform: scale(1.5); opacity: 0; }
-        }
-        .pulse-dot {
-          animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @media (min-width: 769px) {
-          .hidden-mobile { display: block !important; }
-          .show-mobile { display: none !important; }
-        }
-        @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: block !important; }
-        }
-      `}</style>
     </section>
   );
 }

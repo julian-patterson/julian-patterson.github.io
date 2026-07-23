@@ -282,34 +282,6 @@ export default function FreightExplainer() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes travel {
-          from { offset-distance: 0%; }
-          to { offset-distance: 100%; }
-        }
-        @keyframes pulse {
-          0% { transform: scale(1); opacity: 0.6; }
-          100% { transform: scale(2.5); opacity: 0; }
-        }
-        .pulse-ring {
-          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-          transform-origin: center;
-        }
-        @keyframes soft-pulse {
-          0% { stroke-width: 1.5; opacity: 1; }
-          50% { stroke-width: 2.5; opacity: 0.7; }
-          100% { stroke-width: 1.5; opacity: 1; }
-        }
-        .affected-pulse {
-          animation: soft-pulse 3s ease-in-out infinite;
-        }
-        @media (max-width: 768px) {
-          .reveal {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

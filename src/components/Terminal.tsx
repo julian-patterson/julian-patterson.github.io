@@ -347,23 +347,6 @@ export default function Terminal() {
         Click a command in the sidebar to run it.
       </p>
 
-      <style>{`
-        .term-body {
-          grid-template-columns: 200px 1fr;
-        }
-        @media (max-width: 600px) {
-          .term-body {
-            grid-template-columns: 1fr !important;
-          }
-          .term-body > div:first-child {
-            border-right: none !important;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex;
-            padding: 8px 0 !important;
-            overflow-x: auto;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -323,27 +323,6 @@ export default function Stats() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .stats-grid .counter-cell:nth-child(even) {
-            border-right: none !important;
-          }
-          .stats-grid .counter-cell:nth-child(n+5) {
-            border-bottom: none !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .stats-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .stats-grid .counter-cell {
-            border-right: none !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

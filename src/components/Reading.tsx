@@ -195,18 +195,6 @@ export default function Reading() {
         ))}
       </div>
 
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .reading-row {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-          }
-          .reading-row > div:last-child {
-            justify-self: start !important;
-            text-align: left !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

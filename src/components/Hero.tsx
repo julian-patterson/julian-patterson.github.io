@@ -58,6 +58,7 @@ export default function Hero() {
 
   return (
     <section
+      className="hero-section"
       style={{
         minHeight: "100vh",
         display: "flex",
@@ -255,20 +256,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-          }
-          .hero-coords {
-            display: none !important;
-          }
-        }
-        .carbon-link:hover span {
-          text-decoration: none;
-        }
-      `}</style>
     </section>
   );
 }
