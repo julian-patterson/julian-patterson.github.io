@@ -2,10 +2,10 @@
 
 - Status: Blocked
 - Priority: P0
-- Source: audit finding; current code in Hero/About/Experience/Journey/Now/Terminal/layout/footer
+- Source: audit finding; current code in Hero/About/Experience/Terminal/layout/footer
 - Depends on: PORT-035, owner input
 - Owner: unassigned
-- Blocker: the owner deferred the full profile audit; exact location/Now wording, Hapag-Lloyd dates/public scope, and the conflicting McGill completion wording still require reconciliation
+- Blocker: the owner deferred the full profile audit; exact retained location wording, Hapag-Lloyd dates/public scope, and the conflicting McGill completion wording still require reconciliation
 - Required approvals: [RQ-001](../REVIEW-QUESTIONS.md#rq-001)
 
 ## Owner input received on 2026-07-22
@@ -22,10 +22,10 @@ Apply Julian's requested updates, if any, to the canonical code and synchronize 
 
 ## Acceptance criteria
 
-- [ ] Julian resolves the remaining location, McGill completion wording, Hapag-Lloyd dates/public scope, and any status language retained after PORT-028.
+- [ ] Julian resolves the remaining location, McGill completion wording, Hapag-Lloyd dates/public scope, and retained status language.
 - [ ] All duplicate code surfaces are updated consistently.
 - [ ] `knowledge-base/PROFILE.md`, `CURRENT.md`, `EXPERIENCE.md`, and `EDUCATION.md` match the resulting code.
-- [ ] Metadata, footer, countdown language, and journey labels are included in the search.
+- [ ] Metadata, footer, and other retained status labels are included in the search.
 
 ## Validation record
 

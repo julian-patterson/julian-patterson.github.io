@@ -2,7 +2,7 @@
 
 The current D3 graph contains hardcoded skill nodes, categories, and relationship weights. Those visual relationships are not evidence of proficiency.
 
-Last synchronized from code: 2026-07-22
+Last synchronized from code: 2026-07-24
 
 ## Skill groups implemented in the site
 
@@ -11,7 +11,7 @@ Last synchronized from code: 2026-07-22
 - Backend/data: Supabase, APIs, database schema design
 - Systems/tools: Go, Rust, Raspberry Pi, SSH, Git
 - Domain knowledge: logistics/freight, scheduling, payment processing
-- Languages: English, French; German learning status TBD
+- Languages: English, French
 
 ## Evidence model
 

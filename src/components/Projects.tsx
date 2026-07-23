@@ -96,9 +96,8 @@ export default function Projects() {
 
       {/* Featured project */}
       <div
-        className="project-card-anim"
+        className="project-card-anim motion-reveal"
         style={{
-          opacity: 0,
           borderLeft: "4px solid var(--accent-navy)",
           backgroundColor: "var(--bg-accent-soft)",
           padding: "32px",
@@ -233,9 +232,8 @@ export default function Projects() {
         {projects.map((project) => (
           <div
             key={project.name}
-            className="carbon-card project-card-anim"
+            className="carbon-card project-card-anim motion-reveal"
             style={{
-              opacity: 0,
               backgroundColor: "var(--bg-surface)",
               border: "1px solid var(--border-subtle)",
               padding: "24px",

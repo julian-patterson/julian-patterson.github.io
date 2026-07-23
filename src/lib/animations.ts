@@ -7,6 +7,12 @@ if (typeof window !== "undefined") {
 
 export function initScrollReveal(selector: string, container?: Element) {
   const elements = (container || document).querySelectorAll(selector);
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.set(elements, { opacity: 1, y: 0 });
+    return;
+  }
+
   elements.forEach((el) => {
     gsap.fromTo(
       el,
@@ -32,6 +38,12 @@ export function initStaggerReveal(
   stagger = 0.1
 ) {
   const elements = container.querySelectorAll(selector);
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    gsap.set(elements, { opacity: 1, y: 0 });
+    return;
+  }
+
   gsap.fromTo(
     elements,
     { opacity: 0, y: 24 },

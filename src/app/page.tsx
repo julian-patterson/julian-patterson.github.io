@@ -6,8 +6,6 @@ import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
 import SkillsGraph from "@/components/SkillsGraph";
 import FreightExplainer from "@/components/FreightExplainer";
-import Journey from "@/components/Journey";
-import Now from "@/components/Now";
 import Reading from "@/components/Reading";
 import GitHubActivity from "@/components/GitHubActivity";
 import FreightNetwork from "@/components/FreightNetwork";
@@ -29,8 +27,6 @@ export default function Home() {
         
         {/* New sections */}
         <FreightExplainer />
-        <Journey />
-        <Now />
         <Reading />
         <GitHubActivity />
 

@@ -24,7 +24,7 @@ export default function Contact() {
       }}
     >
       <p
-        className="contact-reveal"
+        className="contact-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
@@ -32,28 +32,26 @@ export default function Contact() {
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           marginBottom: "24px",
-          opacity: 0,
         }}
       >
         Contact
       </p>
 
       <h2
-        className="contact-reveal"
+        className="contact-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(40px, 5vw, 64px)",
           color: "var(--text-primary)",
           marginBottom: "24px",
           lineHeight: 1.1,
-          opacity: 0,
         }}
       >
         Let&apos;s talk.
       </h2>
 
       <p
-        className="contact-reveal"
+        className="contact-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-body)",
           fontSize: "16px",
@@ -61,7 +59,6 @@ export default function Contact() {
           lineHeight: 1.7,
           maxWidth: "480px",
           marginBottom: "40px",
-          opacity: 0,
         }}
       >
         Open to research collaborations, interesting problems in freight
@@ -70,12 +67,11 @@ export default function Contact() {
       </p>
 
       <div
-        className="contact-reveal"
+        className="contact-reveal motion-reveal"
         style={{
           display: "flex",
           flexDirection: "column",
           gap: "16px",
-          opacity: 0,
         }}
       >
         <a

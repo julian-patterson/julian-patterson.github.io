@@ -221,7 +221,7 @@ export default function FreightNetwork() {
         >
           <div>
             <p
-              className="fn-reveal"
+              className="fn-reveal motion-reveal"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "11px",
@@ -229,33 +229,30 @@ export default function FreightNetwork() {
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 marginBottom: "12px",
-                opacity: 0,
               }}
             >
               Research · Freight Network Intelligence
             </p>
             <h2
-              className="fn-reveal"
+              className="fn-reveal motion-reveal"
               style={{
                 fontFamily: "var(--font-display)",
                 fontSize: "clamp(28px, 3.5vw, 42px)",
                 color: "var(--text-primary)",
                 lineHeight: 1.15,
                 marginBottom: "16px",
-                opacity: 0,
               }}
             >
               The network knows first.
             </h2>
             <p
-              className="fn-reveal"
+              className="fn-reveal motion-reveal"
               style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "15px",
                 color: "var(--text-secondary)",
                 lineHeight: 1.75,
                 maxWidth: "520px",
-                opacity: 0,
               }}
             >
               A conflict near Suez doesn&apos;t only affect that route — it propagates
@@ -270,13 +267,12 @@ export default function FreightNetwork() {
 
           {/* Legend */}
           <div
-            className="fn-reveal"
+            className="fn-reveal motion-reveal"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "11px",
               color: "var(--text-tertiary)",
               lineHeight: 2,
-              opacity: 0,
             }}
           >
             {[
@@ -301,9 +297,8 @@ export default function FreightNetwork() {
 
         {/* SVG Map */}
         <div
-          className="fn-reveal"
+          className="fn-reveal motion-reveal"
           style={{
-            opacity: 0,
             backgroundColor: "var(--bg-primary)",
             border: "1px solid var(--border)",
             overflow: "hidden",
@@ -454,13 +449,12 @@ export default function FreightNetwork() {
 
         {/* Stack labels */}
         <div
-          className="fn-reveal"
+          className="fn-reveal motion-reveal"
           style={{
             marginTop: "20px",
             display: "flex",
             gap: "8px",
             flexWrap: "wrap",
-            opacity: 0,
           }}
         >
           {["PyTorch Geometric", "AIS Data", "SCFI Index", "NLP", "Graph Neural Networks"].map((t) => (

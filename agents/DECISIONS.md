@@ -191,3 +191,25 @@ The implemented structured content under `src/` will supply both website and ré
 - Only explicitly public, résumé-approved records may enter the generated HTML/PDF output.
 - A clean local/CI build must be able to regenerate the résumé and website from the same repository revision without a runtime service.
 - Generated PDF/TeX intermediates must not be treated as canonical or manually edited.
+
+<a id="adr-010"></a>
+## ADR-010 — Separate development and production Next.js artifacts
+
+- Status: Accepted
+- Date: 2026-07-24
+- Decider: Julian Patterson
+- Supersedes: shared use of the default `.next/` directory
+
+### Context
+
+Running production validation while a development server was active mixed incompatible manifests and chunks in `.next/`. The development server then returned 404s for core client chunks and failed to load server chunks referenced by its webpack runtime.
+
+### Decision
+
+Use `.next-dev/` for `npm run dev`, selected through `NEXT_DIST_DIR`. Keep production on Next.js's standard `.next/` build directory and `out/` static export so GitHub Pages behavior remains unchanged. Keep both build directories ignored and provide `npm run clean` to remove them.
+
+### Consequences
+
+- Production validation can run without overwriting a live development server's artifacts.
+- A stale-cache recovery is deterministic: stop the server, run `npm run clean`, then restart development.
+- GitHub Pages continues to deploy the static `out/` export and does not depend on either local artifact directory.

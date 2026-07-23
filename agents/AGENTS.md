@@ -71,7 +71,7 @@ An owner edit to `agents/knowledge-base/` is a requested website change, not an 
 - Documentation may flag a risk or pending ticket, but it must not relabel current code content as inaccurate.
 - Respect `Public`, `Private`, and `Needs approval` labels. Do not publish private or unapproved information.
 - Every time-sensitive record needs `as_of` and ideally `review_after`.
-- Before closing a content ticket, search the whole repository for the old and new facts. Personal data is duplicated across metadata, Hero, About, Experience, Projects, Journey, Now, Terminal, Contact, and other sections.
+- Before closing a content ticket, search the whole repository for the old and new facts. Personal data is duplicated across metadata, Hero, About, Experience, Projects, Terminal, Contact, and other sections.
 - Preserve confidentiality. Do not add employer/client details beyond approved claims.
 - Do not put secrets or private API tokens in source, generated static assets, screenshots, tickets, or the knowledge base.
 

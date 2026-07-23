@@ -62,11 +62,6 @@ const entries: ExperienceEntry[] = [
   },
 ];
 
-// Date column width + gap = the x-offset where the continuous line lives
-const DATE_COL = 120;
-const GAP = 32;
-const LINE_X = DATE_COL + GAP; // 152px from left edge of the entry grid
-
 export default function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
@@ -141,7 +136,7 @@ export default function Experience() {
       }}
     >
       <p
-        className="exp-label"
+        className="exp-label motion-reveal"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
@@ -149,73 +144,52 @@ export default function Experience() {
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           marginBottom: "48px",
-          opacity: 0,
         }}
       >
         Experience
       </p>
 
       {/* Entries container — the continuous line lives here */}
-      <div style={{ position: "relative" }}>
+      <div className="experience-timeline">
 
         {/* Single continuous vertical line */}
         <div
           ref={lineRef}
-          style={{
-            position: "absolute",
-            left: `${LINE_X}px`,
-            top: "6px",
-            bottom: 0,
-            width: "1px",
-            backgroundColor: "var(--border-strong)",
-          }}
+          className="timeline-line"
+          aria-hidden="true"
         />
 
         {entries.map((entry, i) => (
           <div
             key={i}
-            className="timeline-entry"
-            style={{
-              display: "grid",
-              gridTemplateColumns: `${DATE_COL}px 1fr`,
-              gap: `${GAP}px`,
-              marginBottom: i < entries.length - 1 ? "48px" : 0,
-              opacity: 0,
-              position: "relative",
-            }}
+            className="timeline-entry motion-reveal"
           >
             {/* Date column */}
             <div
+              className="timeline-date"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "11px",
                 color: "var(--text-tertiary)",
                 paddingTop: "4px",
-                textAlign: "right",
                 letterSpacing: "0.04em",
               }}
             >
               {entry.date}
             </div>
 
-            {/* Content — sits to the right of the line */}
-            <div style={{ paddingLeft: "24px", position: "relative" }}>
-              {/* Dot on the line - now a square node */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: "-28px",     // pulls back to sit on the line (24px padding + 4px offset)
-                  top: "4px",
-                  width: "9px",
-                  height: "9px",
-                  borderRadius: "0px",
-                  backgroundColor:
-                    i === 0 ? "var(--accent-brass)" : "var(--accent-navy)",
-                  border: "2px solid var(--bg-primary)",
-                  zIndex: 2,
-                }}
-              />
+            {/* Marker and line share the same dedicated grid column. */}
+            <div
+              className="timeline-node"
+              aria-hidden="true"
+              style={{
+                backgroundColor:
+                  i === 0 ? "var(--accent-brass)" : "var(--accent-navy)",
+              }}
+            />
 
+            {/* Content — sits to the right of the line */}
+            <div className="timeline-content">
               {/* Company / role header */}
               <h3
                 style={{

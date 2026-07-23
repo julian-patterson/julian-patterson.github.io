@@ -81,13 +81,12 @@ export default function FreightExplainer() {
       </p>
 
       <div
-        className="reveal"
+        className="reveal motion-reveal"
         style={{
           display: "grid",
           gridTemplateColumns: "1.2fr 0.8fr",
           gap: "64px",
           alignItems: "start",
-          opacity: 0,
         }}
       >
         {/* Left Column */}

@@ -91,7 +91,7 @@ export default function Marathon() {
       }}
     >
       <p
-        className="mara-reveal"
+        className="mara-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
@@ -99,33 +99,30 @@ export default function Marathon() {
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           marginBottom: "12px",
-          opacity: 0,
         }}
       >
         Outside the terminal
       </p>
 
       <h2
-        className="mara-reveal"
+        className="mara-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(28px, 3.5vw, 42px)",
           color: "var(--text-primary)",
           lineHeight: 1.15,
           marginBottom: "8px",
-          opacity: 0,
         }}
       >
         I also run.
       </h2>
       <p
-        className="mara-reveal"
+        className="mara-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-body)",
           fontSize: "15px",
           color: "var(--text-secondary)",
           marginBottom: "48px",
-          opacity: 0,
         }}
       >
         Same obsession with data. Different dataset.
@@ -142,9 +139,8 @@ export default function Marathon() {
       >
         {/* Left — terminal stats card */}
         <div
-          className="mara-reveal"
+          className="mara-reveal motion-reveal"
           style={{
-            opacity: 0,
             backgroundColor: "var(--bg-surface)",
             border: "1px solid var(--border)",
             padding: "28px",
@@ -207,7 +203,7 @@ export default function Marathon() {
         </div>
 
         {/* Right — monthly distance bar chart */}
-        <div className="mara-reveal" style={{ opacity: 0 }}>
+        <div className="mara-reveal motion-reveal">
           <p
             style={{
               fontFamily: "var(--font-mono)",

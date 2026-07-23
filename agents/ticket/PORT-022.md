@@ -17,7 +17,7 @@ Keep Experience. Clean up the Hapag-Lloyd entry and incorporate the later AnyTim
 - [ ] Hapag-Lloyd title, team, status, dates, tense, and public work themes are owner-approved.
 - [ ] AnyTime role and responsibilities use the content approved through PORT-011.
 - [ ] Prime Freight remains unchanged unless separately approved.
-- [ ] Duplicate Experience, Journey, About, metadata, and Terminal references are reconciled.
+- [ ] Duplicate Experience, About, metadata, and Terminal references are reconciled.
 - [ ] `knowledge-base/EXPERIENCE.md` matches the resulting code.
 
 ## Validation record

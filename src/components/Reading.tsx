@@ -136,9 +136,8 @@ export default function Reading() {
               padding: "24px 0",
               borderBottom: i < items.length - 1 ? "0.5px solid var(--border)" : "none",
               alignItems: "start",
-              opacity: 0,
             }}
-            className="reading-row"
+            className="reading-row motion-reveal"
           >
             {/* Type */}
             <div

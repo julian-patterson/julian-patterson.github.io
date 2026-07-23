@@ -26,13 +26,16 @@ Available scripts:
 npm run dev
 npm run build
 npm run start
+npm run clean
 npm run lint
 npm run typecheck
 npm run docs:check
 npm run check
 ```
 
-`npm run docs:check` validates the agent-system structure against the current code inventory. `npm run check` runs that guardrail plus TypeScript. `npm run lint` currently opens Next.js's interactive ESLint setup; fixing that is tracked in `PORT-016`. The build uses `next/font/google`, so a first build may need network access for the DM font files.
+`npm run docs:check` validates the agent-system structure against the current code inventory. `npm run check` runs that guardrail plus TypeScript. `npm run lint` currently opens Next.js's interactive ESLint setup. The build uses `next/font/google`, so a first build may need network access for the DM font files.
+
+Development artifacts live in `.next-dev/`; production keeps Next.js's standard `.next/` build directory and `out/` static export. Keeping the development cache separate prevents a production build from invalidating a running development server's webpack chunks. If either cache becomes stale, stop the server, run `npm run clean`, then restart `npm run dev`.
 
 ## Deployment
 

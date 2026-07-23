@@ -130,7 +130,7 @@ export default function Hero() {
           {/* Subtitle & tags — hidden until name assembles */}
           <div ref={subtitleRef}>
             <p
-              className="reveal-item"
+              className="reveal-item motion-reveal"
               style={{
                 fontFamily: "var(--font-body)",
                 fontSize: "clamp(17px, 1.5vw, 20px)",
@@ -138,7 +138,6 @@ export default function Hero() {
                 lineHeight: 1.6,
                 maxWidth: "520px",
                 marginBottom: "32px",
-                opacity: 0,
               }}
             >
               Building at the intersection of freight intelligence and machine
@@ -149,13 +148,12 @@ export default function Hero() {
 
             {/* Tags */}
             <div
-              className="reveal-item"
+              className="reveal-item motion-reveal"
               style={{
                 display: "flex",
                 flexWrap: "wrap",
                 gap: "8px",
                 marginBottom: "40px",
-                opacity: 0,
               }}
             >
               <span
@@ -191,8 +189,8 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
-              className="reveal-item"
-              style={{ display: "flex", gap: "32px", opacity: 0 }}
+              className="reveal-item motion-reveal"
+              style={{ display: "flex", gap: "32px" }}
             >
               <button
                 onClick={() => scrollTo("projects")}

@@ -131,7 +131,7 @@ export default function Stats() {
       }}
     >
       <p
-        className="stats-reveal"
+        className="stats-reveal motion-reveal"
         style={{
           fontFamily: "var(--font-mono)",
           fontSize: "11px",
@@ -139,7 +139,6 @@ export default function Stats() {
           letterSpacing: "0.15em",
           textTransform: "uppercase",
           marginBottom: "48px",
-          opacity: 0,
         }}
       >
         Impact
@@ -160,9 +159,8 @@ export default function Stats() {
         {counters.map((c, i) => (
           <div
             key={i}
-            className="stats-reveal counter-cell"
+            className="stats-reveal counter-cell motion-reveal"
             style={{
-              opacity: 0,
               backgroundColor: "var(--bg-surface)",
               padding: "32px 28px",
               borderRight: (i + 1) % 3 !== 0 ? "1px solid var(--border)" : undefined,
@@ -211,7 +209,7 @@ export default function Stats() {
       </div>
 
       {/* Before / After chart */}
-      <div className="stats-reveal" style={{ opacity: 0 }}>
+      <div className="stats-reveal motion-reveal">
         <p
           style={{
             fontFamily: "var(--font-mono)",

@@ -83,7 +83,117 @@ section[id] {
   scroll-margin-top: 64px;
 }
 
+/* Essential content is never allowed to depend on entrance animation state. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .motion-reveal,
+  .char,
+  .timeline-line {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+}
+
+@media print {
+  html {
+    scroll-behavior: auto;
+  }
+
+  nav {
+    position: static !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  main > section {
+    break-inside: avoid;
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .motion-reveal,
+  .char,
+  .timeline-line {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+}
+
 /* Component rules live in the static stylesheet so server and client markup hydrate identically. */
+#experience .experience-timeline {
+  --timeline-date-width: 120px;
+  --timeline-gutter-width: 32px;
+  --timeline-half-gutter: 16px;
+  position: relative;
+}
+
+#experience .timeline-line {
+  position: absolute;
+  left: calc(var(--timeline-date-width) + var(--timeline-half-gutter));
+  top: 6px;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--border-strong);
+  transform-origin: top center;
+}
+
+#experience .timeline-entry {
+  display: grid;
+  grid-template-columns:
+    var(--timeline-date-width)
+    var(--timeline-gutter-width)
+    minmax(0, 1fr);
+  margin-bottom: 48px;
+  position: relative;
+}
+
+#experience .timeline-entry:last-child {
+  margin-bottom: 0;
+}
+
+#experience .timeline-date {
+  grid-column: 1;
+  text-align: right;
+}
+
+#experience .timeline-node {
+  grid-column: 2;
+  justify-self: center;
+  align-self: start;
+  width: 9px;
+  height: 9px;
+  margin-top: 4px;
+  border: 2px solid var(--bg-primary);
+  z-index: 2;
+}
+
+#experience .timeline-content {
+  grid-column: 3;
+  min-width: 0;
+  padding-left: 8px;
+  position: relative;
+}
+
 .hero-section .carbon-link:hover span,
 #contact .carbon-contact-link:hover span {
   text-decoration: none !important;
@@ -146,21 +256,6 @@ section[id] {
   animation: freight-explainer-soft-pulse 3s ease-in-out infinite;
 }
 
-@keyframes journey-pulse-ring {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-#journey .pulse-dot {
-  animation: journey-pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
 @media (min-width: 769px) {
   nav .hidden-mobile {
     display: flex !important;
@@ -170,18 +265,10 @@ section[id] {
     display: none !important;
   }
 
-  #journey .hidden-mobile {
-    display: block !important;
-  }
-
-  #journey .show-mobile {
-    display: none !important;
-  }
 }
 
 @media (max-width: 768px) {
   nav .hidden-mobile,
-  #journey .hidden-mobile,
   #projects .hidden-mobile {
     display: none !important;
   }
@@ -190,17 +277,11 @@ section[id] {
     display: flex !important;
   }
 
-  #journey .show-mobile {
-    display: block !important;
-  }
-
   .hero-section .hero-grid,
   #about .about-grid,
-  #experience .timeline-entry,
   #projects .projects-grid,
   #projects .project-card-anim,
   #research .reveal,
-  #now .now-grid,
   #reading .reading-row,
   #freight-network .fn-header-grid,
   #marathon .mara-grid {
@@ -221,16 +302,35 @@ section[id] {
   }
 
   #experience .timeline-entry {
-    gap: 8px !important;
+    grid-template-columns: 9px minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 8px;
   }
 
-  #experience .timeline-entry > div:first-child {
-    text-align: left !important;
+  #experience .timeline-date {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
     padding-bottom: 4px;
   }
 
-  #research .reveal,
-  #now .now-grid {
+  #experience .timeline-node {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #experience .timeline-content {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 0;
+  }
+
+  #experience .timeline-line {
+    left: 4px;
+    top: 34px;
+  }
+
+  #research .reveal {
     gap: 48px !important;
   }
 

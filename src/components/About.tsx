@@ -40,7 +40,7 @@ export default function About() {
         className="about-grid"
       >
         {/* Left */}
-        <div className="about-reveal" style={{ opacity: 0 }}>
+        <div className="about-reveal motion-reveal">
           <p
             style={{
               fontFamily: "var(--font-mono)",
@@ -77,9 +77,8 @@ export default function About() {
 
         {/* Right — metadata card */}
         <div
-          className="about-reveal"
+          className="about-reveal motion-reveal"
           style={{
-            opacity: 0,
             backgroundColor: "var(--bg-surface)",
             border: "1px solid var(--border-subtle)",
             borderRadius: "0px",

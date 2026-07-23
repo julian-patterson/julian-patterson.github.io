@@ -1,12 +1,11 @@
 # PORT-030 — Retain and polish GitHub Activity
 
-- Status: Blocked
+- Status: Ready
 - Priority: P1
 - Source: owner response to RQ-003 on 2026-07-22
 - Depends on: PORT-014
 - Required approvals: none
 - Owner: unassigned
-- Blocker: PORT-014 must first provide a static-hosting-compatible activity source
 
 ## Owner direction
 
