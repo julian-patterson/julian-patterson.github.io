@@ -17,48 +17,52 @@ interface ExperienceEntry {
 
 const entries: ExperienceEntry[] = [
   {
-    date: "May 2026",
-    role: "AI & Analytics Intern",
+    date: "May – Aug 2026",
+    role: "AI Hub Intern",
     company: "Hapag-Lloyd",
     location: "Hamburg, Germany",
-    tags: ["Demand Forecasting", "NLP", "AWS", "Recommendation Systems"],
-    note:
-      "Upcoming — joining one of the world's largest container shipping companies to work on ML-driven analytics and document automation.",
+    tags: ["Agentic AI", "AI Governance", "Risk Modelling", "MCP", "Facilitation"],
+    bullets: [
+      "AI enablement at enterprise scale — designing intake and risk-assessment processes for agentic AI, and assessing platforms against real use cases",
+      "Turning cross-functional working-group discussions into workflows people can actually follow, then carrying them through security, data-protection, and architecture review",
+      "Working where the requirements are still forming, and presenting a technical position to senior stakeholders without losing the detail underneath it",
+    ],
   },
   {
-    date: "2024 – Present",
+    date: "May 2025 – Present",
+    role: "Founder & Chief Technology Officer",
+    company: "Stride",
+    location: "Montréal, QC",
+    tags: ["React", "React Native", "TypeScript", "Supabase", "Stripe"],
+    bullets: [
+      "Architected and built most of a multi-tenant booking platform — web app, React Native mobile app, and backend",
+      "Technical leadership: owning architecture and roadmap, reviewing code, and mentoring a team of three developers",
+      "Depth in multi-tenant data isolation, concurrency-safe scheduling, payments, and a CI/CD pipeline where a failing end-to-end test stops the deploy",
+      "Co-created the product's component library in Figma and implemented it, which taught me how much design decisions constrain engineering ones",
+    ],
+  },
+  {
+    date: "May 2024 – Mar 2026",
     role: "Software Developer",
     company: "Prime Freight Logistics",
     location: "Montréal, QC",
-    tags: ["React", "Docker", "JavaScript", "Logistics"],
+    tags: ["Node.js", "React", "Google Cloud", "Terraform", "Docker"],
     bullets: [
-      "Engineered a pricing algorithm handling FAK/NAC contract structures across 40+ routes and 100+ clients",
-      "Built automated Excel parsers processing 2,000+ container rates/month with 100% accuracy — increased rate coverage from 10% to 100%, eliminating 500+ minutes of manual data entry per rate sheet",
-      "Architected a React PO management system handling 1,000+ records, cutting booking approval time by 50%",
-      "Built a centralized orchestrator with error handling that reduced bug investigation time by 83% (30 min → 5 min)",
+      "Backend and data engineering on internal tooling — pricing logic, document parsing, and automated reporting pipelines",
+      "Serverless architecture on Google Cloud: a public API and an internal batch worker running from a single container image, decoupled by a task queue, with infrastructure defined in Terraform",
+      "Learned to build parsers that adapt to messy, inconsistent input instead of breaking on it, and to make failures findable through logging and notifications",
     ],
+    note: "Full-time summers 2024 and 2025; part-time through the 2025–26 academic year.",
   },
   {
-    date: "2024 – Present",
-    role: "CTO & Technical Lead",
-    company: "AnyTime Technologies",
-    location: "Montréal, QC",
-    tags: ["React", "Supabase", "CI/CD", "Payment Processing"],
-    bullets: [
-      "Founding technical lead for a sports facility booking platform",
-      "Designed database schemas for court management, scheduling, and multi-location payment processing",
-      "Implemented CI/CD pipelines via GitHub Actions for automated deployment",
-    ],
-  },
-  {
-    date: "2023 – 2026",
+    date: "2023 – Dec 2026",
     role: "B.Sc. Software Engineering, Minor in Statistics",
     company: "McGill University",
     location: "Montréal, QC",
     tags: [],
     type: "education",
     note:
-      "Relevant coursework: Applied Machine Learning, Data Structures, Probability & Statistics, Software Design, Discrete Mathematics. Activities: McGill AI Society, McGill AI Alignment",
+      "Expected December 2026. Relevant coursework: Applied Machine Learning, Intro to Robotics, Data Structures, Probability & Statistics, Software Design, Discrete Mathematics. Technical Project Manager, McGill AI Society.",
   },
 ];
 

@@ -61,9 +61,9 @@ export default function Contact() {
           marginBottom: "40px",
         }}
       >
-        Open to research collaborations, interesting problems in freight
-        analytics, and conversations about ML applied to logistics. Reach out in
-        English or French.
+        Open to software engineering and data science roles, interesting
+        problems in operational systems, and conversations about ML applied to
+        the messy parts of a business. Reach out in English or French.
       </p>
 
       <div
@@ -144,9 +144,7 @@ export default function Contact() {
             lineHeight: 1.8,
           }}
         >
-          © 2026 Julian Patterson · Montréal → Hamburg
-          <br />
-          Built with Next.js · Deployed on Vercel
+          © 2026 Julian Patterson
         </p>
       </div>
 

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+import { ArrowRight } from "@carbon/icons-react";
 import gsap from "gsap";
 import LetterExplosion from "./LetterExplosion";
-import { ArrowRight } from "@carbon/icons-react";
 
 function LiveClock() {
   const [time, setTime] = useState("");
@@ -48,7 +49,7 @@ export default function Hero() {
         ease: "power3.out",
         stagger: 0.12,
         delay: 0.1,
-      }
+      },
     );
   }, [nameComplete]);
 
@@ -71,7 +72,7 @@ export default function Hero() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr auto",
+          gridTemplateColumns: "1fr",
           gap: "64px",
           alignItems: "center",
           width: "100%",
@@ -91,7 +92,7 @@ export default function Hero() {
               marginBottom: "24px",
             }}
           >
-            Software Engineer · Data Scientist
+            Software Engineer
           </p>
 
           {/* Hero name */}
@@ -140,10 +141,10 @@ export default function Hero() {
                 marginBottom: "32px",
               }}
             >
-              Building at the intersection of freight intelligence and machine
-              learning.
+              Building data-driven software — machine learning, full-stack
+              platforms, and the operational systems underneath them.
               <br />
-              McGill University → Hapag-Lloyd Hamburg.
+              Final year, McGill University.
             </p>
 
             {/* Tags */}
@@ -170,7 +171,7 @@ export default function Hero() {
                   gap: "8px",
                 }}
               >
-                Montréal, QC → Hamburg, DE · <LiveClock />
+                Montréal, QC · <LiveClock />
               </span>
               <span
                 style={{
@@ -183,7 +184,7 @@ export default function Hero() {
                   backgroundColor: "var(--bg-surface)",
                 }}
               >
-                Native EN · FR
+                Fluent EN · FR
               </span>
             </div>
 
@@ -208,7 +209,14 @@ export default function Hero() {
                   gap: "4px",
                 }}
               >
-                <span style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>View my work</span>
+                <span
+                  style={{
+                    textDecoration: "underline",
+                    textUnderlineOffset: "4px",
+                  }}
+                >
+                  View my work
+                </span>
                 <ArrowRight size={16} />
               </button>
               <button
@@ -227,33 +235,20 @@ export default function Hero() {
                   gap: "4px",
                 }}
               >
-                <span style={{ textDecoration: "underline", textUnderlineOffset: "4px" }}>Get in touch</span>
+                <span
+                  style={{
+                    textDecoration: "underline",
+                    textUnderlineOffset: "4px",
+                  }}
+                >
+                  Get in touch
+                </span>
                 <ArrowRight size={16} />
               </button>
             </div>
           </div>
         </div>
-
-        {/* Right column — atmospheric coordinates */}
-        <div
-          className="hero-coords"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "13px",
-            lineHeight: 2,
-            color: "var(--text-tertiary)",
-            opacity: 0.4,
-            letterSpacing: "0.08em",
-            userSelect: "none",
-            whiteSpace: "pre",
-            textAlign: "center",
-          }}
-          aria-hidden="true"
-        >
-          {`YUL  →  HAM  →  SHA\n45.5°N  53.5°N  31.2°N\n73.6°W  10.0°E 121.5°E`}
-        </div>
       </div>
-
     </section>
   );
 }

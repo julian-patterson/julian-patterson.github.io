@@ -5,7 +5,7 @@
 - Source: audit finding; current code in Hero/About/Experience/Terminal/layout/footer
 - Depends on: PORT-035, owner input
 - Owner: unassigned
-- Blocker: the owner deferred the full profile audit; exact retained location wording, Hapag-Lloyd dates/public scope, and the conflicting McGill completion wording still require reconciliation
+- Blocker: the owner deferred the full profile audit; the conflicting McGill completion wording still requires reconciliation
 - Required approvals: [RQ-001](../REVIEW-QUESTIONS.md#rq-001)
 
 ## Owner input received on 2026-07-22
@@ -16,13 +16,19 @@
 - AnyTime remains current for now and its next update belongs to PORT-011.
 - Julian asked to table the broader profile/learning audit until a dedicated agent conversation identifies what is missing.
 
+## Owner input received on 2026-09-07
+
+- Remove every Hamburg and Hapag-Lloyd claim from the site. Implemented by [PORT-039](PORT-039.md), which also removed the relocation location wording; the site now says Montréal, QC and About adds "open to relocating."
+- The remaining open item for this ticket is the McGill completion wording.
+
 ## Outcome
 
 Apply Julian's requested updates, if any, to the canonical code and synchronize the knowledge base. Do not change content automatically based on today's date.
 
 ## Acceptance criteria
 
-- [ ] Julian resolves the remaining location, McGill completion wording, Hapag-Lloyd dates/public scope, and retained status language.
+- [x] Location wording and the Hapag-Lloyd status question are resolved by PORT-039's removal.
+- [ ] Julian resolves the McGill completion wording and any retained status language.
 - [ ] All duplicate code surfaces are updated consistently.
 - [ ] `knowledge-base/PROFILE.md`, `CURRENT.md`, `EXPERIENCE.md`, and `EDUCATION.md` match the resulting code.
 - [ ] Metadata, footer, and other retained status labels are included in the search.

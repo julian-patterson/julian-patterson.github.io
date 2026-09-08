@@ -1,24 +1,25 @@
 # Interests and personal context
 
-Last synchronized from code: 2026-07-22
+Last synchronized from code: 2026-09-07
 
 ## Public interests represented in code
 
 - Marathon running
 - Home automation / Raspberry Pi projects
-- Reading about graph ML, forecasting, statistics, and logistics
+- Logistics — stated as a general interest in About and as the `Logistics & Ops` domain node in the skills graph, not as a specialization
 - Music/Spotify: TBD
-- Freight intelligence: currently prominent, but its role in the future brand is undecided
 
 ## Running data
 
-The current Marathon component explicitly labels its source data as placeholder statistics. That placeholder status and the values rendered by the component are the accurate description of the code until a ticket replaces them.
+- Source status: Removed from production
+- PORT-042 removed the Marathon section on 2026-09-07 at Julian's request. Its figures were explicitly labelled placeholder statistics and are not retained as claims. PORT-032 is closed as superseded.
+- Marathon running remains listed as an interest in the About card. If a running section ever returns it must carry real, sourced data.
 
 ## Reading data
 
-The current Reading section lists papers, books, and a commercial forecaster. "Currently reading" is time-sensitive; record `started`, `finished`, or `as_of` before publishing.
-
-Owner direction from 2026-07-22: keep a Reading section but avoid a stale feed; a stable favorite-reads format is the leading option, pending RQ-012/PORT-029.
+- Source status: Removed from production
+- PORT-039 removed the Reading section on 2026-09-07. Its items were dominated by freight and graph-ML research (GraphSAGE, Temporal Graph Networks, *The Box*, *The Signal and the Noise*, Drewry Container Forecaster), so it was deleted with the research sections rather than reframed. PORT-029 is closed as superseded.
+- If a reading list returns, the earlier owner direction still applies: avoid a stale "currently reading" feed and prefer a stable favorite-reads format with `started`, `finished`, or `as_of` recorded.
 
 ## Integrations and consent
 
@@ -31,3 +32,4 @@ Owner direction from 2026-07-22:
 
 - Do not add Spotify.
 - Assess Strava only for Marathon accountability and table it if a safe implementation does not fit the current static architecture.
+- Superseded 2026-09-07: the Marathon section is gone (PORT-042), so PORT-013's Strava assessment no longer has a consumer on the site.

@@ -3,7 +3,7 @@
 - Status: Blocked
 - Priority: P1
 - Source: raw TODO "mobile layout"
-- Depends on: PORT-020, PORT-021, PORT-022, PORT-023, PORT-024, PORT-025, PORT-026, PORT-027, PORT-028, PORT-029, PORT-030, PORT-031, PORT-032, PORT-033, PORT-034
+- Depends on: PORT-020, PORT-021, PORT-022, PORT-023, PORT-024, PORT-025, PORT-030, PORT-034
 - Owner: unassigned
 - Blocker: section removals, merges, and revisions must land before final responsive QA
 - Required approvals: none

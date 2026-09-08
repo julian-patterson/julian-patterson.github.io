@@ -1,6 +1,6 @@
 # Profile
 
-Last synchronized from code: 2026-07-22
+Last synchronized from code: 2026-09-07
 
 ## Public identity
 
@@ -18,10 +18,13 @@ Last synchronized from code: 2026-07-22
   - publication: Public
   - source_status: Canonical code
   - source: Hero and About
-- Location line: Montréal, QC → Hamburg, DE
+  - note: PORT-041 changed the Hero tag from "Native EN · FR" to "Fluent EN · FR"; the résumé record retired "native" on 2026-07-31.
+  - **OPEN CONFLICT** — the résumé record's resolved value is "fluent", but on 2026-09-04 Julian described himself as conversational in French and able to handle a basic interview in it. This is checkable in a Montréal interview and is unresolved in the record. Do not silently pick one.
+- Location line: Montréal, QC
   - publication: Public
   - source_status: Canonical code
   - source: `src/components/Hero.tsx`, `src/components/About.tsx`
+  - note: PORT-039 removed the former `Montréal, QC → Hamburg, DE` relocation line and the `YUL → HAM → SHA` hero coordinate motif. About adds "Based in Montréal, open to relocating."; no destination is named anywhere on the site.
 - Timezone displayed on site: Montréal time
   - publication: Public
   - source_status: Canonical code
@@ -48,9 +51,9 @@ Last synchronized from code: 2026-07-22
 
 ## Bio source material
 
-The canonical code describes a software engineer with a statistics minor who is interested in machine learning, network science, logistics, and making complex systems legible. The backlog requests a future move toward a more general brand, but that proposed direction does not replace the current code until implemented.
+The canonical code describes a software engineer with a statistics minor whose work has been internal tooling and data platforms, who is interested in machine learning, network science, and operational systems, and who states a general interest in logistics. PORT-039 implemented the move away from a freight identity on 2026-09-07; the remaining PORT-005 brand questions (primary audience, final positioning sentence, CTA, canonical domain) are still open.
 
-Owner-supplied positioning context from 2026-07-22 is recorded as a requested change in `BRAND.md` and PORT-005. It describes logistics as supporting expertise and references current Hapag-Lloyd, prior Prime Freight, and AnyTime founding-engineering experience. It is not final public copy; the McGill completion wording must be reconciled in RQ-001.
+Owner-supplied positioning context from 2026-07-22 remains recorded in `BRAND.md` and PORT-005. Julian is no longer applying to freight-specific roles, but the Hapag-Lloyd internship is real completed experience and appears in the Experience timeline (PORT-040); only the relocation framing was removed. The McGill completion wording must still be reconciled in RQ-001.
 
 ## Publication preferences
 

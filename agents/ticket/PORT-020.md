@@ -12,9 +12,14 @@
 
 Keep the Hero. Remove outdated Montréal-to-Hamburg transition framing, clean up the building/freight-intelligence visual, emphasize freight intelligence and machine learning only where accurate, and remove data-science-style wording that no longer fits.
 
+## Update — 2026-09-07
+
+[PORT-039](PORT-039.md) already removed the relocation framing, the `YUL → HAM → SHA` coordinate motif, and the freight-intelligence copy; the Hero now reads "Building data-driven software … Final year, McGill University." What remains for this ticket is the final positioning sentence and headline treatment from RQ-002, plus the data-science wording question.
+
 ## Acceptance criteria
 
-- [ ] Outdated relocation and future-tense status copy is replaced with approved current wording.
+- [x] Outdated relocation and future-tense status copy is replaced (PORT-039).
+- [x] The `YUL → HAM → SHA` coordinate visual is removed (PORT-039).
 - [ ] Headline and supporting copy follow the accepted positioning without overstating data-science work.
 - [ ] The visual is simplified or replaced without introducing unapproved assets or facts.
 - [ ] Metadata and duplicate headline/location surfaces are synchronized.

@@ -1,12 +1,12 @@
 # PORT-032 — Make Marathon an accountable Strava-backed section
 
-- Status: Blocked
+- Status: Done
 - Priority: P2
 - Source: owner response to RQ-003 and RQ-009 on 2026-07-22
 - Depends on: PORT-013
 - Required approvals: none
 - Owner: unassigned
-- Blocker: PORT-013 must first determine whether a privacy-safe static Strava integration is practical
+- Completed: 2026-09-07
 
 ## Owner direction
 
@@ -20,6 +20,10 @@ Keep Marathon as an accountability feature if it can use Strava safely. Do not a
 - [ ] Loading, stale, revoked, empty, mobile, keyboard, and reduced-motion states are covered.
 - [ ] No access/refresh token or private activity enters source or static output.
 
+## Closure
+
+Superseded by [PORT-042](PORT-042.md) on 2026-09-07. Julian asked for the section to be removed rather than reworked, so the acceptance criteria above no longer describe any code that exists. The unchecked boxes are retained as the historical scope of the abandoned direction.
+
 ## Validation record
 
-Not run yet.
+Not applicable; the section this ticket described was deleted and validated under PORT-042.

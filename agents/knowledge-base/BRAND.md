@@ -1,15 +1,17 @@
 # Brand, audience, and voice
 
-Last decision review: 2026-07-22
+Last decision review: 2026-09-07
 
-## Confirmed future direction
+## Confirmed direction
 
-- Move away from a shipping-dominant identity toward a more general personal brand.
-- Remove generic/generated-feeling sections and copy.
+- Implemented by PORT-039 on 2026-09-07: the shipping/freight identity is removed from production, not merely de-emphasized. Julian is not applying to freight-specific roles.
+- Freight is now *omitted* framing, not supporting expertise. This tightens the earlier 2026-07-22 position recorded in ADR-008; see ADR-011.
+- Logistics remains as a stated general interest only — About's "soft spot for logistics" line and the `Logistics & Ops` skills node.
+- The `Prime Freight Logistics` and `Hapag-Lloyd` employer names stay as factual employment records with domain-neutral role descriptions. What was removed is the *relocation narrative*, not the work history.
 - Retain the current DM Serif Display, DM Sans, and DM Mono implementation.
-- Treat freight as supporting expertise rather than the entire identity.
+- Remove generic/generated-feeling sections and copy.
 - Refine skills and projects around verified evidence.
-- Follow the section plan in ADR-007 and PORT-020 through PORT-034; the current code remains unchanged until those tickets land.
+- Remaining PORT-020 through PORT-034 section work is unchanged except where PORT-039 already deleted the section.
 
 ## Decisions still needed
 
@@ -25,6 +27,7 @@ Source status: Requested change/context, not final website copy.
 - Final-year Software Engineering student with a Statistics minor at McGill; exact completion wording remains unresolved in RQ-001.
 - Work at the intersection of logistics and software.
 - Current Hapag-Lloyd AI internship, prior Prime Freight internal-tool work, and CTO/founding-engineering work on AnyTime's multi-tenant sports-facility booking platform.
+- Refined on 2026-09-07: Hapag-Lloyd appears as completed experience in the Experience timeline only, never as an upcoming role or a relocation. Logistics is positioned as an interest rather than the work's defining intersection.
 
 ## Provisional voice rules
 

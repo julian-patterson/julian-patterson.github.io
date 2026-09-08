@@ -15,23 +15,40 @@ Reply by `RQ-###`. For “no change,” say **confirm current**. For changes, pr
 - McGill remains ongoing; Julian plans to return to complete it.
 - Hapag-Lloyd is in progress, with the supplied title “AI Hub Intern.”
 - Prime Freight should remain unchanged for now.
+
+### Owner response — 2026-09-07
+
+- Remove the Hamburg relocation narrative from the site. Implemented by [PORT-039](ticket/PORT-039.md).
+- Hapag-Lloyd is real completed experience and belongs in Experience: **AI Hub Intern**, **Hamburg, Germany**, **finished summer 2026**. Restored by [PORT-040](ticket/PORT-040.md); the dates/title/location question is closed.
+- Prime Freight keeps its employer name but is described in domain-neutral terms.
+
+### Still needed for Hapag-Lloyd
+
+Confirm the exact end month and approve the published description. The current note generalizes the previously supplied work themes and claims no outcomes or metrics.
 - AnyTime should remain current for now and be updated through PORT-011.
 - Table the broader review until a dedicated agent conversation identifies missing learning/profile context.
 
 ### Still needed
 
-Resolve the conflict between “still ongoing/returning to complete” and the supplied positioning draft’s “graduating Winter 2026.” Also confirm current location wording, exact Hapag-Lloyd dates and public work scope, and any retained time-sensitive status copy after the Now section is removed.
+Resolve the conflict between “still ongoing/returning to complete” and the supplied positioning draft’s “graduating Winter 2026.” Also confirm the current location wording — the site now says Montréal, QC with “open to relocating” — and any retained time-sensitive status copy.
 
 <a id="rq-002"></a>
 ## RQ-002 — Audience, positioning, and freight
 
 - Status: Partially answered
-- Affects: [PORT-005](ticket/PORT-005.md), [PORT-006](ticket/PORT-006.md), [PORT-020](ticket/PORT-020.md), [PORT-021](ticket/PORT-021.md), [PORT-026](ticket/PORT-026.md)
+- Affects: [PORT-005](ticket/PORT-005.md), [PORT-006](ticket/PORT-006.md), [PORT-020](ticket/PORT-020.md), [PORT-021](ticket/PORT-021.md)
 
 ### Owner response — 2026-07-22
 
 - Freight is **supporting expertise**.
 - Positioning context: final-year McGill Software Engineering student with a Statistics minor; work at the intersection of logistics and software; current Hapag-Lloyd AI internship; prior Prime Freight internal-tool work; and CTO/founding-engineering responsibility for AnyTime’s multi-tenant sports-facility booking platform.
+
+### Owner response — 2026-09-07
+
+- Freight is **omitted** as identity and framing; Julian is not applying to freight-specific roles.
+- Employment history is exempt: Hapag-Lloyd and Prime Freight remain as factual Experience entries with domain-neutral descriptions.
+- Logistics stays only as a stated general interest.
+- Recorded as [ADR-011](DECISIONS.md#adr-011) and implemented by [PORT-039](ticket/PORT-039.md).
 
 ### Still needed
 
@@ -54,6 +71,10 @@ Approve the primary audience, final positioning sentence, voice, primary call to
 - Reading should avoid a stale “currently reading” feed; favorite reads is the leading option.
 - Marathon should support accountability through Strava only if a safe, practical integration exists.
 - Terminal remains provisional pending a useful interaction concept.
+
+### Owner response — 2026-09-07
+
+Freight Explainer, Freight Network, and Reading were removed instead of revised; see [ADR-011](DECISIONS.md#adr-011) and [PORT-039](ticket/PORT-039.md). The rest of the 2026-07-22 disposition stands.
 
 <a id="rq-004"></a>
 ## RQ-004 — Typography policy
@@ -94,7 +115,7 @@ Provide public product scope, exact role and dates/status, responsibilities, arc
 ## RQ-007 — Projects and public links
 
 - Status: Open
-- Affects: [PORT-012](ticket/PORT-012.md), [PORT-023](ticket/PORT-023.md), [PORT-026](ticket/PORT-026.md), [PORT-034](ticket/PORT-034.md)
+- Affects: [PORT-012](ticket/PORT-012.md), [PORT-023](ticket/PORT-023.md), [PORT-034](ticket/PORT-034.md)
 
 ### Owner response — 2026-07-22
 
@@ -135,18 +156,22 @@ This means the AnyTime company presentation in this portfolio, not another repos
 <a id="rq-011"></a>
 ## RQ-011 — Stats disposition and approved evidence
 
-- Status: Open
+- Status: Resolved
 - Affects: [PORT-024](ticket/PORT-024.md)
 
 After PORT-024 inventories the current figures, choose **remove**, **retain approved current metrics**, or **replace with specified evidence**. For every retained metric, confirm its source, context, date, and publication approval.
 
+### Owner response — 2026-09-07
+
+**Remove.** Julian asked for the Impact section to be deleted, so no metric audit or approval is needed. [PORT-024](ticket/PORT-024.md) removed `Stats.tsx` and its CSS. The figures remain in the résumé record; they are simply no longer published on the site.
+
 <a id="rq-012"></a>
 ## RQ-012 — Reading format and public list
 
-- Status: Open
+- Status: Closed — no longer required
 - Affects: [PORT-029](ticket/PORT-029.md)
 
-Confirm whether Reading should become a stable **favorite reads** section or use another format. Supply or approve the public items, short labels/summaries, ordering, and verified links.
+[PORT-039](ticket/PORT-039.md) removed the Reading section on 2026-09-07, so no format decision is needed. If Julian later wants a reading list back, reopen this question: confirm whether it should be a stable **favorite reads** section or another format, and supply the public items, short labels/summaries, ordering, and verified links.
 
 <a id="rq-013"></a>
 ## RQ-013 — Terminal disposition and concept

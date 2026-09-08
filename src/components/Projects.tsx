@@ -5,31 +5,17 @@ import { gsap } from "gsap";
 import { ArrowUpRight } from "@carbon/icons-react";
 
 const featuredProject = {
-  name: "Freight Network Intelligence",
-  status: "Research · In Progress",
+  name: "Stride",
+  status: "Founder & CTO · Open beta",
   description: [
-    "Graph-based freight rate forecasting system. Models global shipping lanes as a network where news sentiment and geopolitical events propagate as dynamic edge features — predicting rate impacts on specific lanes before they materialize in market data.",
-    "The core insight: a conflict in the Red Sea doesn't only affect Suez Canal routes. It propagates outward with diminishing effect across connected lanes. A graph structure captures this naturally in a way that isolated time-series models cannot.",
+    "Sports facility booking platform — web, mobile, and an operator console for the staff who run the courts. Multi-tenant from the database up, with real-time availability and payment at booking.",
+    "I architected and built most of it, and lead the engineering side: multi-tenant data isolation, a scheduling engine that will not let bookings overlap, Stripe payments, and a deploy pipeline gated on end-to-end tests.",
   ],
-  stack: ["PyTorch Geometric", "AIS Data", "SCFI", "NLP", "Python"],
-  link: { label: "GitHub ↗", href: "#" },
+  stack: ["React", "React Native", "TypeScript", "Supabase", "Stripe"],
+  link: { label: "strideapp.ca", href: "https://strideapp.ca" },
 };
 
 const projects = [
-  {
-    name: "AnyTime Technologies",
-    description:
-      "Full-stack sports facility booking platform. Multi-tenant architecture, court scheduling, and payment processing.",
-    stack: ["React", "Supabase", "GitHub Actions", "Docker"],
-    link: { label: "Live", href: "#" },
-  },
-  {
-    name: "OpenClaw",
-    description:
-      "Self-hosted Raspberry Pi personal assistant. Claude API + Telegram interface with Strava, calendar, and task management integrations. Privacy-first: no persistent sensitive data.",
-    stack: ["Node.js", "Claude API", "Raspberry Pi", "Telegram Bot API"],
-    link: { label: "GitHub", href: "#" },
-  },
   {
     name: "Transfer CLI",
     description:
@@ -102,13 +88,9 @@ export default function Projects() {
           backgroundColor: "var(--bg-accent-soft)",
           padding: "32px",
           marginBottom: "32px",
-          display: "grid",
-          gridTemplateColumns: "1fr 200px",
-          gap: "48px",
-          alignItems: "center",
         }}
       >
-        <div>
+        <div style={{ maxWidth: "760px" }}>
           <div
             style={{
               display: "flex",
@@ -198,33 +180,13 @@ export default function Projects() {
             {featuredProject.link.label}
           </a>
         </div>
-
-        {/* Decorative Abstract Graph */}
-        <div className="hidden-mobile" style={{ width: "200px", height: "200px", position: "relative" }}>
-          <svg viewBox="0 0 100 100" style={{ width: "100%", height: "100%", overflow: "visible" }}>
-            {/* Edges */}
-            <line x1="20" y1="50" x2="50" y2="20" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            <line x1="50" y1="20" x2="80" y2="40" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            <line x1="80" y1="40" x2="60" y2="80" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            <line x1="60" y1="80" x2="30" y2="70" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            <line x1="30" y1="70" x2="20" y2="50" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            <line x1="50" y1="20" x2="60" y2="80" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            <line x1="20" y1="50" x2="80" y2="40" stroke="rgba(28,28,26,0.15)" strokeWidth="1" />
-            {/* Nodes */}
-            <circle cx="20" cy="50" r="4" fill="var(--carbon-chart-cyan)" />
-            <circle cx="50" cy="20" r="6" fill="var(--carbon-chart-magenta)" />
-            <circle cx="80" cy="40" r="3" fill="var(--carbon-chart-cyan)" />
-            <circle cx="60" cy="80" r="5" fill="var(--carbon-chart-cyan)" />
-            <circle cx="30" cy="70" r="3.5" fill="var(--carbon-chart-magenta)" />
-          </svg>
-        </div>
       </div>
 
       {/* Standard cards grid */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "repeat(2, 1fr)",
           gap: "24px",
         }}
         className="projects-grid"

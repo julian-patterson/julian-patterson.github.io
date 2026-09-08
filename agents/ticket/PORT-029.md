@@ -1,12 +1,12 @@
 # PORT-029 — Reframe the Reading section
 
-- Status: Blocked
+- Status: Done
 - Priority: P2
 - Source: owner response to RQ-003 on 2026-07-22
 - Depends on: none
-- Required approvals: [RQ-012](../REVIEW-QUESTIONS.md#rq-012)
+- Required approvals: none
 - Owner: unassigned
-- Blocker: the owner has not yet confirmed the favorite-reads format or the public list
+- Completed: 2026-09-07
 
 ## Owner direction
 
@@ -19,6 +19,10 @@ Keep the idea of Reading, but avoid a frequently stale “currently reading” f
 - [ ] Links are verified and external-link behavior is safe and accessible.
 - [ ] `knowledge-base/INTERESTS.md` matches the resulting code.
 
+## Closure
+
+Superseded by [PORT-039](PORT-039.md) on 2026-09-07. Julian asked for the freight identity and the research sections to be removed rather than updated, so the acceptance criteria above no longer describe any code that exists. The unchecked boxes are retained as the historical scope of the abandoned direction.
+
 ## Validation record
 
-Not run yet.
+Not applicable; the section this ticket described was deleted and validated under PORT-039.

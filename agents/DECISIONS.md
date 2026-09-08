@@ -154,7 +154,8 @@ PORT-020 through PORT-034 hold one implementation or decision scope per current 
 <a id="adr-008"></a>
 ## ADR-008 — Retain the current typography and supporting freight role
 
-- Status: Accepted
+- Status: Superseded
+- Superseded by: [ADR-011](#adr-011) on 2026-09-07, which removes freight from the site's identity entirely and restates the still-binding typography decision
 - Date: 2026-07-22
 - Decider: Julian Patterson
 - Supersedes: ADR-004
@@ -213,3 +214,57 @@ Use `.next-dev/` for `npm run dev`, selected through `NEXT_DIST_DIR`. Keep produ
 - Production validation can run without overwriting a live development server's artifacts.
 - A stale-cache recovery is deterministic: stop the server, run `npm run clean`, then restart development.
 - GitHub Pages continues to deploy the static `out/` export and does not depend on either local artifact directory.
+
+<a id="adr-011"></a>
+## ADR-011 — Remove freight and relocation content from the public site
+
+- Status: Accepted
+- Date: 2026-09-07
+- Decider: Julian Patterson
+- Supersedes: ADR-008
+
+### Context
+
+ADR-008 kept freight as supporting expertise. On 2026-09-07 Julian said he is no longer applying to freight-specific jobs and asked for the freight content and every claim about moving to Hamburg to be removed, with the research sections deleted and a general interest in logistics retained.
+
+### Decision
+
+Freight is omitted framing, not supporting expertise. No shipping, freight, Hamburg, or Hapag-Lloyd claim appears in production copy. `Prime Freight Logistics` remains only as a factual employment record, described in domain-neutral terms. Logistics appears solely as a stated general interest.
+
+The typography decision carried over from ADR-008 stands unchanged: retain the current DM Serif Display, DM Sans, and DM Mono implementation, and preserve the existing type roles in future section revisions.
+
+### Consequences
+
+- PORT-039 deleted `FreightExplainer`, `FreightNetwork`, and `Reading` with their dedicated CSS; PORT-026, PORT-029, and PORT-031 are closed as superseded.
+- The upcoming-role Experience entry and the `YUL → HAM → SHA` hero coordinate motif are gone; the site names no future employer or destination.
+- AnyTime Technologies is the featured project in place of the removed research project.
+- Verified metrics are retained with domain-neutral labels; no metric value changed.
+- The remaining PORT-005 brand questions — primary audience, final positioning sentence, CTA, and canonical domain — are still open.
+
+### Amendment — 2026-09-07
+
+Julian clarified the same day that the Hapag-Lloyd internship is experience he holds and asked for it back. This decision removes freight as **identity and framing**, not as **employment history**. Hapag-Lloyd and Prime Freight both remain as factual Experience entries with domain-neutral descriptions; PORT-040 republished Hapag-Lloyd as a completed May – Aug 2026 role. The relocation narrative — future-tense wording, countdowns, and `→ Hamburg` location lines — stays removed everywhere.
+
+## ADR-012 — Unpublish the Impact metrics, footer build stack, and OpenClaw
+
+- Status: Accepted
+- Date: 2026-09-07
+- Decider: Julian Patterson
+- Supersedes: none
+
+### Context
+
+Three removals were requested on 2026-09-07. The `Stats` section ("Impact") had been provisional since PORT-004; RQ-011 asked Julian to choose remove, retain, or replace, and PORT-024 had been blocked on that answer. The `Contact.tsx` footer carried `· Montréal, QC` and `Built with Next.js · Deployed on Vercel`. The Projects grid carried an `OpenClaw` card whose repository link was the placeholder `#`.
+
+### Decision
+
+None of the three is published. The Impact counters and the before/after automation chart are removed rather than re-evidenced. The footer states the copyright line only — no location and no build-stack claim. OpenClaw is removed from the Projects grid.
+
+### Consequences
+
+- PORT-024 is closed as **remove** and RQ-011 is resolved; no metric audit or publication approval is needed.
+- The quantified Prime Freight figures are no longer anywhere in production. They are still true and still supported by the résumé record, so this is an unpublishing decision, not a retraction. Republishing them requires a new owner request and a fresh approval pass.
+- The footer no longer claims Vercel. That claim contradicted ADR-005 and the real GitHub Pages workflow, so removing it also corrects a factual error.
+- Julian's location is unaffected; it remains in Hero, About, Experience, and site metadata.
+- The Projects grid is `repeat(2, 1fr)` for its two remaining standard cards. Restoring a third card should restore `repeat(3, 1fr)`.
+- The OpenClaw knowledge-base record is retained and labelled as unpublished, so the project can be restored without re-gathering its details.

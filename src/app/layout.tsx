@@ -26,10 +26,10 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "Julian Patterson — Software Engineer & Data Scientist",
   description:
-    "McGill Software Engineering student, CTO of AnyTime Technologies, incoming AI & Analytics intern at Hapag-Lloyd Hamburg. Building at the intersection of freight intelligence and machine learning.",
+    "McGill Software Engineering student, Founder & CTO of Stride. Building data-driven software — machine learning, full-stack platforms, and the operational systems behind them.",
   openGraph: {
     title: "Julian Patterson",
-    description: "Software Engineer & Data Scientist — Montréal → Hamburg",
+    description: "Software Engineer & Data Scientist — Montréal, QC",
     url: "https://julianpatterson.ca",
   },
 };

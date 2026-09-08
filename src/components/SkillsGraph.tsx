@@ -64,8 +64,9 @@ const RAW_NODES: Omit<NodeDatum, keyof d3.SimulationNodeDatum>[] = [
   { id: "pandas", label: "Pandas / NumPy", category: "ml", weight: 2 },
   { id: "nlp", label: "NLP", category: "ml", weight: 2 },
   { id: "gnn", label: "Graph Neural Nets", category: "ml", weight: 2 },
-  { id: "ais", label: "AIS Data", category: "ml", weight: 1 },
-  { id: "scfi", label: "SCFI Index", category: "ml", weight: 1 },
+  { id: "timeseries", label: "Time Series", category: "ml", weight: 2 },
+  { id: "agentic", label: "Agentic AI", category: "ml", weight: 3 },
+  { id: "mcp", label: "MCP", category: "ml", weight: 2 },
 
   // Infrastructure
   { id: "docker", label: "Docker", category: "infra", weight: 3 },
@@ -74,6 +75,10 @@ const RAW_NODES: Omit<NodeDatum, keyof d3.SimulationNodeDatum>[] = [
   { id: "supabase", label: "Supabase", category: "infra", weight: 2 },
   { id: "linux", label: "Linux / Bash", category: "infra", weight: 2 },
   { id: "rest", label: "REST APIs", category: "infra", weight: 2 },
+  { id: "node", label: "Node.js", category: "infra", weight: 3 },
+  { id: "gcp", label: "Google Cloud", category: "infra", weight: 2 },
+  { id: "terraform", label: "Terraform", category: "infra", weight: 2 },
+  { id: "stripe", label: "Stripe", category: "infra", weight: 2 },
 
   // Frontend
   { id: "react", label: "React", category: "frontend", weight: 3 },
@@ -81,11 +86,13 @@ const RAW_NODES: Omit<NodeDatum, keyof d3.SimulationNodeDatum>[] = [
   { id: "tailwind", label: "Tailwind CSS", category: "frontend", weight: 2 },
   { id: "gsap", label: "GSAP", category: "frontend", weight: 2 },
   { id: "reactnative", label: "React Native", category: "frontend", weight: 2 },
+  { id: "figma", label: "Figma / UI Design", category: "frontend", weight: 2 },
 
   // Domain
-  { id: "freight", label: "Freight Forwarding", category: "domain", weight: 3 },
-  { id: "contracts", label: "Carrier Contracts", category: "domain", weight: 2 },
-  { id: "logistics", label: "Container Logistics", category: "domain", weight: 2 },
+  { id: "aigov", label: "AI Governance", category: "domain", weight: 3 },
+  { id: "logistics", label: "Logistics & Ops", category: "domain", weight: 3 },
+  { id: "contracts", label: "Pricing & Contracts", category: "domain", weight: 2 },
+  { id: "scheduling", label: "Scheduling Systems", category: "domain", weight: 2 },
   { id: "payment", label: "Payment Processing", category: "domain", weight: 1 },
 ];
 
@@ -110,13 +117,23 @@ const RAW_EDGES: { source: string; target: string; strength: 1 | 2 | 3 }[] = [
   { source: "pyg", target: "gnn", strength: 3 },
   { source: "pandas", target: "sklearn", strength: 2 },
   { source: "nlp", target: "gnn", strength: 2 },
-  { source: "ais", target: "gnn", strength: 2 },
-  { source: "scfi", target: "gnn", strength: 2 },
-  { source: "ais", target: "freight", strength: 3 },
-  { source: "scfi", target: "freight", strength: 3 },
+  { source: "pandas", target: "timeseries", strength: 3 },
+  { source: "sklearn", target: "timeseries", strength: 2 },
+  { source: "agentic", target: "mcp", strength: 3 },
+  { source: "agentic", target: "nlp", strength: 2 },
+  { source: "agentic", target: "python", strength: 2 },
+  { source: "mcp", target: "typescript", strength: 2 },
 
   // Infrastructure connections
   { source: "docker", target: "aws", strength: 2 },
+  { source: "docker", target: "gcp", strength: 3 },
+  { source: "docker", target: "terraform", strength: 2 },
+  { source: "gcp", target: "terraform", strength: 3 },
+  { source: "gcp", target: "node", strength: 2 },
+  { source: "node", target: "javascript", strength: 3 },
+  { source: "node", target: "typescript", strength: 3 },
+  { source: "node", target: "rest", strength: 2 },
+  { source: "stripe", target: "supabase", strength: 2 },
   { source: "docker", target: "github", strength: 2 },
   { source: "docker", target: "linux", strength: 2 },
   { source: "supabase", target: "react", strength: 2 },
@@ -130,15 +147,22 @@ const RAW_EDGES: { source: string; target: string; strength: 1 | 2 | 3 }[] = [
   { source: "react", target: "tailwind", strength: 2 },
   { source: "nextjs", target: "tailwind", strength: 2 },
   { source: "nextjs", target: "gsap", strength: 2 },
+  { source: "figma", target: "react", strength: 2 },
+  { source: "figma", target: "tailwind", strength: 2 },
 
   // Domain bridges (connects domain knowledge to technical stack)
-  { source: "freight", target: "logistics", strength: 3 },
-  { source: "freight", target: "contracts", strength: 3 },
+  { source: "logistics", target: "contracts", strength: 3 },
+  { source: "logistics", target: "scheduling", strength: 3 },
   { source: "logistics", target: "python", strength: 1 },
   { source: "logistics", target: "sql", strength: 1 },
+  { source: "logistics", target: "timeseries", strength: 2 },
   { source: "contracts", target: "nlp", strength: 2 },
+  { source: "scheduling", target: "supabase", strength: 2 },
+  { source: "scheduling", target: "react", strength: 1 },
   { source: "payment", target: "supabase", strength: 2 },
-  { source: "payment", target: "react", strength: 1 },
+  { source: "payment", target: "stripe", strength: 3 },
+  { source: "aigov", target: "agentic", strength: 3 },
+  { source: "aigov", target: "mcp", strength: 2 },
 ];
 
 // Build adjacency map from raw edge IDs

@@ -19,6 +19,10 @@ Keep GitHub Activity because its public visibility creates accountability.
 - [ ] No token or private GitHub data enters static/client output.
 - [ ] `SITE.md` documents the final data source and fallback.
 
+## Update — 2026-09-07
+
+The data path this ticket polishes does not currently return data. [PORT-043](PORT-043.md) diagnoses why and lists the owner-only steps. Do not treat this ticket as ready to validate until PORT-043 lands.
+
 ## Validation record
 
 Not run yet.

@@ -5,11 +5,10 @@ import { initScrollReveal } from "@/lib/animations";
 
 const metadata = [
   { label: "STATUS", value: "Final year, McGill University" },
-  { label: "ROLE", value: "CTO · AnyTime Technologies" },
-  { label: "NEXT", value: "AI & Analytics Intern · Hapag-Lloyd" },
-  { label: "LOCATION", value: "Montréal → Hamburg (May 2026)" },
+  { label: "ROLE", value: "Founder & CTO · Stride" },
+  { label: "LOCATION", value: "Montréal, QC" },
   { label: "LANGUAGES", value: "English · French" },
-  { label: "INTERESTS", value: "Marathon running · Freight intelligence · Home automation" },
+  { label: "INTERESTS", value: "Marathon running · Logistics · Home automation" },
 ];
 
 export default function About() {
@@ -62,15 +61,15 @@ export default function About() {
             }}
           >
             <p style={{ marginBottom: "24px" }}>
-              Software engineer with a statistics minor and an obsession with freight.
-              Two internships inside freight forwarding offices taught me where the real
-              data problems live. I&apos;m drawn to the intersection of machine learning,
-              network science, and global logistics — building tools that make complex
-              systems legible.
+              Software engineer with a statistics minor. Most of my work has been
+              internal tooling and data platforms — pricing logic, parsers,
+              dashboards, and the pipelines that keep them fed. I&apos;m drawn to
+              machine learning, network science, and operational systems, and I
+              have a soft spot for logistics: it is where messy real-world data
+              and hard scheduling problems meet.
             </p>
             <p>
-              Fluent in English and French. Currently in Montréal, moving to Hamburg
-              in May 2026 for an AI &amp; Analytics role at Hapag-Lloyd.
+              Fluent in English and French. Based in Montréal, open to relocating.
             </p>
           </div>
         </div>
