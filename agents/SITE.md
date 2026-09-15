@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-047)
+Last synchronized from code and runtime: 2026-09-15 (PORT-048)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -87,13 +87,19 @@ PORT-047 color-theme support on 2026-09-15:
 - Navigation surfaces, project borders, activity states and tooltip, selection/focus treatment, and the initialized D3 skills graph all resolve through live theme tokens. Print always uses the light palette and omits the toggle.
 - Production-export checks covered both themes, saved and unsaved states, keyboard activation, mobile navigation, scrolled navigation, an initialized graph, and exact widths from 320px through 1440px with no horizontal overflow or normal-page browser warnings/errors.
 
+PORT-048 Hero contact links on 2026-09-15:
+
+- Adds one labelled row beneath the Hero calls to action with 44px Carbon icons for GitHub, email, LinkedIn, and phone, in that order.
+- GitHub and LinkedIn reuse the Contact section's verified profiles and open in safe new tabs. Email reuses the public iCloud address; phone uses the owner-approved `tel:+15149291119` destination from the canonical résumé contact record.
+- The row uses existing theme, hover, focus, supporting-content reveal, and reduced-motion behavior. Exact-width production checks from 320px through 1440px found no wrapping or horizontal overflow in either theme.
+
 ## Page composition
 
 `src/app/page.tsx` mounts 7 sections in this order:
 
 | Order | Component | Anchor | Purpose/status in current code |
 | --- | --- | --- | --- |
-| 1 | `Hero` | top | Static two-line name, headline, location/time, and CTAs |
+| 1 | `Hero` | top | Static two-line name, headline, location/time, CTAs, and direct contact/profile icon links |
 | 2 | `About` | `#about` | Bio and personal metadata |
 | 3 | `Experience` | `#experience` | Work and education timeline; four entries ordered Hapag-Lloyd, Stride, Prime Freight, McGill |
 | 4 | `Projects` | `#projects` | Featured Stride card plus two project cards in a two-column grid |
@@ -142,7 +148,7 @@ When personal information changes, search all of these rather than updating only
 | Work and education | `Experience.tsx`, `About.tsx`, `layout.tsx`; upstream truth in the résumé record |
 | Projects | `Projects.tsx`, `SkillsGraph.tsx` |
 | Interests/activity | `About.tsx` |
-| Public links | `Projects.tsx`, `Contact.tsx`, `layout.tsx` |
+| Public links and contact details | `Hero.tsx`, `Projects.tsx`, `Contact.tsx`, `layout.tsx` |
 | Brand/typography | `layout.tsx`, `globals.css`, `Hero.tsx`, `page.tsx`, and most components |
 
 Use `rg` for both the old value and likely variants before closing a content ticket.

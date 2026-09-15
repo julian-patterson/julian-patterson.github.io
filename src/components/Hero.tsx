@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { ArrowRight } from "@carbon/icons-react";
+import {
+  ArrowRight,
+  Email,
+  LogoGithub,
+  LogoLinkedin,
+  Phone,
+} from "@carbon/icons-react";
 import gsap from "gsap";
 import TextScramble from "./TextScramble";
 
@@ -251,6 +257,48 @@ export default function Hero() {
                 <ArrowRight size={16} />
               </button>
             </div>
+
+            <nav
+              aria-label="Contact links"
+              className="hero-contact-links reveal-item motion-reveal"
+            >
+              <a
+                href="https://github.com/julian-patterson"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-contact-link"
+                aria-label="Visit Julian Patterson's GitHub (opens in a new tab)"
+                title="GitHub profile"
+              >
+                <LogoGithub size={20} aria-hidden="true" />
+              </a>
+              <a
+                href="mailto:julian.e.patterson@icloud.com"
+                className="hero-contact-link"
+                aria-label="Email Julian Patterson"
+                title="Email julian.e.patterson@icloud.com"
+              >
+                <Email size={20} aria-hidden="true" />
+              </a>
+              <a
+                href="https://linkedin.com/in/julian-e-patterson"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-contact-link"
+                aria-label="Visit Julian Patterson's LinkedIn (opens in a new tab)"
+                title="LinkedIn profile"
+              >
+                <LogoLinkedin size={20} aria-hidden="true" />
+              </a>
+              <a
+                href="tel:+15149291119"
+                className="hero-contact-link"
+                aria-label="Call Julian Patterson at 514-929-1119"
+                title="Call (514) 929-1119"
+              >
+                <Phone size={20} aria-hidden="true" />
+              </a>
+            </nav>
           </div>
         </div>
       </div>

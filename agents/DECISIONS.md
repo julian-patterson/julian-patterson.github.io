@@ -342,3 +342,27 @@ A small head bootstrap applies only a valid saved override before first paint. T
 - After using the control, the explicit choice wins on later visits; clearing site storage returns to device-default behavior.
 - All component and SVG colors use CSS variables so an initialized page can switch themes without reloading or rebuilding visualizations.
 - Print output resolves to a light, ink-conscious palette regardless of the on-screen theme.
+
+<a id="adr-016"></a>
+## ADR-016 — Put direct contact paths in the Hero
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-013 and ADR-014
+
+### Context
+
+The Hero offered only section-navigation calls to action, while GitHub, email, and LinkedIn were available near the bottom of the page. Julian requested direct Hero icon links for those destinations plus his phone number.
+
+### Decision
+
+Keep a compact, labelled row beneath the Hero calls to action with Carbon icons for GitHub, email, LinkedIn, and phone, in that order. The first three reuse the current public site destinations. Publish the consistently verified résumé phone number as `tel:+15149291119`; Julian's current request is the publication approval for this contact detail.
+
+Each icon-only link has a descriptive accessible name and a square 44px target. GitHub and LinkedIn open in safe new tabs; email and phone retain native same-context protocol behavior. The row shares the Hero supporting content's restrained reveal as one unit and remains fully visible in reduced-motion mode.
+
+### Consequences
+
+- Visitors can reach every approved direct contact path without scrolling to the Contact section.
+- The phone number is now public website content and must be updated in both `Hero.tsx` and `knowledge-base/PROFILE.md` if it changes.
+- Future PORT-020 Hero work preserves the four-link row unless Julian requests another contact treatment.

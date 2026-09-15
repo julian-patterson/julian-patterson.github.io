@@ -12,6 +12,10 @@
 
 Keep Contact.
 
+## Update — 2026-09-15
+
+[PORT-048](PORT-048.md) separately authorizes the verified phone number for public use and adds it to the Hero icon row. It does not change this ticket's pending Contact-section audit or add the phone to the Contact section.
+
 ## Acceptance criteria
 
 - [ ] Email, LinkedIn, GitHub, and canonical portfolio links use approved labels and destinations.

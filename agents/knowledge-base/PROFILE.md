@@ -42,6 +42,12 @@ Last synchronized from code: 2026-09-15
   - publication: Public
   - source_status: Canonical code
   - note: corrected by PORT-045 from the portfolio URL to Julian's public GitHub profile
+- Phone: `(514) 929-1119`
+  - link: `tel:+15149291119`
+  - publication: Public
+  - source_status: Canonical code
+  - source: `src/components/Hero.tsx`
+  - note: verified against the canonical résumé contact record and approved for publication by Julian's PORT-048 request
 - Portfolio domains currently represented in code:
   - metadata URL: `https://julianpatterson.ca`
   - publication: Public

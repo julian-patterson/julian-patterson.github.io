@@ -432,6 +432,33 @@ section[id] {
   text-decoration: none !important;
 }
 
+.hero-contact-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.hero-contact-link {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 44px;
+  color: var(--accent-navy);
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: color 0.2s var(--motion-standard), background-color 0.2s var(--motion-standard), border-color 0.2s var(--motion-standard);
+}
+
+.hero-contact-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border-color: var(--border-strong);
+}
+
 @media (min-width: 769px) {
   nav .hidden-mobile {
     display: flex !important;

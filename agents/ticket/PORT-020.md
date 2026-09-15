@@ -20,6 +20,8 @@ Keep the Hero. Remove outdated Montréal-to-Hamburg transition framing, clean up
 
 [PORT-046](PORT-046.md) makes the current Hero name static and gives its letters and two lines more space. Preserve that owner-approved treatment during the eventual positioning refresh unless Julian requests another visual change.
 
+[PORT-048](PORT-048.md) adds the current four-link GitHub, email, LinkedIn, and phone icon row beneath the Hero calls to action. Preserve these owner-requested contact paths during the eventual positioning refresh unless Julian requests another contact treatment.
+
 ## Acceptance criteria
 
 - [x] Outdated relocation and future-tense status copy is replaced (PORT-039).

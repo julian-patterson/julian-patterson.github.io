@@ -47,6 +47,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-048 — Add contact icon links to the Hero](ticket/PORT-048.md) | P0 | 2026-09-15 | Added accessible GitHub, email, LinkedIn, and phone icon links beneath the Hero calls to action |
 | [PORT-047 — Add device-aware dark mode](ticket/PORT-047.md) | P0 | 2026-09-15 | Added a device-default light/dark system with a persistent, accessible moon/sun navigation control |
 | [PORT-046 — Stabilize and space the Hero name](ticket/PORT-046.md) | P0 | 2026-09-15 | Replaced the falling per-character name animation with stable, more openly spaced two-line type |
 | [PORT-045 — Merge the updated-font UI into the current portfolio](ticket/PORT-045.md) | P0 | 2026-09-15 | Merged the sibling UI history while retaining current content, then corrected its font wiring, scramble accessibility, and 320px Hero layout |
