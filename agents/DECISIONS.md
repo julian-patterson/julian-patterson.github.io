@@ -295,3 +295,25 @@ The site's current content, employment history, project set, and removed-section
 - Carbon remains a focused visual influence with a small dependency surface.
 - A future switch to GT America, Akkurat, or Suisse requires owner-supplied webfont licenses and files.
 - PORT-045 reconciles the branch ancestry and the colliding `PORT-039`/`ADR-011` histories under current IDs.
+
+<a id="adr-014"></a>
+## ADR-014 — Keep the Hero name static and spacious
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-013
+
+### Context
+
+The Hero split Julian's name into individual character spans and animated each character from a randomized offset, rotation, and opacity. Julian asked for more spacing in the full name and for the letters to stop coming or falling into place.
+
+### Decision
+
+Render `Julian Patterson.` as stable two-line text from first paint. Use more open tracking and an intentional gap between the name lines, while preserving the current Geist typeface, responsive scale, navy period, and selective text scramble on smaller section kickers.
+
+### Consequences
+
+- The primary identity is immediately legible and no longer depends on JavaScript animation completing.
+- The dedicated per-character animation component and styling are removed.
+- Future Hero work in PORT-020 preserves the static name treatment unless Julian requests a new direction.

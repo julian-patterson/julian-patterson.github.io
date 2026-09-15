@@ -16,6 +16,10 @@ Keep the Hero. Remove outdated Montréal-to-Hamburg transition framing, clean up
 
 [PORT-039](PORT-039.md) already removed the relocation framing, the `YUL → HAM → SHA` coordinate motif, and the freight-intelligence copy; the Hero now reads "Building data-driven software … Final year, McGill University." What remains for this ticket is the final positioning sentence and headline treatment from RQ-002, plus the data-science wording question.
 
+## Update — 2026-09-15
+
+[PORT-046](PORT-046.md) makes the current Hero name static and gives its letters and two lines more space. Preserve that owner-approved treatment during the eventual positioning refresh unless Julian requests another visual change.
+
 ## Acceptance criteria
 
 - [x] Outdated relocation and future-tense status copy is replaced (PORT-039).

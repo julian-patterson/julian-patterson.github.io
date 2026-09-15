@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ArrowRight } from "@carbon/icons-react";
 import gsap from "gsap";
-import LetterExplosion from "./LetterExplosion";
 import TextScramble from "./TextScramble";
 
 function LiveClock() {
@@ -31,28 +30,31 @@ function LiveClock() {
 
 export default function Hero() {
   const subtitleRef = useRef<HTMLDivElement>(null);
-  const [nameComplete, setNameComplete] = useState(false);
-
-  const handleNameComplete = useCallback(() => {
-    setNameComplete(true);
-  }, []);
 
   useEffect(() => {
-    if (!nameComplete || !subtitleRef.current) return;
-    const els = subtitleRef.current.querySelectorAll(".reveal-item");
-    gsap.fromTo(
-      els,
-      { opacity: 0, y: 16 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.12,
-        delay: 0.1,
-      },
-    );
-  }, [nameComplete]);
+    const subtitle = subtitleRef.current;
+    if (!subtitle || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const context = gsap.context(() => {
+      const els = subtitle.querySelectorAll(".reveal-item");
+      gsap.fromTo(
+        els,
+        { opacity: 0, y: 16 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.12,
+          delay: 0.1,
+        },
+      );
+    }, subtitle);
+
+    return () => context.revert();
+  }, []);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -99,41 +101,37 @@ export default function Hero() {
 
           {/* Hero name */}
           <h1
+            aria-label="Julian Patterson."
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(52px, 8vw, 96px)",
               fontWeight: 520,
-              letterSpacing: "-0.055em",
+              letterSpacing: "-0.025em",
               lineHeight: 0.94,
               color: "var(--text-primary)",
               marginBottom: "32px",
               overflow: "visible",
             }}
           >
-            <span style={{ display: "block" }}>
-              <LetterExplosion text="Julian" />
+            <span aria-hidden="true" style={{ display: "block" }}>
+              Julian
             </span>
-            <span style={{ display: "block" }}>
-              <LetterExplosion
-                text="Patterson"
-                onComplete={handleNameComplete}
-              />
+            <span
+              aria-hidden="true"
+              style={{ display: "block", marginTop: "0.08em" }}
+            >
+              Patterson
               <span
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(52px, 8vw, 96px)",
-                  fontWeight: 520,
                   color: "var(--accent-navy)",
-                  display: "inline-block",
                 }}
-                className="char"
               >
                 .
               </span>
             </span>
           </h1>
 
-          {/* Subtitle & tags — hidden until name assembles */}
+          {/* Subtitle & tags */}
           <div ref={subtitleRef}>
             <p
               className="reveal-item motion-reveal"

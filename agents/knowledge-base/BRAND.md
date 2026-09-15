@@ -9,6 +9,7 @@ Last decision review: 2026-09-15
 - Logistics remains as a stated general interest only — About's "soft spot for logistics" line and the `Logistics & Ops` skills node.
 - The `Prime Freight Logistics` and `Hapag-Lloyd` employer names stay as factual employment records with domain-neutral role descriptions. What was removed is the *relocation narrative*, not the work history.
 - Use bundled Geist for display/body text and Space Mono for labels and metadata, as implemented by PORT-045 and recorded in ADR-013.
+- Render the Hero name as stable type with open tracking and intentional space between its two lines; do not animate its individual letters into place.
 - Use a restrained, reduced-motion-aware text scramble on selected section kickers.
 - Draw selectively from Carbon's icons, 2x spacing, square geometry, focus treatment, and motion principles without adopting the full component library.
 - Remove generic/generated-feeling sections and copy.

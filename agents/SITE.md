@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-045)
+Last synchronized from code and runtime: 2026-09-15 (PORT-046)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -72,13 +72,20 @@ PORT-045 branch reconciliation on 2026-09-15:
 - Standard project cards no longer open `#` in a new tab; they remain visible with non-interactive pending-link labels. The verified Stride link remains unchanged.
 - Validation results are recorded in PORT-045.
 
+PORT-046 Hero-name refinement on 2026-09-15:
+
+- Replaces the randomized per-character name assembly with static `Julian Patterson.` text that is visible from first paint.
+- Opens the tracking from `-0.055em` to `-0.025em` and adds a `0.08em` gap between the two name lines while retaining the responsive 52–96px scale and navy period.
+- Deletes the unused `LetterExplosion` component and `.char` CSS. The selective section-kicker scramble and the supporting Hero content reveal remain.
+- Production-export browser checks at exact 320px and 1440px widths found no horizontal overflow, no browser warnings/errors, and a stable accessible Hero heading.
+
 ## Page composition
 
 `src/app/page.tsx` mounts 7 sections in this order:
 
 | Order | Component | Anchor | Purpose/status in current code |
 | --- | --- | --- | --- |
-| 1 | `Hero` | top | Name, headline, location/time, CTAs, letter animation |
+| 1 | `Hero` | top | Static two-line name, headline, location/time, and CTAs |
 | 2 | `About` | `#about` | Bio and personal metadata |
 | 3 | `Experience` | `#experience` | Work and education timeline; four entries ordered Hapag-Lloyd, Stride, Prime Freight, McGill |
 | 4 | `Projects` | `#projects` | Featured Stride card plus two project cards in a two-column grid |
