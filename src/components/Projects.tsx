@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { LogoGithub } from "@carbon/icons-react";
 import TextScramble from "./TextScramble";
 
 const featuredProject = {
@@ -21,12 +22,14 @@ const projects = [
     description:
       "Go CLI tool using Cobra, SSH, and Git for syncing and transferring repositories over Wi-Fi.",
     stack: ["Go", "Cobra", "SSH", "Git"],
+    link: "https://github.com/julian-patterson/transfer-cli",
   },
   {
     name: "IoT LED Controller",
     description:
       "Centralized home lighting control system with RGB color management, REST API, and Docker deployment on Raspberry Pi.",
     stack: ["Rust", "Python", "FastAPI", "Docker"],
+    link: "https://github.com/patterson-project/custom-led-controller",
   },
 ];
 
@@ -250,19 +253,32 @@ export default function Projects() {
                 </span>
               ))}
             </div>
-            <span
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "12px",
-                color: "var(--text-tertiary)",
-              }}
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-repository-link"
+              aria-label={`View ${project.name} repository on GitHub (opens in a new tab)`}
             >
-              Public link pending
-            </span>
+              View repository ↗
+            </a>
           </article>
         ))}
       </div>
 
+      <div className="projects-more-row project-card-anim motion-reveal">
+        <a
+          href="https://github.com/julian-patterson"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="projects-more-link"
+          aria-label="View more of Julian Patterson's projects on GitHub (opens in a new tab)"
+        >
+          <LogoGithub size={18} aria-hidden="true" />
+          <span>View more on GitHub</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
   );
 }

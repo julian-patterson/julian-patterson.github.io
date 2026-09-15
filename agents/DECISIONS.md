@@ -366,3 +366,27 @@ Each icon-only link has a descriptive accessible name and a square 44px target. 
 - Visitors can reach every approved direct contact path without scrolling to the Contact section.
 - The phone number is now public website content and must be updated in both `Hero.tsx` and `knowledge-base/PROFILE.md` if it changes.
 - Future PORT-020 Hero work preserves the four-link row unless Julian requests another contact treatment.
+
+<a id="adr-017"></a>
+## ADR-017 — Expose project repositories as explicit card actions
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-012 and ADR-013
+
+### Context
+
+The Transfer CLI and IoT LED Controller cards retained their approved copy but had no destinations after PORT-045 replaced unsafe `#` actions with pending labels. Julian supplied both public repository URLs and asked for a generic path to see more work on GitHub.
+
+### Decision
+
+Keep each standard project as a semantic `article` and add one explicit `View repository` anchor inside it; do not turn the whole card into a link. Preserve the current names, summaries, stacks, order, and two-column desktop composition. Add one compact `View more on GitHub` action after the grid, targeting Julian's existing public GitHub profile.
+
+All three GitHub actions open in safe new tabs, use descriptive accessible names, inherit the shared focus treatment, and maintain a minimum 44px interactive height in both themes.
+
+### Consequences
+
+- The two standard cards now have approved public destinations without introducing ambiguous whole-card behavior.
+- GitHub remains the single section-level browse destination; adding another service or case-study index requires a new owner decision.
+- PORT-012 and PORT-023 remain blocked because these URL approvals do not settle the projects' statuses, contributions, evidence/outcomes, or the rest of the content audit.

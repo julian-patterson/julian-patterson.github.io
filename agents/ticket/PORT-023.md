@@ -6,11 +6,15 @@
 - Depends on: PORT-011, PORT-012
 - Required approvals: [RQ-006](../REVIEW-QUESTIONS.md#rq-006), [RQ-007](../REVIEW-QUESTIONS.md#rq-007)
 - Owner: unassigned
-- Blocker: project dispositions, approved evidence, and public URLs are incomplete
+- Blocker: remaining project dispositions, approved evidence, and public URLs are incomplete
 
 ## Owner direction
 
 Keep Projects and clean up its content and presentation.
+
+### Partial owner update — 2026-09-15
+
+PORT-049 replaced the two standard cards' pending-link labels with their approved GitHub repositories and added a section-level GitHub profile action. The broader content and evidence cleanup remains blocked on PORT-011, the rest of PORT-012, RQ-006, and the unanswered portions of RQ-007.
 
 ## Acceptance criteria
 

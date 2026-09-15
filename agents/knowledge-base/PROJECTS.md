@@ -2,9 +2,9 @@
 
 Last synchronized from code: 2026-09-15
 
-The featured Stride card links to the verified `https://strideapp.ca` (PORT-041). PORT-045 removed the two literal `#` actions from the standard cards; Transfer CLI and IoT LED Controller now display `Public link pending` as non-interactive text until approved URLs are supplied. PORT-044 removed the OpenClaw card on 2026-09-07, leaving Stride plus two standard cards. PORT-012 still requests approved project URLs, and PORT-023 owns the resulting section cleanup.
+The featured Stride card links to the verified `https://strideapp.ca` (PORT-041). PORT-049 replaced the standard cards' `Public link pending` labels with owner-approved GitHub repository actions and added a section-level link to Julian's GitHub profile. PORT-044 removed the OpenClaw card on 2026-09-07, leaving Stride plus two standard cards. PORT-012 still requests the remaining project dispositions, evidence, outcomes, statuses, and publication decisions; PORT-023 owns the broader section cleanup.
 
-PORT-039 removed the freight research project on 2026-09-07 and promoted AnyTime Technologies to the featured card; the three remaining cards render in a single row.
+PORT-039 removed the freight research project on 2026-09-07 and promoted then-AnyTime Technologies to the standalone featured card; PORT-041 later renamed it Stride. The two standard cards render in a two-column grid beneath it on desktop.
 
 ## Freight Network Intelligence
 
@@ -40,7 +40,7 @@ PORT-039 removed the freight research project on 2026-09-07 and promoted AnyTime
 
 - Status: TBD
 - Summary: Go CLI for repository transfer/sync over Wi-Fi using Cobra, SSH, and Git
-- Repository link: TBD
+- Repository link: `https://github.com/julian-patterson/transfer-cli` — owner-approved for publication and verified reachable on 2026-09-15
 - Source status: Canonical code
 
 ## IoT LED Controller
@@ -48,7 +48,7 @@ PORT-039 removed the freight research project on 2026-09-07 and promoted AnyTime
 - Status: TBD
 - Summary: Raspberry Pi lighting control with RGB management, REST API, and Docker deployment
 - Claimed stack: Rust, Python, FastAPI, Docker
-- Repository/live link: TBD
+- Repository link: `https://github.com/patterson-project/custom-led-controller` — owner-approved for publication and verified reachable on 2026-09-15
 - Source status: Canonical code
 
 ## Retired from the résumé, still on the site

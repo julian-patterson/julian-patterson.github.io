@@ -118,12 +118,23 @@ Provide public product scope, exact role and dates/status, responsibilities, arc
 <a id="rq-007"></a>
 ## RQ-007 — Projects and public links
 
-- Status: Open
+- Status: Partially answered
 - Affects: [PORT-012](ticket/PORT-012.md), [PORT-023](ticket/PORT-023.md), [PORT-034](ticket/PORT-034.md)
 
 ### Owner response — 2026-07-22
 
 Keep the full project disposition, evidence, status, summary, contribution, stack, and public-link review in PORT-012.
+
+### Owner response — 2026-09-15
+
+- Publish `https://github.com/julian-patterson/transfer-cli` on the Transfer CLI card.
+- Publish `https://github.com/patterson-project/custom-led-controller` on the existing IoT LED Controller card.
+- Add a generic `View more on GitHub` action beneath the project grid, using Julian's existing public profile at `https://github.com/julian-patterson`.
+- Implemented by [PORT-049](ticket/PORT-049.md).
+
+### Still needed
+
+Complete the remaining project-by-project disposition, status, summary, contribution, evidence/outcome, stack, publication-policy, and any additional repository/live/case-study URL review in PORT-012. PORT-023 remains blocked on those inputs and the separate AnyTime/Stride review in RQ-006.
 
 <a id="rq-008"></a>
 ## RQ-008 — Reverse-scroll behavior

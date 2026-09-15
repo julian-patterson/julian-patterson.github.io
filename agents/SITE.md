@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-048)
+Last synchronized from code and runtime: 2026-09-15 (PORT-049)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -93,6 +93,12 @@ PORT-048 Hero contact links on 2026-09-15:
 - GitHub and LinkedIn reuse the Contact section's verified profiles and open in safe new tabs. Email reuses the public iCloud address; phone uses the owner-approved `tel:+15149291119` destination from the canonical résumé contact record.
 - The row uses existing theme, hover, focus, supporting-content reveal, and reduced-motion behavior. Exact-width production checks from 320px through 1440px found no wrapping or horizontal overflow in either theme.
 
+PORT-049 project repository links on 2026-09-15:
+
+- Replaces the Transfer CLI and IoT LED Controller `Public link pending` labels with explicit repository actions using the exact owner-approved GitHub URLs.
+- Adds one `View more on GitHub` action beneath the standard-card grid, linking to Julian's public GitHub profile. All three actions use descriptive accessible names, safe new-tab attributes, visible shared focus treatment, and 44px minimum heights.
+- Production-export checks covered keyboard order, both themes, exact widths at 320px, 375px, 768px, 1024px, and 1440px, and the browser console; layouts had no horizontal overflow or normal-page warning/error.
+
 ## Page composition
 
 `src/app/page.tsx` mounts 7 sections in this order:
@@ -102,7 +108,7 @@ PORT-048 Hero contact links on 2026-09-15:
 | 1 | `Hero` | top | Static two-line name, headline, location/time, CTAs, and direct contact/profile icon links |
 | 2 | `About` | `#about` | Bio and personal metadata |
 | 3 | `Experience` | `#experience` | Work and education timeline; four entries ordered Hapag-Lloyd, Stride, Prime Freight, McGill |
-| 4 | `Projects` | `#projects` | Featured Stride card plus two project cards in a two-column grid |
+| 4 | `Projects` | `#projects` | Featured Stride card plus two repository-linked project cards in a two-column grid and a section-level GitHub browse action |
 | 5 | `SkillsGraph` | `#skills` | Interactive D3 skill graph |
 | 6 | `GitHubActivity` | `#activity` | Contribution heatmap backed by a sanitized build-time snapshot at `/data/github-activity`; currently renders the "unavailable" state — see PORT-043 |
 | 7 | `Contact` | `#contact` | Email, LinkedIn, GitHub-labelled URL, footer |
@@ -159,7 +165,7 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 
 - The 390px hero fits, uses the hamburger navigation, and preserves both CTAs.
 - PORT-002 resolved the hydration mismatch previously caused by HTML escaping differences inside rendered component `<style>` text. Component CSS now lives in the static global stylesheet with section-scoped selectors.
-- Both standard project cards in `Projects.tsx` display non-interactive pending-link labels; the featured Stride card links to `https://strideapp.ca`. PORT-023 still owns adding approved destinations.
+- The featured Stride card links to `https://strideapp.ca`; Transfer CLI links to `https://github.com/julian-patterson/transfer-cli`; IoT LED Controller links to `https://github.com/patterson-project/custom-led-controller`; and the section-level browse action links to Julian's GitHub profile. PORT-023 still owns the broader project-content cleanup.
 - The GitHub-labelled link in `Contact.tsx` points to Julian's GitHub profile.
 - PORT-014 moved GitHub activity to a build-generated static snapshot; the browser and GitHub Pages deployment no longer require a runtime API or token.
 - PORT-017 supplies a reduced-motion and print fallback for essential reveal content; the owner closed the ticket and waived its remaining interaction-accessibility scope.
@@ -167,7 +173,7 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 - PORT-028 removed the Now section, its countdown logic, and its responsive rule. Retained status themes remain represented elsewhere; Now-only date/countdown, German-level, and weekly-training claims were deliberately removed from production rather than relocated.
 - PORT-041 rebuilt Experience from Julian's canonical résumé record at `/home/julian/Development/resume/content/experience.md`, which is now the upstream source of truth for employment facts. It corrected several stale claims: AnyTime Technologies is renamed **Stride**; Stride runs **May 2025 – present**, not 2024; the title is **Founder & Chief Technology Officer**; Prime Freight ended **March 2026** and its "2024 – Present" was false; McGill is **expected December 2026**; McGill AI Alignment is no longer active and was removed; and the Hero's "Native EN · FR" became "Fluent EN · FR" because the record retired "native". Entries are written at the skills level rather than as itemized accomplishments, so the quantified Prime Freight metrics moved out of the timeline into `Stats`; PORT-024 has since removed `Stats`, so those figures are no longer published anywhere on the site and live only in the résumé record. The record carries binding `NOT CLAIMABLE` / `STATUS` / `ATTRIBUTION` limits — read `knowledge-base/EXPERIENCE.md` before editing any Experience copy.
 - PORT-039 removed the freight identity at Julian's explicit request, and PORT-040 then restored one piece of it. What is gone: the relocation narrative — the `Montréal → Hamburg` location lines, the `YUL → HAM → SHA` hero coordinate motif, the `ping hapag-lloyd.com` terminal command, and all "incoming"/"upcoming" tense. What stands: `Prime Freight Logistics` and `Hapag-Lloyd` as factual employment records in Experience, both with domain-neutral role descriptions. Hapag-Lloyd reads "AI Hub Intern · Hamburg, Germany · May – Aug 2026" and appears in Experience only, not in the Hero, About, Terminal, or site metadata. Logistics survives as a stated interest in About and as the `Logistics & Ops` domain node in `SkillsGraph.tsx`. The freight-specific `AIS Data` and `SCFI Index` skill nodes were replaced by `Time Series`. Verified metric values in Experience and Stats were unchanged by that ticket; only their labels were generalized. `Stats` was removed later the same day by PORT-024.
-- Standard project cards use semantic `article` elements and do not imitate links while their destinations are unknown; the skills graph remains hover-oriented.
+- Standard project cards remain semantic `article` elements with explicit repository anchors rather than whole-card link behavior; the skills graph remains hover-oriented.
 - PORT-042 removed the Marathon and Terminal sections at Julian's request, together with their dedicated CSS. Their placeholder Strava figures and simulated terminal history are no longer in production. The About card still lists marathon running as an interest, which was deliberate.
 - PORT-024 removed the `Stats` section (`Impact`, `#stats`) at Julian's request, resolving RQ-011 as **remove**. Its six counters and the before/after automation chart are gone, along with the `#stats` grid rules and the `@media (max-width: 480px)` block that held only Stats rules. The underlying Prime Freight figures were never withdrawn as facts — they remain in the résumé record and are simply unpublished.
 - PORT-044 reduced the `Contact.tsx` footer to `© 2026 Julian Patterson` and removed the `OpenClaw` project card. The deleted footer line claimed "Deployed on Vercel", which contradicted ADR-005 and the actual GitHub Pages workflow. The Projects card grid is now `repeat(2, 1fr)` to match the two remaining cards.
