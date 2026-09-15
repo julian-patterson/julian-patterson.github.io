@@ -24,7 +24,7 @@ export default function TextScramble({ text, className = "" }: TextScrambleProps
     let intervalId: ReturnType<typeof setInterval> | undefined;
 
     const stop = () => {
-      if (intervalId) clearInterval(intervalId);
+      if (intervalId !== undefined) clearInterval(intervalId);
       intervalId = undefined;
       setRenderedText(text);
     };
@@ -48,18 +48,37 @@ export default function TextScramble({ text, className = "" }: TextScrambleProps
       }, 42);
     };
 
+    let hasInitialSample = false;
+    let wasInActivationZone = false;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) play();
-        else stop();
+        const isInActivationZone = entry.isIntersecting && entry.intersectionRatio >= 0.7;
+
+        if (!hasInitialSample) {
+          hasInitialSample = true;
+          wasInActivationZone = isInActivationZone;
+          return;
+        }
+
+        if (isInActivationZone && !wasInActivationZone) {
+          play();
+        } else if (!isInActivationZone && wasInActivationZone) {
+          stop();
+        }
+
+        wasInActivationZone = isInActivationZone;
       },
-      { threshold: 0.7 }
+      {
+        threshold: [0, 0.7],
+        rootMargin: "0px 0px -20% 0px",
+      }
     );
 
     observer.observe(element);
     return () => {
       observer.disconnect();
-      if (intervalId) clearInterval(intervalId);
+      if (intervalId !== undefined) clearInterval(intervalId);
     };
   }, [text]);
 

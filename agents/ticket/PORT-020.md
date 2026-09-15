@@ -22,6 +22,8 @@ Keep the Hero. Remove outdated Montréal-to-Hamburg transition framing, clean up
 
 [PORT-048](PORT-048.md) adds the current four-link GitHub, email, LinkedIn, and phone icon row beneath the Hero calls to action. Preserve these owner-requested contact paths during the eventual positioning refresh unless Julian requests another contact treatment.
 
+[PORT-051](PORT-051.md) removes the Hero-only final-year sentence, location/time and language pills, and `Get in touch` action. It moves the four-link row directly below the remaining introduction and follows it with one width-matched `View my work` button. Preserve this simplified action hierarchy; this ticket remains blocked on the final headline and positioning decisions.
+
 ## Acceptance criteria
 
 - [x] Outdated relocation and future-tense status copy is replaced (PORT-039).

@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-050)
+Last synchronized from code and runtime: 2026-09-15 (PORT-051)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -107,17 +107,26 @@ PORT-050 Skills Graph inventory on 2026-09-15:
 - Fresh production-export checks in both themes at 320px, 375px, 768px, 1024px, and 1440px found all 37 unique nodes, exact category counts, no clipped or overlapping text boxes, no horizontal overflow, working keyboard legend filtering/focus, live theme-token updates, and no browser warning/error. The final narrow-layout matrix measured a minimum label-line height of about 14px at 320px; the active Languages filter remained at 7 active / 30 muted nodes after node hover and leave.
 - Background drag-to-pan now matches the graph hint. With reduced motion requested, the desktop simulation settles synchronously, node dragging is disabled, and edges appear without a D3 transition.
 
+PORT-051 Hero and interaction refinement on 2026-09-15:
+
+- Simplifies the Hero to its static name, introduction, four-link contact row, and one `View my work` button. The Hero-only final-year sentence, Montréal/time and language pills, and `Get in touch` action are removed; the approved status, location, and language facts remain in About and Experience.
+- Places the contact row directly after the introduction and gives the work button the row's exact 200px rendered width. All five controls retain 44px minimum targets.
+- Adds a labelled `Recenter` toolbar control above the Skills Graph. Mouse, keyboard, and double-click resets use the same D3 zoom behavior, preserve active legend filters, and skip the reset transition for reduced motion.
+- Applies the accessible section-kicker scramble to all seven sections and delays playback until a real viewport-entry transition after the observer's initial sample. Reduced-motion rendering remains static.
+- Removes the theme toggle's resting and hover box while preserving its transparent 44px target, live action label, and visible keyboard focus ring.
+- Production-export checks covered both themes at exact 320px, 375px, 768px, 1024px, and 1440px widths, Hero ordering and equal widths, graph reset by mouse and keyboard, selected-filter retention, scroll-entry scramble samples, accessible kicker text, theme switching/focus, horizontal overflow, and the browser console.
+
 ## Page composition
 
 `src/app/page.tsx` mounts 7 sections in this order:
 
 | Order | Component | Anchor | Purpose/status in current code |
 | --- | --- | --- | --- |
-| 1 | `Hero` | top | Static two-line name, headline, location/time, CTAs, and direct contact/profile icon links |
+| 1 | `Hero` | top | Static two-line name, headline, introduction, direct contact/profile icon links, and one project-navigation button |
 | 2 | `About` | `#about` | Bio and personal metadata |
 | 3 | `Experience` | `#experience` | Work and education timeline; four entries ordered Hapag-Lloyd, Stride, Prime Freight, McGill |
 | 4 | `Projects` | `#projects` | Featured Stride card plus two repository-linked project cards in a two-column grid and a section-level GitHub browse action |
-| 5 | `SkillsGraph` | `#skills` | Interactive D3 graph of 37 equal-weight skills in five owner-approved categories, with an accessible text description and keyboard legend filters |
+| 5 | `SkillsGraph` | `#skills` | Interactive D3 graph of 37 equal-weight skills in five owner-approved categories, with an accessible text description, keyboard legend filters, and an explicit recenter control |
 | 6 | `GitHubActivity` | `#activity` | Contribution heatmap backed by a sanitized build-time snapshot at `/data/github-activity`; currently renders the "unavailable" state — see PORT-043 |
 | 7 | `Contact` | `#contact` | Email, LinkedIn, GitHub-labelled URL, footer |
 
@@ -158,7 +167,7 @@ When personal information changes, search all of these rather than updating only
 | Information | Current consumers |
 | --- | --- |
 | Name, headline, domains | `layout.tsx`, `Hero.tsx`, `Contact.tsx` |
-| Status, role, location, languages | `Hero.tsx`, `About.tsx`, `Contact.tsx`, `layout.tsx` |
+| Status, role, location, languages | `About.tsx`, `Experience.tsx`, `Contact.tsx`, `layout.tsx` |
 | Work and education | `Experience.tsx`, `About.tsx`, `layout.tsx`; upstream truth in the résumé record |
 | Projects | `Projects.tsx` |
 | Skills | `SkillsGraph.tsx`; supporting context in `Experience.tsx`, `Projects.tsx`, and `knowledge-base/SKILLS.md` |
@@ -172,7 +181,7 @@ Use `rg` for both the old value and likely variants before closing a content tic
 
 These are observed code/runtime facts. Their remediation is indexed in `TICKETS.md` and specified in the linked files under `agents/ticket/`.
 
-- The 390px hero fits, uses the hamburger navigation, and preserves both CTAs.
+- The Hero fits supported widths, uses the hamburger navigation on compact screens, and presents the four direct-contact links above one width-matched `View my work` button.
 - PORT-002 resolved the hydration mismatch previously caused by HTML escaping differences inside rendered component `<style>` text. Component CSS now lives in the static global stylesheet with section-scoped selectors.
 - The featured Stride card links to `https://strideapp.ca`; Transfer CLI links to `https://github.com/julian-patterson/transfer-cli`; IoT LED Controller links to `https://github.com/patterson-project/custom-led-controller`; and the section-level browse action links to Julian's GitHub profile. PORT-023 still owns the broader project-content cleanup.
 - The GitHub-labelled link in `Contact.tsx` points to Julian's GitHub profile.
@@ -180,9 +189,9 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 - PORT-017 supplies a reduced-motion and print fallback for essential reveal content; the owner closed the ticket and waived its remaining interaction-accessibility scope.
 - PORT-027 removed the Journey section and its responsive animation rules. Its retained work, education, and location facts remain represented in About and Experience; Journey-only “Born and raised” and “first freight internship” wording was deliberately removed rather than silently relocated.
 - PORT-028 removed the Now section, its countdown logic, and its responsive rule. Retained status themes remain represented elsewhere; Now-only date/countdown, German-level, and weekly-training claims were deliberately removed from production rather than relocated.
-- PORT-041 rebuilt Experience from Julian's canonical résumé record at `/home/julian/Development/resume/content/experience.md`, which is now the upstream source of truth for employment facts. It corrected several stale claims: AnyTime Technologies is renamed **Stride**; Stride runs **May 2025 – present**, not 2024; the title is **Founder & Chief Technology Officer**; Prime Freight ended **March 2026** and its "2024 – Present" was false; McGill is **expected December 2026**; McGill AI Alignment is no longer active and was removed; and the Hero's "Native EN · FR" became "Fluent EN · FR" because the record retired "native". Entries are written at the skills level rather than as itemized accomplishments, so the quantified Prime Freight metrics moved out of the timeline into `Stats`; PORT-024 has since removed `Stats`, so those figures are no longer published anywhere on the site and live only in the résumé record. The record carries binding `NOT CLAIMABLE` / `STATUS` / `ATTRIBUTION` limits — read `knowledge-base/EXPERIENCE.md` before editing any Experience copy.
+- PORT-041 rebuilt Experience from Julian's canonical résumé record at `/home/julian/Development/resume/content/experience.md`, which is now the upstream source of truth for employment facts. It corrected several stale claims: AnyTime Technologies is renamed **Stride**; Stride runs **May 2025 – present**, not 2024; the title is **Founder & Chief Technology Officer**; Prime Freight ended **March 2026** and its "2024 – Present" was false; McGill is **expected December 2026**; McGill AI Alignment is no longer active and was removed; and the former Hero language tag became "Fluent EN · FR" because the record retired "native". PORT-051 later removed that duplicate Hero tag; About retains the public language claim. Entries are written at the skills level rather than as itemized accomplishments, so the quantified Prime Freight metrics moved out of the timeline into `Stats`; PORT-024 has since removed `Stats`, so those figures are no longer published anywhere on the site and live only in the résumé record. The record carries binding `NOT CLAIMABLE` / `STATUS` / `ATTRIBUTION` limits — read `knowledge-base/EXPERIENCE.md` before editing any Experience copy.
 - PORT-039 removed the freight identity at Julian's explicit request, and PORT-040 then restored one piece of it. What is gone: the relocation narrative — the `Montréal → Hamburg` location lines, the `YUL → HAM → SHA` hero coordinate motif, the `ping hapag-lloyd.com` terminal command, and all "incoming"/"upcoming" tense. What stands: `Prime Freight Logistics` and `Hapag-Lloyd` as factual employment records in Experience, both with domain-neutral role descriptions. Hapag-Lloyd reads "AI Hub Intern · Hamburg, Germany · May – Aug 2026" and appears in Experience only, not in the Hero, About, Terminal, or site metadata. Logistics remains a stated interest in About. PORT-050 adds `Freight Forwarding & Container Logistics` as a narrowly owner-approved graph capability without restoring freight-led identity; `Logistics & Ops` and `Time Series` are no longer graph nodes, while `AIS Data` and `SCFI Index` remain absent. Verified metric values in Experience and Stats were unchanged by PORT-039; only their labels were generalized. `Stats` was removed later the same day by PORT-024.
-- Standard project cards remain semantic `article` elements with explicit repository anchors rather than whole-card link behavior. The skills graph exposes every node through a complete accessible description and keyboard legend filters; neighbor highlighting and node dragging remain pointer-oriented pending PORT-010/PORT-025's broader interaction audit.
+- Standard project cards remain semantic `article` elements with explicit repository anchors rather than whole-card link behavior. The skills graph exposes every node through a complete accessible description, keyboard legend filters, and a keyboard-operable viewport reset; neighbor highlighting and node dragging remain pointer-oriented pending PORT-010/PORT-025's broader interaction audit.
 - PORT-050's current Skills Graph has 37 unique, equal-weight nodes across the exact owner-approved 7/9/10/5/6 category split. Its 57 valid edges form one connected component with no orphan node.
 - PORT-042 removed the Marathon and Terminal sections at Julian's request, together with their dedicated CSS. Their placeholder Strava figures and simulated terminal history are no longer in production. The About card still lists marathon running as an interest, which was deliberate.
 - PORT-024 removed the `Stats` section (`Impact`, `#stats`) at Julian's request, resolving RQ-011 as **remove**. Its six counters and the before/after automation chart are gone, along with the `#stats` grid rules and the `@media (max-width: 480px)` block that held only Stats rules. The underlying Prime Freight figures were never withdrawn as facts — they remain in the résumé record and are simply unpublished.

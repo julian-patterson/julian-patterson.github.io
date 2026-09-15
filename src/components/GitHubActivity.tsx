@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger } from "@/lib/animations";
+import TextScramble from "./TextScramble";
 
 interface ContributionDay {
   contributionCount: number;
@@ -267,7 +268,7 @@ export default function GitHubActivity() {
           marginBottom: "48px",
         }}
       >
-        Activity
+        <TextScramble text="Activity" className="section-kicker" />
       </p>
 
       <div style={{ position: "relative" }}>

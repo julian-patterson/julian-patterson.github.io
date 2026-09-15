@@ -6,7 +6,7 @@ This is the authoritative work queue. Each ticket's scope, approvals, acceptance
 
 ## What an agent can work on next
 
-**Next eligible ticket:** [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md)
+**Next eligible ticket:** [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md).
 
 Use the first `Ready` row in the ordered active backlog whose ticket dependencies are `Done`. Ignore `Blocked` and completed tickets. If an `In progress` ticket exists and is not owned by another active agent, continue it first.
 
@@ -48,6 +48,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-051 — Refine Hero and section interactions](ticket/PORT-051.md) | P0 | 2026-09-15 | Simplified the Hero action stack, added a state-safe graph recenter control, moved all kicker scrambles to viewport entry, and unboxed the theme toggle |
 | [PORT-050 — Replace the skills graph inventory](ticket/PORT-050.md) | P0 | 2026-09-15 | Replaced the graph with the exact 37-skill owner inventory, equal node weight, connected relationships, wrapped labels, and all-node mobile rendering |
 | [PORT-049 — Link the public project repositories](ticket/PORT-049.md) | P0 | 2026-09-15 | Added approved repository actions to Transfer CLI and IoT LED Controller plus a section-level GitHub browse link |
 | [PORT-048 — Add contact icon links to the Hero](ticket/PORT-048.md) | P0 | 2026-09-15 | Added accessible GitHub, email, LinkedIn, and phone icon links beneath the Hero calls to action |

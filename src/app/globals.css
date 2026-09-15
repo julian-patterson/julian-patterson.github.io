@@ -191,15 +191,14 @@ body {
   flex: 0 0 44px;
   color: var(--text-primary);
   background-color: transparent;
-  border: 1px solid var(--border-subtle);
+  border: 0;
   border-radius: 0;
   cursor: pointer;
-  transition: color 0.2s var(--motion-standard), background-color 0.2s var(--motion-standard), border-color 0.2s var(--motion-standard);
+  transition: color 0.2s var(--motion-standard);
 }
 
 .theme-toggle:hover {
-  background-color: var(--bg-surface);
-  border-color: var(--border-strong);
+  color: var(--accent-navy);
 }
 
 .theme-toggle-label {
@@ -427,16 +426,23 @@ section[id] {
   position: relative;
 }
 
-.hero-section .carbon-link:hover span,
 #contact .carbon-contact-link:hover span {
   text-decoration: none !important;
 }
 
+.hero-actions {
+  display: grid;
+  width: fit-content;
+  max-width: 100%;
+  gap: 12px;
+  margin-top: 32px;
+}
+
 .hero-contact-links {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 44px);
   align-items: center;
   gap: 8px;
-  margin-top: 32px;
 }
 
 .hero-contact-link {
@@ -454,6 +460,59 @@ section[id] {
 }
 
 .hero-contact-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border-color: var(--border-strong);
+}
+
+.hero-work-button {
+  width: 100%;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  color: var(--bg-primary);
+  background-color: var(--accent-navy);
+  border: 1px solid var(--accent-navy);
+  font-family: var(--font-body);
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.2s var(--motion-standard), background-color 0.2s var(--motion-standard);
+}
+
+.hero-work-button:hover {
+  color: var(--accent-navy);
+  background-color: transparent;
+}
+
+.skills-graph-toolbar {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skills-graph-recenter {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 0.2s var(--motion-standard), background-color 0.2s var(--motion-standard), border-color 0.2s var(--motion-standard);
+}
+
+.skills-graph-recenter:hover:not(:disabled) {
   color: var(--text-primary);
   background-color: var(--bg-surface);
   border-color: var(--border-strong);

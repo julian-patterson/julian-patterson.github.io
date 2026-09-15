@@ -11,6 +11,10 @@
 
 Content should appear while scrolling down. After it leaves the viewport by scrolling back up, it should be eligible to appear again when the user scrolls down into it rather than staying permanently revealed.
 
+## Update — 2026-09-15
+
+[PORT-051](PORT-051.md) makes the seven section-kicker scrambles wait for a genuine viewport-entry transition and replay after leaving and re-entering their activation zone. This ticket remains open for the broader GSAP content-reveal behavior, fast scrolling, anchor navigation, and browser-history cases.
+
 ## Acceptance criteria
 
 - [ ] Entrance effects replay on genuine viewport re-entry without flicker or repeated triggers while the element remains visible.

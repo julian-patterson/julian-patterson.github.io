@@ -16,6 +16,8 @@ Keep Skills Graph, but update it. Fold the skill-emphasis decision into PORT-010
 
 PORT-050 already implements the owner-approved inventory, five groupings, equal node weight, relationship-only edges, wrapped labels, a readable stable compact layout, explicit reduced-motion behavior, and all-node mobile rendering. This ticket remains blocked on PORT-010 and owns any broader node keyboard/touch/screen-reader and live-resize work that remains after that audit.
 
+PORT-051 adds a labelled, keyboard-operable recenter control that resets through the existing D3 zoom behavior, preserves the selected legend filter, and skips its transition for reduced motion. The remaining blocked scope is unchanged.
+
 ## Acceptance criteria
 
 - [ ] The graph consumes the approved, evidence-backed skill set from PORT-010.

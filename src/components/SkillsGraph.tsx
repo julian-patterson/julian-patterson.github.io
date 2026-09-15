@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { CenterToFit } from "@carbon/icons-react";
 import * as d3 from "d3";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TextScramble from "./TextScramble";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -290,11 +292,30 @@ export default function SkillsGraph() {
   const simRef = useRef<d3.Simulation<NodeDatum, EdgeDatum> | null>(null);
   const nodeElsRef = useRef<d3.Selection<SVGGElement, NodeDatum, SVGGElement, unknown> | null>(null);
   const linkElsRef = useRef<d3.Selection<SVGLineElement, EdgeDatum, SVGGElement, unknown> | null>(null);
+  const zoomBehaviorRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const edgesRevealedRef = useRef(false);
   const startedRef = useRef(false);
   const activeLegendRef = useRef<CategoryId | null>(null);
 
   const [activeLegend, setActiveLegend] = useState<CategoryId | null>(null);
+
+  const recenterGraph = useCallback(() => {
+    const svgEl = svgRef.current;
+    const zoomBehavior = zoomBehaviorRef.current;
+    if (!svgEl || !zoomBehavior) return;
+
+    const svg = d3.select(svgEl);
+    svg.interrupt("recenter");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      svg.call(zoomBehavior.transform, d3.zoomIdentity);
+    } else {
+      svg
+        .transition("recenter")
+        .duration(350)
+        .call(zoomBehavior.transform, d3.zoomIdentity);
+    }
+  }, []);
 
   const applyLegendHighlight = useCallback((category: CategoryId | null) => {
     const nodeEls = nodeElsRef.current;
@@ -413,14 +434,9 @@ export default function SkillsGraph() {
       })
       .on("zoom", (event) => g.attr("transform", event.transform));
 
+    zoomBehaviorRef.current = zoomBehavior;
     svg.call(zoomBehavior);
-    svg.on("dblclick.zoom", () => {
-      if (prefersReducedMotion) {
-        svg.call(zoomBehavior.transform, d3.zoomIdentity);
-      } else {
-        svg.transition().duration(350).call(zoomBehavior.transform, d3.zoomIdentity);
-      }
-    });
+    svg.on("dblclick.zoom", recenterGraph);
 
     // Hint label
     const hintText = svg
@@ -675,7 +691,12 @@ export default function SkillsGraph() {
         }
       });
     }
-  }, [applyLegendHighlight]);
+  }, [applyLegendHighlight, recenterGraph]);
+
+  const handleRecenter = useCallback(() => {
+    initGraph();
+    recenterGraph();
+  }, [initGraph, recenterGraph]);
 
   // ── ScrollTrigger ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -717,7 +738,7 @@ export default function SkillsGraph() {
           marginBottom: "32px",
         }}
       >
-        Skills
+        <TextScramble text="Skills" className="section-kicker" />
       </p>
 
       <div
@@ -729,7 +750,21 @@ export default function SkillsGraph() {
           overflow: "hidden",
         }}
       >
+        <div className="skills-graph-toolbar">
+          <button
+            type="button"
+            className="skills-graph-recenter"
+            onFocus={initGraph}
+            onClick={handleRecenter}
+            aria-label="Recenter skills graph"
+            aria-controls="skills-graph-visual"
+          >
+            <CenterToFit size={18} aria-hidden="true" />
+            <span>Recenter</span>
+          </button>
+        </div>
         <svg
+          id="skills-graph-visual"
           ref={svgRef}
           style={{ display: "block", width: "100%", height: "auto" }}
           role="img"
@@ -737,7 +772,7 @@ export default function SkillsGraph() {
           aria-describedby="skills-graph-description"
         />
         <div id="skills-graph-description" className="sr-only">
-          {(Object.keys(CAT_LABELS) as CategoryId[]).map((cat) => (
+          {CATEGORY_IDS.map((cat) => (
             <p key={cat}>
               {CAT_LABELS[cat]}: {RAW_NODES.filter((node) => node.category === cat)
                 .map((node) => node.label)
@@ -759,7 +794,7 @@ export default function SkillsGraph() {
           justifyContent: "flex-start",
         }}
       >
-        {(Object.keys(CAT_LABELS) as CategoryId[]).map((cat) => (
+        {CATEGORY_IDS.map((cat) => (
           <button
             key={cat}
             type="button"
@@ -809,7 +844,7 @@ export default function SkillsGraph() {
               textUnderlineOffset: "3px",
             }}
           >
-            reset
+            clear filter
           </button>
         )}
       </div>

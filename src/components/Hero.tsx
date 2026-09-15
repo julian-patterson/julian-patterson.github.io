@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import {
   ArrowRight,
@@ -11,28 +11,6 @@ import {
 } from "@carbon/icons-react";
 import gsap from "gsap";
 import TextScramble from "./TextScramble";
-
-function LiveClock() {
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    const update = () => {
-      const now = new Date();
-      const mtl = new Intl.DateTimeFormat("en-CA", {
-        timeZone: "America/Toronto",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      }).format(now);
-      setTime(mtl);
-    };
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  return <span>{time} MTL</span>;
-}
 
 export default function Hero() {
   const subtitleRef = useRef<HTMLDivElement>(null);
@@ -147,158 +125,62 @@ export default function Hero() {
                 color: "var(--text-secondary)",
                 lineHeight: 1.6,
                 maxWidth: "520px",
-                marginBottom: "32px",
+                marginBottom: 0,
               }}
             >
               Building data-driven software — machine learning, full-stack
               platforms, and the operational systems underneath them.
-              <br />
-              Final year, McGill University.
             </p>
 
-            {/* Tags */}
-            <div
-              className="reveal-item motion-reveal"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "8px",
-                marginBottom: "40px",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "12px",
-                  color: "var(--text-secondary)",
-                  border: "1px solid var(--border-strong)",
-                  borderRadius: "0px",
-                  padding: "4px 8px",
-                  backgroundColor: "var(--bg-surface)",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                }}
-              >
-                Montréal, QC · <LiveClock />
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "12px",
-                  color: "var(--text-secondary)",
-                  border: "1px solid var(--border-strong)",
-                  borderRadius: "0px",
-                  padding: "4px 8px",
-                  backgroundColor: "var(--bg-surface)",
-                }}
-              >
-                Fluent EN · FR
-              </span>
-            </div>
+            <div className="hero-actions reveal-item motion-reveal">
+              <nav aria-label="Contact links" className="hero-contact-links">
+                <a
+                  href="https://github.com/julian-patterson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-contact-link"
+                  aria-label="Visit Julian Patterson's GitHub (opens in a new tab)"
+                  title="GitHub profile"
+                >
+                  <LogoGithub size={20} aria-hidden="true" />
+                </a>
+                <a
+                  href="mailto:julian.e.patterson@icloud.com"
+                  className="hero-contact-link"
+                  aria-label="Email Julian Patterson"
+                  title="Email julian.e.patterson@icloud.com"
+                >
+                  <Email size={20} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/julian-e-patterson"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-contact-link"
+                  aria-label="Visit Julian Patterson's LinkedIn (opens in a new tab)"
+                  title="LinkedIn profile"
+                >
+                  <LogoLinkedin size={20} aria-hidden="true" />
+                </a>
+                <a
+                  href="tel:+15149291119"
+                  className="hero-contact-link"
+                  aria-label="Call Julian Patterson at 514-929-1119"
+                  title="Call (514) 929-1119"
+                >
+                  <Phone size={20} aria-hidden="true" />
+                </a>
+              </nav>
 
-            {/* CTAs */}
-            <div
-              className="reveal-item motion-reveal"
-              style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)" }}
-            >
               <button
+                type="button"
                 onClick={() => scrollTo("projects")}
-                className="carbon-link"
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                  fontFamily: "var(--font-body)",
-                  fontSize: "16px",
-                  color: "var(--accent-navy)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "4px",
-                  whiteSpace: "nowrap",
-                }}
+                className="hero-work-button"
               >
-                <span
-                  style={{
-                    textDecoration: "underline",
-                    textUnderlineOffset: "4px",
-                  }}
-                >
-                  View my work
-                </span>
-                <ArrowRight size={16} />
-              </button>
-              <button
-                onClick={() => scrollTo("contact")}
-                className="carbon-link"
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                  fontFamily: "var(--font-body)",
-                  fontSize: "16px",
-                  color: "var(--accent-navy)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "4px",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <span
-                  style={{
-                    textDecoration: "underline",
-                    textUnderlineOffset: "4px",
-                  }}
-                >
-                  Get in touch
-                </span>
-                <ArrowRight size={16} />
+                <span>View my work</span>
+                <ArrowRight size={16} aria-hidden="true" />
               </button>
             </div>
-
-            <nav
-              aria-label="Contact links"
-              className="hero-contact-links reveal-item motion-reveal"
-            >
-              <a
-                href="https://github.com/julian-patterson"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero-contact-link"
-                aria-label="Visit Julian Patterson's GitHub (opens in a new tab)"
-                title="GitHub profile"
-              >
-                <LogoGithub size={20} aria-hidden="true" />
-              </a>
-              <a
-                href="mailto:julian.e.patterson@icloud.com"
-                className="hero-contact-link"
-                aria-label="Email Julian Patterson"
-                title="Email julian.e.patterson@icloud.com"
-              >
-                <Email size={20} aria-hidden="true" />
-              </a>
-              <a
-                href="https://linkedin.com/in/julian-e-patterson"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero-contact-link"
-                aria-label="Visit Julian Patterson's LinkedIn (opens in a new tab)"
-                title="LinkedIn profile"
-              >
-                <LogoLinkedin size={20} aria-hidden="true" />
-              </a>
-              <a
-                href="tel:+15149291119"
-                className="hero-contact-link"
-                aria-label="Call Julian Patterson at 514-929-1119"
-                title="Call (514) 929-1119"
-              >
-                <Phone size={20} aria-hidden="true" />
-              </a>
-            </nav>
           </div>
         </div>
       </div>

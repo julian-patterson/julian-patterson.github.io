@@ -17,17 +17,18 @@ Last synchronized from code: 2026-09-15
 - Languages: English and French
   - publication: Public
   - source_status: Canonical code
-  - source: Hero and About
-  - note: PORT-041 changed the Hero tag from "Native EN · FR" to "Fluent EN · FR"; the résumé record retired "native" on 2026-07-31.
+  - source: `src/components/About.tsx`
+  - note: PORT-041 changed the former Hero tag from "Native EN · FR" to "Fluent EN · FR" because the résumé record retired "native" on 2026-07-31; PORT-051 removed that duplicate Hero tag.
   - **OPEN CONFLICT** — the résumé record's resolved value is "fluent", but on 2026-09-04 Julian described himself as conversational in French and able to handle a basic interview in it. This is checkable in a Montréal interview and is unresolved in the record. Do not silently pick one.
 - Location line: Montréal, QC
   - publication: Public
   - source_status: Canonical code
-  - source: `src/components/Hero.tsx`, `src/components/About.tsx`
-  - note: PORT-039 removed the former `Montréal, QC → Hamburg, DE` relocation line and the `YUL → HAM → SHA` hero coordinate motif. About adds "Based in Montréal, open to relocating."; no destination is named anywhere on the site.
-- Timezone displayed on site: Montréal time
-  - publication: Public
+  - source: `src/components/About.tsx`, `src/components/Experience.tsx`
+  - note: PORT-039 removed the former `Montréal, QC → Hamburg, DE` relocation line and the `YUL → HAM → SHA` hero coordinate motif. About adds "Based in Montréal, open to relocating."; no destination is named anywhere on the site. PORT-051 removed the duplicate Hero location/time pill.
+- Timezone displayed on site: none
+  - publication: Not displayed
   - source_status: Canonical code
+  - note: PORT-051 removed the live Montréal clock from the Hero.
 
 ## Contact and profiles
 

@@ -419,3 +419,31 @@ Expose the five exact category lists through the SVG's accessible description an
 - The displayed inventory is publication approval, not proof of supporting evidence, recency, duration, or proficiency; PORT-010 retains that audit.
 - PORT-025 remains blocked on PORT-010 for any broader node-level keyboard, touch, screen-reader, readable-fallback, or live-resize work.
 - Future changes to the inventory, categories, or weighting require another explicit owner update and synchronized code/knowledge-base changes.
+
+<a id="adr-019"></a>
+## ADR-019 — Simplify Hero actions and make section controls explicit
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-013, ADR-015, ADR-016, and ADR-018
+
+### Context
+
+The Hero repeated status, location, time, and language facts already available in About and Experience, while its direct contact links followed two text actions. The Skills Graph could be reset only by an undiscoverable double-click. Section-kicker scrambles were consumed by the browser's initial observer sample, often while their parent reveal was still off-screen, and the theme control retained a visible box Julian no longer wanted.
+
+### Decision
+
+Remove the Hero-only final-year sentence, Montréal/time pill, language pill, and `Get in touch` action without removing those approved facts from their remaining site surfaces. Put the four direct contact links immediately after the Hero introduction and place one filled `View my work` button below them at exactly the row's width.
+
+Add a labelled, keyboard-operable `Recenter` control above the Skills Graph. It applies the identity transform through the graph's existing D3 zoom behavior, preserves any active category filter, and performs the reset without a transition when reduced motion is requested. Keep double-click as an additional pointer shortcut.
+
+Use the accessible text scramble for all seven section kickers. Ignore each observer's initial sample and animate only on a later transition into the activation zone, leaving static screen-reader text and a stable reduced-motion rendering. Make the navigation theme control visually borderless and transparent while retaining its 44px target, accessible state label, and keyboard focus ring.
+
+### Consequences
+
+- The Hero has one clear hierarchy: identity, introduction, contact row, then one project-navigation action.
+- Status, location, and language remain public in About and Experience; Montréal time is no longer displayed.
+- The graph reset is discoverable and does not desynchronize D3's internal zoom state or clear a legend selection.
+- Section-label motion is visible when visitors reach each section instead of being spent at page load.
+- PORT-009 still owns replay behavior for the site's broader entrance effects, and PORT-020/PORT-025 retain their unresolved content and interaction-audit scope.
