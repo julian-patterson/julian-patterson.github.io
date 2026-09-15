@@ -16,6 +16,16 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+const themeBootstrap = `(() => {
+  let saved = null;
+  try {
+    saved = window.localStorage.getItem("jp-theme");
+  } catch {}
+  if (saved === "light" || saved === "dark") {
+    document.documentElement.dataset.theme = saved;
+  }
+})();`;
+
 export const metadata: Metadata = {
   title: "Julian Patterson — Software Engineer & Data Scientist",
   description:
@@ -36,7 +46,11 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geist.variable} ${spaceMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
+      </head>
       <body>{children}</body>
     </html>
   );

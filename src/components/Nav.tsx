@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Menu, Close } from "@carbon/icons-react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { label: "about", href: "#about" },
@@ -69,13 +70,13 @@ export default function Nav() {
           left: 0,
           right: 0,
           zIndex: 100,
-          backgroundColor: scrolled ? "rgba(247, 245, 240, 0.35)" : "var(--bg-primary)",
+          backgroundColor: scrolled ? "var(--nav-bg-scrolled)" : "var(--bg-primary)",
           backdropFilter: scrolled ? "blur(24px) saturate(200%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(24px) saturate(200%)" : "none",
           borderBottom: scrolled
             ? "1px solid var(--border-subtle)"
             : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 24px -4px rgba(28,28,26,0.08), inset 0 -1px 0 rgba(255,255,255,0.4)" : "none",
+          boxShadow: scrolled ? "var(--nav-shadow)" : "none",
           transition: "background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease",
         }}
       >
@@ -107,50 +108,59 @@ export default function Nav() {
             jp.
           </a>
 
-          {/* Desktop links */}
           <div
-            style={{ display: "flex", gap: "32px", alignItems: "center" }}
-            className="hidden-mobile"
+            style={{ display: "flex", gap: "12px", alignItems: "center" }}
           >
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="nav-link"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
-                  color: "var(--text-secondary)",
-                  textDecoration: "none",
-                  letterSpacing: "0.04em",
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.href);
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+            {/* Desktop links */}
+            <div
+              style={{ display: "flex", gap: "32px", alignItems: "center" }}
+              className="hidden-mobile"
+            >
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="nav-link"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "13px",
+                    color: "var(--text-secondary)",
+                    textDecoration: "none",
+                    letterSpacing: "0.04em",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-          {/* Hamburger */}
-          <button
-            className="show-mobile"
-            onClick={() => setMenuOpen(!menuOpen)}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--text-primary)",
-            }}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <Close size={24} /> : <Menu size={24} />}
-          </button>
+            <ThemeToggle />
+
+            {/* Hamburger */}
+            <button
+              className="show-mobile"
+              onClick={() => setMenuOpen(!menuOpen)}
+              style={{
+                width: "44px",
+                height: "44px",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--text-primary)",
+              }}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? <Close size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </nav>
 

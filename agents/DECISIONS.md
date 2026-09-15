@@ -317,3 +317,28 @@ Render `Julian Patterson.` as stable two-line text from first paint. Use more op
 - The primary identity is immediately legible and no longer depends on JavaScript animation completing.
 - The dedicated per-character animation component and styling are removed.
 - Future Hero work in PORT-020 preserves the static name treatment unless Julian requests a new direction.
+
+<a id="adr-015"></a>
+## ADR-015 — Default color theme to the device with an explicit override
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-013
+
+### Context
+
+The portfolio had only a light palette. Julian requested dark mode, an icon to change it, and the device setting as the default.
+
+### Decision
+
+Publish complete light and dark token sets. When no visitor override exists, CSS follows `prefers-color-scheme` and no preference is written to storage. A single moon/sun button in the navigation switches to the opposite resolved theme and stores that explicit light or dark choice for later visits.
+
+A small head bootstrap applies only a valid saved override before first paint. The rest of theme behavior remains client-side and static-export compatible; it does not require a server, account, cookie, or personal data.
+
+### Consequences
+
+- First-time visitors continue following device changes automatically.
+- After using the control, the explicit choice wins on later visits; clearing site storage returns to device-default behavior.
+- All component and SVG colors use CSS variables so an initialized page can switch themes without reloading or rebuilding visualizations.
+- Print output resolves to a light, ink-conscious palette regardless of the on-screen theme.

@@ -149,9 +149,9 @@ export default function GitHubActivity() {
 
   const getColor = (count: number) => {
     if (count === 0) return "var(--bg-surface)";
-    if (count <= 2) return "#B5C9D9";
-    if (count <= 5) return "#7A9DB8";
-    if (count <= 9) return "#3D6F8F";
+    if (count <= 2) return "var(--activity-1)";
+    if (count <= 5) return "var(--activity-2)";
+    if (count <= 9) return "var(--activity-3)";
     return "var(--accent-navy)";
   };
 
@@ -302,7 +302,7 @@ export default function GitHubActivity() {
               top: tooltipPos.y,
               left: tooltipPos.x,
               transform: "translate(-50%, -100%)",
-              backgroundColor: "white",
+              backgroundColor: "var(--tooltip-bg)",
               border: "0.5px solid var(--border)",
               padding: "6px 10px",
               pointerEvents: "none",

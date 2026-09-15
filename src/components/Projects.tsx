@@ -114,7 +114,7 @@ export default function Projects() {
                 fontSize: "11px",
                 color: "var(--accent-navy)",
                 backgroundColor: "var(--bg-accent-soft)",
-                border: "1px solid rgba(27,58,92,0.2)",
+                border: "1px solid var(--accent-border)",
                 padding: "4px 10px",
                 borderRadius: "0px",
               }}
@@ -153,7 +153,7 @@ export default function Projects() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "11px",
                   color: "var(--accent-navy)",
-                  border: "1px solid rgba(27,58,92,0.2)",
+                  border: "1px solid var(--accent-border)",
                   padding: "4px 8px",
                   borderRadius: "0px",
                 }}

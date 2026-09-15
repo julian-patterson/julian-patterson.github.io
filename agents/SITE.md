@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-046)
+Last synchronized from code and runtime: 2026-09-15 (PORT-047)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -16,6 +16,7 @@ The source under `src/` is authoritative. This file is a navigational map and au
 - The Pages build passes its repository-scoped automatic `GITHUB_TOKEN` only to the static build. **This token cannot answer the contribution-calendar query** the activity route makes, which is user-scoped data needing `read:user`; PORT-043 records the diagnosis and the owner steps. No personal token is currently configured, and none is published
 - `src/app/layout.tsx` uses the bundled Geist variable font for display/body text and Space Mono through `next/font/google` for labels and metadata
 - The visual system selectively uses Carbon icons, a 2x spacing rhythm, square geometry, a Carbon-blue focus ring, and productive motion timing without importing the full Carbon React library
+- The visual token system supports light and dark palettes; device preference is the default and the navigation exposes a persisted explicit override
 
 Commands currently defined in `package.json`:
 
@@ -78,6 +79,13 @@ PORT-046 Hero-name refinement on 2026-09-15:
 - Opens the tracking from `-0.055em` to `-0.025em` and adds a `0.08em` gap between the two name lines while retaining the responsive 52–96px scale and navy period.
 - Deletes the unused `LetterExplosion` component and `.char` CSS. The selective section-kicker scramble and the supporting Hero content reveal remain.
 - Production-export browser checks at exact 320px and 1440px widths found no horizontal overflow, no browser warnings/errors, and a stable accessible Hero heading.
+
+PORT-047 color-theme support on 2026-09-15:
+
+- Defines complete light and dark palettes in `globals.css`; first visits follow `prefers-color-scheme` without storing a preference.
+- Adds one 44px moon/sun button to the navigation. An explicit light or dark choice is stored locally and a small head script restores it before first paint.
+- Navigation surfaces, project borders, activity states and tooltip, selection/focus treatment, and the initialized D3 skills graph all resolve through live theme tokens. Print always uses the light palette and omits the toggle.
+- Production-export checks covered both themes, saved and unsaved states, keyboard activation, mobile navigation, scrolled navigation, an initialized graph, and exact widths from 320px through 1440px with no horizontal overflow or normal-page browser warnings/errors.
 
 ## Page composition
 

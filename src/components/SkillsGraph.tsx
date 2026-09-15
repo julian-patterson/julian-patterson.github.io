@@ -27,11 +27,19 @@ interface EdgeDatum extends d3.SimulationLinkDatum<NodeDatum> {
 // ── Design tokens ─────────────────────────────────────────────────────────
 
 const CAT_COLORS: Record<CategoryId, string> = {
-  languages: "#1B3A5C",
-  ml: "#2D6A4F",
-  infra: "#5C4A1B",
-  frontend: "#4A1B5C",
-  domain: "#C17D3C",
+  languages: "var(--skill-languages)",
+  ml: "var(--skill-ml)",
+  infra: "var(--skill-infra)",
+  frontend: "var(--skill-frontend)",
+  domain: "var(--skill-domain)",
+};
+
+const CAT_MUTED_COLORS: Record<CategoryId, string> = {
+  languages: "var(--skill-languages-muted)",
+  ml: "var(--skill-ml-muted)",
+  infra: "var(--skill-infra-muted)",
+  frontend: "var(--skill-frontend-muted)",
+  domain: "var(--skill-domain-muted)",
 };
 
 const CAT_LABELS: Record<CategoryId, string> = {
@@ -197,24 +205,24 @@ export default function SkillsGraph() {
       nodeEls
         .attr("opacity", 1)
         .select("circle")
-        .attr("stroke", (d: NodeDatum) => CAT_COLORS[d.category] + "99")
+        .attr("stroke", (d: NodeDatum) => CAT_MUTED_COLORS[d.category])
         .attr("stroke-width", 1.5);
-      nodeEls.select<SVGTextElement>("text").attr("fill", "#5A5855");
+      nodeEls.select<SVGTextElement>("text").attr("fill", "var(--graph-text)");
       if (edgesRevealedRef.current) {
-        linkEls.attr("opacity", 1).attr("stroke", "rgba(28,28,26,0.12)").attr("stroke-width", 1);
+        linkEls.attr("opacity", 1).attr("stroke", "var(--graph-edge)").attr("stroke-width", 1);
       }
     } else {
       nodeEls
         .attr("opacity", (d: NodeDatum) => (d.category === activeLegend ? 1 : 0.12))
         .select("circle")
         .attr("stroke", (d: NodeDatum) =>
-          d.category === activeLegend ? CAT_COLORS[d.category] : CAT_COLORS[d.category] + "99"
+          d.category === activeLegend ? CAT_COLORS[d.category] : CAT_MUTED_COLORS[d.category]
         )
         .attr("stroke-width", (d: NodeDatum) => (d.category === activeLegend ? 2 : 1.5));
       nodeEls
         .select<SVGTextElement>("text")
         .attr("fill", (d: NodeDatum) =>
-          d.category === activeLegend ? "#1C1C1A" : "rgba(28,28,26,0.2)"
+          d.category === activeLegend ? "var(--text-primary)" : "var(--graph-muted-text)"
         );
       if (edgesRevealedRef.current) {
         linkEls
@@ -346,7 +354,7 @@ export default function SkillsGraph() {
       .selectAll<SVGLineElement, EdgeDatum>("line")
       .data(edges)
       .join("line")
-      .attr("stroke", "rgba(28,28,26,0.12)")
+      .attr("stroke", "var(--graph-edge)")
       .attr("stroke-width", 1)
       .attr("opacity", 0);
 
@@ -365,8 +373,8 @@ export default function SkillsGraph() {
     nodeEls
       .append("circle")
       .attr("r", (d) => nodeRadius(d.weight))
-      .attr("fill", "#FFFFFF")
-      .attr("stroke", (d) => CAT_COLORS[d.category] + "99")
+      .attr("fill", "var(--graph-node-fill)")
+      .attr("stroke", (d) => CAT_MUTED_COLORS[d.category])
       .attr("stroke-width", 1.5)
       .style("transition", "stroke 0.2s ease, stroke-width 0.2s ease, transform 0.2s ease");
 
@@ -376,7 +384,7 @@ export default function SkillsGraph() {
       .attr("dy", (d) => nodeRadius(d.weight) + 12)
       .attr("font-family", "var(--font-mono)")
       .attr("font-size", (d) => (d.weight === 3 ? "11" : "10"))
-      .attr("fill", "#5A5855")
+      .attr("fill", "var(--graph-text)")
       .attr("pointer-events", "none")
       .style("transition", "fill 0.2s ease")
       .text((d) => d.label);
@@ -395,7 +403,7 @@ export default function SkillsGraph() {
           .attr("stroke", (n) =>
             n.id === d.id || neighbors.has(n.id)
               ? CAT_COLORS[n.category]
-              : CAT_COLORS[n.category] + "99"
+              : CAT_MUTED_COLORS[n.category]
           )
           .attr("stroke-width", (n) => (n.id === d.id ? 2 : 1.5))
           .style("transform", (n) => (n.id === d.id ? "scale(1.15)" : "scale(1)"));
@@ -403,7 +411,9 @@ export default function SkillsGraph() {
         nodeEls
           .select<SVGTextElement>("text")
           .attr("fill", (n) =>
-            n.id === d.id || neighbors.has(n.id) ? "#1C1C1A" : "rgba(28,28,26,0.2)"
+            n.id === d.id || neighbors.has(n.id)
+              ? "var(--text-primary)"
+              : "var(--graph-muted-text)"
           );
 
         if (edgesRevealedRef.current) {
@@ -418,7 +428,7 @@ export default function SkillsGraph() {
               const tId = (e.target as NodeDatum).id;
               return sId === d.id || tId === d.id
                 ? CAT_COLORS[d.category]
-                : "rgba(28,28,26,0.12)";
+                : "var(--graph-edge)";
             })
             .attr("stroke-width", (e) => {
               const sId = (e.source as NodeDatum).id;
@@ -431,16 +441,16 @@ export default function SkillsGraph() {
         nodeEls.attr("opacity", 1);
         nodeEls
           .select<SVGCircleElement>("circle")
-          .attr("stroke", (n) => CAT_COLORS[n.category] + "99")
+          .attr("stroke", (n) => CAT_MUTED_COLORS[n.category])
           .attr("stroke-width", 1.5)
           .style("transform", "scale(1)");
 
-        nodeEls.select<SVGTextElement>("text").attr("fill", "#5A5855");
+        nodeEls.select<SVGTextElement>("text").attr("fill", "var(--graph-text)");
 
         if (edgesRevealedRef.current) {
           linkEls
             .attr("opacity", 1)
-            .attr("stroke", "rgba(28,28,26,0.12)")
+            .attr("stroke", "var(--graph-edge)")
             .attr("stroke-width", 1);
         }
       });

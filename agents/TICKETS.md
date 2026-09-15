@@ -47,6 +47,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-047 — Add device-aware dark mode](ticket/PORT-047.md) | P0 | 2026-09-15 | Added a device-default light/dark system with a persistent, accessible moon/sun navigation control |
 | [PORT-046 — Stabilize and space the Hero name](ticket/PORT-046.md) | P0 | 2026-09-15 | Replaced the falling per-character name animation with stable, more openly spaced two-line type |
 | [PORT-045 — Merge the updated-font UI into the current portfolio](ticket/PORT-045.md) | P0 | 2026-09-15 | Merged the sibling UI history while retaining current content, then corrected its font wiring, scramble accessibility, and 320px Hero layout |
 | [PORT-044 — Remove retired footer metadata and the OpenClaw project](ticket/PORT-044.md) | P2 | 2026-09-07 | Footer reduced to the copyright line; the false Vercel claim and the OpenClaw card removed |
