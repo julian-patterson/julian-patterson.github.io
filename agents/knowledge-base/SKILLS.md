@@ -1,21 +1,21 @@
 # Skills
 
-Last synchronized from code: 2026-09-15 (PORT-050)
+Last synchronized from code: 2026-09-15 (PORT-052)
 
-The current D3 graph contains exactly 37 owner-approved skill nodes in five categories. Julian's 2026-09-15 request is the publication authority for these labels; inclusion, node placement, and graph relationships are not evidence of proficiency.
+The current D3 graph contains exactly 38 owner-approved skill nodes in five categories. Julian's 2026-09-15 requests are the publication authority for these labels; inclusion, node placement, and graph relationships are not evidence of proficiency.
 
 ## Skill groups implemented in the site
 
 - **Languages (7):** Python, TypeScript, JavaScript, SQL, HTML / CSS, Java, C
 - **Data & ML (9):** PyTorch, Pandas / NumPy, NLP, Transformers, CNNs / Computer Vision, LSTM / GRU, Regression & Classification, Agentic AI, Model Context Protocol (MCP)
-- **Infrastructure (10):** Docker, Google Cloud Platform, Cloud Run, Cloud Tasks, Terraform, GitHub Actions, Supabase, PostgreSQL, REST API Design, Node.js
+- **Infrastructure (11):** Docker, Google Cloud Platform, Cloud Run, Cloud Tasks, Terraform, GitHub Actions, Supabase, PostgreSQL, GraphQL, REST API Design, Node.js
 - **Frontend (5):** React, React Native, Material UI, i18next / Localization, Figma / UI Design
 - **Domain (6):** AI Governance & Risk Assessment, Freight Forwarding & Container Logistics, Booking & Scheduling Systems, Stripe Payment Integration, Technical Leadership & Mentoring, Data Applications
 
 ## Graph presentation model
 
-- All 37 nodes use the same visual weight (`2`). The graph does not publish beginner/intermediate/expert levels or any other proficiency scale.
-- The 57 edges express intentional technical or domain relationships. Edge strength means relationship closeness, never proficiency.
+- All 38 nodes use the same visual weight (`2`). The graph does not publish beginner/intermediate/expert levels or any other proficiency scale.
+- The 58 edges express intentional technical or domain relationships. Edge strength means relationship closeness, never proficiency. GraphQL has a direct strong relationship to PostgreSQL, as explicitly requested by Julian.
 - All nodes render at every viewport width. Desktop uses a force layout with wrapped-label collision spacing and bounded positions; compact widths use a stable category-aware layout and a container-width viewBox so labels remain readable.
 - The SVG's accessible description repeats the exact five category lists. Legend buttons remain keyboard-operable category filters, and a selected filter is restored after temporary neighbor highlighting on hover.
 - Reduced-motion mode settles the desktop force simulation synchronously, reveals edges without a D3 transition, and disables force-restarting node drag.

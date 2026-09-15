@@ -287,10 +287,16 @@ section[id] {
   }
 
   .motion-reveal,
-  .timeline-line {
+  .timeline-line,
+  .metro-divider-route,
+  .metro-divider-station {
     opacity: 1 !important;
     transform: none !important;
     visibility: visible !important;
+  }
+
+  .metro-divider-route {
+    stroke-dashoffset: 0 !important;
   }
 }
 
@@ -364,14 +370,112 @@ section[id] {
   }
 
   .motion-reveal,
-  .timeline-line {
+  .timeline-line,
+  .metro-divider-route,
+  .metro-divider-station {
     opacity: 1 !important;
     transform: none !important;
     visibility: visible !important;
   }
+
+  .metro-divider {
+    height: 64px !important;
+    margin: -32px auto !important;
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  .metro-divider-route {
+    stroke-dashoffset: 0 !important;
+  }
 }
 
 /* Component rules live in the static stylesheet so server and client markup hydrate identically. */
+.metro-divider {
+  width: 100%;
+  max-width: var(--content-width);
+  height: 96px;
+  margin: -48px auto;
+  padding: 0 32px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.metro-divider-svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.metro-divider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.metro-divider-svg-mobile {
+  display: none;
+}
+
+.metro-divider-route {
+  fill: none;
+  stroke: var(--accent-navy);
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  vector-effect: non-scaling-stroke;
+}
+
+.metro-divider-station {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  translate: -50% -50%;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--accent-navy);
+}
+
+.metro-divider-interchange {
+  width: 16px;
+  height: 16px;
+  background-color: var(--accent-brass);
+  border-color: var(--accent-brass);
+}
+
+.metro-divider-station-desktop-start {
+  top: 25%;
+  left: 15.45%;
+}
+
+.metro-divider-station-desktop-interchange {
+  top: 66.67%;
+  left: 40.15%;
+}
+
+.metro-divider-station-desktop-end {
+  top: 66.67%;
+  left: 79.15%;
+}
+
+.metro-divider-station-mobile {
+  display: none;
+}
+
+.metro-divider-station-mobile-start {
+  top: 28.13%;
+  left: 25.31%;
+}
+
+.metro-divider-station-mobile-interchange {
+  top: 71.88%;
+  left: 76.25%;
+}
+
 #experience .experience-timeline {
   --timeline-date-width: 120px;
   --timeline-gutter-width: 32px;
@@ -592,6 +696,27 @@ section[id] {
 
   #about .about-grid {
     gap: 40px !important;
+  }
+
+  .metro-divider {
+    height: 64px;
+    margin: -32px auto;
+  }
+
+  .metro-divider-svg-desktop {
+    display: none;
+  }
+
+  .metro-divider-svg-mobile {
+    display: block;
+  }
+
+  .metro-divider-station-desktop {
+    display: none;
+  }
+
+  .metro-divider-station-mobile {
+    display: block;
   }
 
   #experience .timeline-entry {

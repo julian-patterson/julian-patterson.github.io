@@ -95,8 +95,8 @@ Merge the `updated-font` UI work into the current content branch. PORT-045 appli
 ## RQ-005 — Skills to emphasize
 
 - Status: Resolved
-- Recorded by: [ADR-018](DECISIONS.md#adr-018)
-- Implemented inventory: [PORT-050](ticket/PORT-050.md)
+- Recorded by: [ADR-018](DECISIONS.md#adr-018), amended by [ADR-021](DECISIONS.md#adr-021)
+- Implemented inventory: [PORT-050](ticket/PORT-050.md), amended by [PORT-052](ticket/PORT-052.md)
 - Remaining audit work: [PORT-010](ticket/PORT-010.md), [PORT-025](ticket/PORT-025.md)
 
 ### Owner response — 2026-07-22
@@ -112,6 +112,10 @@ Make the skill-emphasis, evidence, grouping, and proficiency-model decision part
 - **Domain:** AI Governance & Risk Assessment, Freight Forwarding & Container Logistics, Booking & Scheduling Systems, Stripe Payment Integration, Technical Leadership & Mentoring, Data Applications
 
 PORT-050 implements these exact 37 labels and groupings. No proficiency scale was supplied, so every node has equal visual weight and edge strength represents relationship closeness only. PORT-010 and PORT-025 retain the broader evidence and interaction-accessibility audit; neither needs another owner approval to start.
+
+### Owner response — 2026-09-15 (GraphQL amendment)
+
+Add GraphQL as an Infrastructure skill and relate it to PostgreSQL. PORT-052 implements that amendment as an equal-weight node with one direct strong relationship edge, bringing the current graph to 38 nodes without changing the five-category or no-proficiency model.
 
 <a id="rq-006"></a>
 ## RQ-006 — Approved AnyTime content and URL

@@ -447,3 +447,51 @@ Use the accessible text scramble for all seven section kickers. Ignore each obse
 - The graph reset is discoverable and does not desynchronize D3's internal zoom state or clear a legend selection.
 - Section-label motion is visible when visitors reach each section instead of being spent at page load.
 - PORT-009 still owns replay behavior for the site's broader entrance effects, and PORT-020/PORT-025 retain their unresolved content and interaction-audit scope.
+
+<a id="adr-020"></a>
+## ADR-020 — Use one decorative metro divider between About and Experience
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-013 and ADR-019
+
+### Context
+
+Julian wanted one small metro-line animation inspired by the route separators on Swiftly's careers page. The current page already has generous whitespace between About and Experience, and the site's retained visual language uses navy and brass tokens, square geometry, and restrained viewport-entry motion. The divider must not restore the removed freight, relocation, or transit identity.
+
+### Decision
+
+Insert exactly one non-semantic `MetroDivider` between About and Experience without adding a section or navigation target. Use one unlabeled navy route with an angled jog, three square desktop stations, and one brass interchange. At compact widths, use a shorter route with two stations. Remove Experience's former straight top border so the route is the only divider at this transition.
+
+Draw the route and reveal its stations once when the divider enters the viewport. Author the completed graphic as the default state and only hide it after JavaScript confirms motion is allowed, so no-JavaScript, reduced-motion, and print rendering remain complete and static. Reuse existing theme tokens and GSAP/ScrollTrigger; keep the wrapper `aria-hidden`, the SVGs non-focusable, and the graphic noninteractive.
+
+### Consequences
+
+- The route adds a single visual beat in existing whitespace without changing the seven-section information architecture.
+- The mobile and desktop variants can use purpose-fit geometry while sharing one component and no new dependency.
+- The motif remains an isolated decorative transition rather than a site-wide transport identity.
+- Any additional route graphics, labels, moving markers, or transit narrative require another owner decision.
+
+<a id="adr-021"></a>
+## ADR-021 — Add GraphQL as an equal-weight Infrastructure skill
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-018
+
+### Context
+
+After approving the 37-skill inventory in ADR-018, Julian explicitly asked to add GraphQL and relate it to PostgreSQL.
+
+### Decision
+
+Add `GraphQL` to the Infrastructure category with the same node weight as every other published skill. Add one direct strong edge between GraphQL and PostgreSQL. Keep edge strength as a relationship measure only, not a proficiency signal, and retain the graph's existing all-node, responsive, filter, and accessible-description behavior.
+
+### Consequences
+
+- The current graph contains 38 nodes and 58 edges across the unchanged five categories, split 7 Languages / 9 Data & ML / 11 Infrastructure / 5 Frontend / 6 Domain.
+- All 38 nodes remain one connected component and carry equal visual weight.
+- ADR-018 remains the historical authority for the original 37-skill replacement; this decision and PORT-052 are the authority for the GraphQL amendment.
+- PORT-010 retains the supporting-evidence audit, and PORT-025 retains its broader interaction-accessibility and live-resize scope.

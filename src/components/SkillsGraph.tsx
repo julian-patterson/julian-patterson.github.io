@@ -157,6 +157,7 @@ const RAW_NODES: Omit<NodeDatum, keyof d3.SimulationNodeDatum>[] = [
   { id: "github-actions", label: "GitHub Actions", category: "infra", weight: 2 },
   { id: "supabase", label: "Supabase", category: "infra", weight: 2 },
   { id: "postgresql", label: "PostgreSQL", category: "infra", weight: 2 },
+  { id: "graphql", label: "GraphQL", category: "infra", weight: 2 },
   { id: "rest-api-design", label: "REST API Design", category: "infra", weight: 2 },
   { id: "nodejs", label: "Node.js", category: "infra", weight: 2 },
 
@@ -251,6 +252,7 @@ const RAW_EDGES: { source: string; target: string; strength: 1 | 2 | 3 }[] = [
   { source: "terraform", target: "github-actions", strength: 2 },
   { source: "supabase", target: "postgresql", strength: 3 },
   { source: "supabase", target: "react", strength: 2 },
+  { source: "graphql", target: "postgresql", strength: 3 },
   { source: "postgresql", target: "rest-api-design", strength: 2 },
   { source: "nodejs", target: "rest-api-design", strength: 3 },
 
@@ -768,7 +770,7 @@ export default function SkillsGraph() {
           ref={svgRef}
           style={{ display: "block", width: "100%", height: "auto" }}
           role="img"
-          aria-label="Interactive force-directed graph of 37 skills"
+          aria-label="Interactive force-directed graph of 38 skills"
           aria-describedby="skills-graph-description"
         />
         <div id="skills-graph-description" className="sr-only">

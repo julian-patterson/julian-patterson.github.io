@@ -14,9 +14,10 @@ Last decision review: 2026-09-15
 - Keep explicit repository actions on the two standard project cards and one compact `View more on GitHub` action beneath their grid; preserve the cards as semantic articles rather than making each whole card a link.
 - Offer complete light and dark palettes, defaulting to the visitor's device preference until they explicitly choose a theme from the navigation control. Keep that 44px control borderless and transparent while preserving its visible keyboard focus ring.
 - Use a restrained, reduced-motion-aware text scramble on all seven section kickers. Ignore the initial observer sample so off-screen labels animate on actual viewport entry; keep the accessible label and reduced-motion rendering static.
+- Use exactly one compact, unlabeled metro-route divider between About and Experience: one navy angular line, square stations, and a brass interchange. It is decorative rather than a return to transit- or freight-led identity, and must have static reduced-motion, print, and no-JavaScript fallbacks.
 - Draw selectively from Carbon's icons, 2x spacing, square geometry, focus treatment, and motion principles without adopting the full component library.
 - Remove generic/generated-feeling sections and copy.
-- Preserve PORT-050's exact owner-approved 37-skill inventory and five category groupings without implying a proficiency ranking; continue the supporting-evidence audit in PORT-010.
+- Preserve PORT-052's amended owner-approved 38-skill inventory and five category groupings without implying a proficiency ranking; keep GraphQL as an equal-weight Infrastructure node directly related to PostgreSQL, and continue the supporting-evidence audit in PORT-010.
 - Keep the Skills Graph's labelled recenter action above the visualization and reset through its D3 zoom behavior without clearing an active category filter.
 - Remaining PORT-020 through PORT-034 section work is unchanged except where PORT-039 already deleted the section.
 

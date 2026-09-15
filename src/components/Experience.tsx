@@ -137,7 +137,6 @@ export default function Experience() {
         padding: "96px 32px",
         maxWidth: "1100px",
         margin: "0 auto",
-        borderTop: "1px solid var(--border-subtle)",
       }}
     >
       <p

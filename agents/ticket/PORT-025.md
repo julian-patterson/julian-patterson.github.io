@@ -18,6 +18,8 @@ PORT-050 already implements the owner-approved inventory, five groupings, equal 
 
 PORT-051 adds a labelled, keyboard-operable recenter control that resets through the existing D3 zoom behavior, preserves the selected legend filter, and skips its transition for reduced motion. The remaining blocked scope is unchanged.
 
+PORT-052 adds GraphQL as an equal-weight Infrastructure node with a direct strong PostgreSQL relationship, raising the implemented inventory to 38 nodes. The remaining blocked scope is unchanged.
+
 ## Acceptance criteria
 
 - [ ] The graph consumes the approved, evidence-backed skill set from PORT-010.

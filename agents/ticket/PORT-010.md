@@ -23,6 +23,8 @@ The skill-emphasis and proficiency-model decision should be made as part of this
 
 Julian supplied the exact 37-skill inventory and five category groupings. PORT-050 implemented the inventory with equal node weight and relationship-only edge strength, resolving RQ-005. This ticket is now ready and retains the evidence review plus the broader touch, keyboard, screen-reader, and resize audit.
 
+PORT-052 amends the public inventory to 38 skills by adding GraphQL as an equal-weight Infrastructure node with a direct strong PostgreSQL relationship. The remaining evidence and interaction audit is unchanged.
+
 ## Validation record
 
 PORT-050 records validation for the implemented inventory, graph structure, readable compact layout, legend keyboard behavior, hover/filter restoration, themes, reduced-motion implementation, and fresh-load responsive matrix. The remaining evidence and interaction audit has not run.

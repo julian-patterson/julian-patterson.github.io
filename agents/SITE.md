@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-051)
+Last synchronized from code and runtime: 2026-09-15 (PORT-052)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -116,6 +116,14 @@ PORT-051 Hero and interaction refinement on 2026-09-15:
 - Removes the theme toggle's resting and hover box while preserving its transparent 44px target, live action label, and visible keyboard focus ring.
 - Production-export checks covered both themes at exact 320px, 375px, 768px, 1024px, and 1440px widths, Hero ordering and equal widths, graph reset by mouse and keyboard, selected-filter retention, scroll-entry scramble samples, accessible kicker text, theme switching/focus, horizontal overflow, and the browser console.
 
+PORT-052 metro divider and GraphQL amendment on 2026-09-15:
+
+- Adds one decorative `MetroDivider` between About and Experience and removes Experience's redundant straight top rule. The desktop graphic uses one navy angular route, three square stations, and a brass interchange; compact widths use a shorter two-station route.
+- The route draws and stations reveal once on viewport entry. Its completed state is authored by default, reduced motion skips setup, and print forces the static final state, preserving no-JavaScript and non-animated rendering.
+- The divider uses existing theme tokens, adds no section or anchor, is absent from the accessibility tree, and keeps both SVG variants non-focusable.
+- Adds GraphQL as the eleventh equal-weight Infrastructure skill with a direct strong PostgreSQL edge. The current graph has 38 nodes and 58 edges in one connected component, split 7 / 9 / 11 / 5 / 6 across the five categories.
+- Validation passed typecheck, lint, production build, agent-system docs, diff, graph-data, static-export, responsive-source, and accessibility-source checks; the local development route returned HTTP 200.
+
 ## Page composition
 
 `src/app/page.tsx` mounts 7 sections in this order:
@@ -126,13 +134,15 @@ PORT-051 Hero and interaction refinement on 2026-09-15:
 | 2 | `About` | `#about` | Bio and personal metadata |
 | 3 | `Experience` | `#experience` | Work and education timeline; four entries ordered Hapag-Lloyd, Stride, Prime Freight, McGill |
 | 4 | `Projects` | `#projects` | Featured Stride card plus two repository-linked project cards in a two-column grid and a section-level GitHub browse action |
-| 5 | `SkillsGraph` | `#skills` | Interactive D3 graph of 37 equal-weight skills in five owner-approved categories, with an accessible text description, keyboard legend filters, and an explicit recenter control |
+| 5 | `SkillsGraph` | `#skills` | Interactive D3 graph of 38 equal-weight skills in five owner-approved categories, with an accessible text description, keyboard legend filters, and an explicit recenter control |
 | 6 | `GitHubActivity` | `#activity` | Contribution heatmap backed by a sanitized build-time snapshot at `/data/github-activity`; currently renders the "unavailable" state — see PORT-043 |
 | 7 | `Contact` | `#contact` | Email, LinkedIn, GitHub-labelled URL, footer |
 
 PORT-024 removed `Stats` (`#stats`) along with its dedicated CSS. PORT-039 removed `FreightExplainer` (`#research`), `FreightNetwork` (`#freight-network`), and `Reading` (`#reading`) along with their dedicated CSS. `page.tsx` no longer carries the "template sections for evaluation" comment that previously grouped `FreightNetwork`, `Marathon`, and `Terminal`.
 
 Navigation exposes only About, Experience, Projects, and Contact, with a mobile full-screen menu.
+
+`MetroDivider` is a decorative, non-section interstitial mounted between About and Experience; it does not change the seven-section count or navigation structure.
 
 ## Approved future section plan
 
@@ -192,7 +202,7 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 - PORT-041 rebuilt Experience from Julian's canonical résumé record at `/home/julian/Development/resume/content/experience.md`, which is now the upstream source of truth for employment facts. It corrected several stale claims: AnyTime Technologies is renamed **Stride**; Stride runs **May 2025 – present**, not 2024; the title is **Founder & Chief Technology Officer**; Prime Freight ended **March 2026** and its "2024 – Present" was false; McGill is **expected December 2026**; McGill AI Alignment is no longer active and was removed; and the former Hero language tag became "Fluent EN · FR" because the record retired "native". PORT-051 later removed that duplicate Hero tag; About retains the public language claim. Entries are written at the skills level rather than as itemized accomplishments, so the quantified Prime Freight metrics moved out of the timeline into `Stats`; PORT-024 has since removed `Stats`, so those figures are no longer published anywhere on the site and live only in the résumé record. The record carries binding `NOT CLAIMABLE` / `STATUS` / `ATTRIBUTION` limits — read `knowledge-base/EXPERIENCE.md` before editing any Experience copy.
 - PORT-039 removed the freight identity at Julian's explicit request, and PORT-040 then restored one piece of it. What is gone: the relocation narrative — the `Montréal → Hamburg` location lines, the `YUL → HAM → SHA` hero coordinate motif, the `ping hapag-lloyd.com` terminal command, and all "incoming"/"upcoming" tense. What stands: `Prime Freight Logistics` and `Hapag-Lloyd` as factual employment records in Experience, both with domain-neutral role descriptions. Hapag-Lloyd reads "AI Hub Intern · Hamburg, Germany · May – Aug 2026" and appears in Experience only, not in the Hero, About, Terminal, or site metadata. Logistics remains a stated interest in About. PORT-050 adds `Freight Forwarding & Container Logistics` as a narrowly owner-approved graph capability without restoring freight-led identity; `Logistics & Ops` and `Time Series` are no longer graph nodes, while `AIS Data` and `SCFI Index` remain absent. Verified metric values in Experience and Stats were unchanged by PORT-039; only their labels were generalized. `Stats` was removed later the same day by PORT-024.
 - Standard project cards remain semantic `article` elements with explicit repository anchors rather than whole-card link behavior. The skills graph exposes every node through a complete accessible description, keyboard legend filters, and a keyboard-operable viewport reset; neighbor highlighting and node dragging remain pointer-oriented pending PORT-010/PORT-025's broader interaction audit.
-- PORT-050's current Skills Graph has 37 unique, equal-weight nodes across the exact owner-approved 7/9/10/5/6 category split. Its 57 valid edges form one connected component with no orphan node.
+- PORT-052's current Skills Graph has 38 unique, equal-weight nodes across the amended owner-approved 7/9/11/5/6 category split. Its 58 valid edges form one connected component with no orphan node; GraphQL has the requested direct strong relationship to PostgreSQL.
 - PORT-042 removed the Marathon and Terminal sections at Julian's request, together with their dedicated CSS. Their placeholder Strava figures and simulated terminal history are no longer in production. The About card still lists marathon running as an interest, which was deliberate.
 - PORT-024 removed the `Stats` section (`Impact`, `#stats`) at Julian's request, resolving RQ-011 as **remove**. Its six counters and the before/after automation chart are gone, along with the `#stats` grid rules and the `@media (max-width: 480px)` block that held only Stats rules. The underlying Prime Freight figures were never withdrawn as facts — they remain in the résumé record and are simply unpublished.
 - PORT-044 reduced the `Contact.tsx` footer to `© 2026 Julian Patterson` and removed the `OpenClaw` project card. The deleted footer line claimed "Deployed on Vercel", which contradicted ADR-005 and the actual GitHub Pages workflow. The Projects card grid is now `repeat(2, 1fr)` to match the two remaining cards.
