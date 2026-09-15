@@ -154,7 +154,8 @@ PORT-020 through PORT-034 hold one implementation or decision scope per current 
 <a id="adr-008"></a>
 ## ADR-008 — Retain the current typography and supporting freight role
 
-- Status: Accepted
+- Status: Superseded
+- Superseded by: ADR-011
 - Date: 2026-07-22
 - Decider: Julian Patterson
 - Supersedes: ADR-004
@@ -213,3 +214,26 @@ Use `.next-dev/` for `npm run dev`, selected through `NEXT_DIST_DIR`. Keep produ
 - Production validation can run without overwriting a live development server's artifacts.
 - A stale-cache recovery is deterministic: stop the server, run `npm run clean`, then restart development.
 - GitHub Pages continues to deploy the static `out/` export and does not depend on either local artifact directory.
+
+<a id="adr-011"></a>
+## ADR-011 — Use a grotesque and monospaced typography system
+
+- Status: Accepted
+- Date: 2026-09-14
+- Decider: Julian Patterson
+- Supersedes: ADR-008 typography choice only; ADR-008's supporting-freight decision remains in force
+
+### Context
+
+Julian requested a visual direction informed by GT America for large type and Akkurat Mono, Space Mono, or Suisse Int'l Mono for mechanical metadata, plus selective split-flap/text-scramble motion and parts of Carbon Design System. GT America, Akkurat, and Suisse are commercial fonts and licensed font files were not supplied.
+
+### Decision
+
+Use the repository's locally bundled Geist variable font for display and body roles, and the open Space Mono family for labels and metadata. Apply the text-scramble effect selectively to section kickers, preserving the final text in server markup and disabling the effect for reduced motion. Continue using Carbon icons, the 2x spacing rhythm, square geometry, accessible focus treatment, and restrained motion rather than importing the full Carbon React component library.
+
+### Consequences
+
+- The portfolio has a sans-serif grotesque hierarchy without distributing unlicensed commercial fonts.
+- The mono layer provides the mechanical character requested without making long body copy harder to read.
+- Carbon remains an influence and small dependency surface, not a wholesale visual-template replacement.
+- A future switch to GT America, Akkurat, or Suisse requires owner-supplied webfont licenses and files.

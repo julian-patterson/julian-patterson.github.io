@@ -2,13 +2,13 @@
 
 This file mirrors deliberately time-sensitive content in the retained website components. The code remains authoritative even when a review ticket exists.
 
-Last synchronized from code: 2026-07-24
+Last synchronized from code: 2026-09-14
 The former Now section and its “April 2026” update label were removed by PORT-028.
 
 ## Current facts
 
-- Location wording elsewhere on site: Montréal, QC → Hamburg, DE / Montréal → Hamburg (May 2026)
-- Role/status wording elsewhere on site: final-year McGill student; CTO at AnyTime Technologies; incoming/upcoming AI & Analytics intern at Hapag-Lloyd
+- Location wording: the time-sensitive Montréal-to-Hamburg transition was removed from retained public surfaces.
+- Role/status wording: Software Engineer; Software Engineering at McGill University; CTO at AnyTime Technologies; 2026 AI Hub Intern at Hapag-Lloyd. The code does not claim whether the Hapag-Lloyd role is upcoming, active, or complete.
 - source_status: Canonical code
 
 ## Removed Now snapshot

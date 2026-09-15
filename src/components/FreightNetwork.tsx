@@ -95,6 +95,7 @@ export default function FreightNetwork() {
 
   useEffect(() => {
     if (!sectionRef.current || !svgRef.current) return;
+    const activeTweens = tweensRef.current;
 
     // --- Draw-on animation for each route path ---
     const ctx = gsap.context(() => {
@@ -145,7 +146,7 @@ export default function FreightNetwork() {
 
     return () => {
       ctx.revert();
-      tweensRef.current.forEach(t => t.kill());
+      activeTweens.forEach(t => t.kill());
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-07-24
+Last synchronized from code and runtime: 2026-09-14
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -11,9 +11,11 @@ The source under `src/` is authoritative. This file is a navigational map and au
 - GSAP/ScrollTrigger animation, D3 skills visualization, Carbon icons
 - `next.config.mjs` sets `output: "export"`, `trailingSlash: true`, and an environment-selectable `distDir`
 - `npm run dev` writes `.next-dev/`; `npm run build` keeps the standard `.next/` → `out/` path, preventing concurrent development and production artifacts from corrupting one another
+- `.eslintrc.json` enables Next.js Core Web Vitals linting with matching ESLint 8 and `eslint-config-next` 14 packages in the npm dependency state
 - `.github/workflows/nextjs.yml` builds with Node 20/npm and deploys `out/` to GitHub Pages
 - The Pages build passes its repository-scoped automatic `GITHUB_TOKEN` only to the static build; no personal token is required or published
-- `src/app/layout.tsx` uses Google-hosted DM Serif Display, DM Sans, and DM Mono through `next/font/google`
+- `src/app/layout.tsx` uses the bundled Geist variable font for display/body text and Space Mono through `next/font/google` for labels and metadata
+- The visual system selectively uses Carbon icons, a 2x spacing rhythm, square geometry, a Carbon-blue focus ring, and productive motion timing without importing the full Carbon React library
 
 Commands currently defined in `package.json`:
 
@@ -31,7 +33,7 @@ npm run check
 Observed validation on 2026-07-22:
 
 - `npx tsc --noEmit`: passed (reported by both audit agents)
-- `npm run lint`: opens Next.js's interactive ESLint setup because lint is not configured
+- `npm run lint`: passed without warnings or errors after PORT-039 configured Next.js Core Web Vitals linting
 - local browser: rendered after rebuilding a stale `.next` cache; a hydration error overlay remains
 - production build: local audit could not complete because `next/font/google` required network/DNS access
 
@@ -62,6 +64,13 @@ PORT-038 cache-recovery change on 2026-07-24:
 - A reported development failure combined 404s for `webpack.js`, `main-app.js`, and `app/page.js` with missing `.next/server` chunks, showing that development and production artifact generations had been mixed.
 - Development now uses `.next-dev/`, while production retains Next.js's standard `.next/` → `out/` pipeline; `npm run clean` removes both build caches before a clean restart.
 - A production build completed while the isolated development server stayed live; the page and all four previously failing chunk paths returned HTTP 200 before and after that build, and the development browser logged no warning/error.
+
+PORT-039 release-polish validation on 2026-09-14:
+
+- `npm run check`, `npm run lint`, `npm run build`, and `git diff --check` passed. The first intentionally concurrent build/typecheck attempt exposed the known shared `.next/types` race; the required sequential rerun passed.
+- Browser checks at 320, 375, 768, 1024, and 1440 CSS pixels showed no horizontal overflow and a visible Hero. The browser logged no warning or error.
+- The text scramble retains readable server text, replays after viewport re-entry, and exits early when `prefers-reduced-motion` is active.
+- `npm audit --omit=dev` reports two high-severity and one critical advisory in the pinned Next.js 14 production dependency tree. The deployed site is a static export with no Next.js server runtime, but a framework-major upgrade remains a separate decision.
 
 ## Page composition
 
@@ -135,14 +144,15 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 
 - The 390px hero fits, uses the hamburger navigation, and preserves both CTAs.
 - PORT-002 resolved the hydration mismatch previously caused by HTML escaping differences inside rendered component `<style>` text. Component CSS now lives in the static global stylesheet with section-scoped selectors.
-- All five project links in `Projects.tsx` use `href: "#"`.
-- The GitHub-labelled link in `Contact.tsx` points to the portfolio URL.
+- Project cards no longer ship placeholder links; they render explicit pending-link labels until approved destinations are supplied.
+- The GitHub-labelled link in `Contact.tsx` points to Julian's GitHub profile.
 - PORT-014 moved GitHub activity to a build-generated static snapshot; the browser and GitHub Pages deployment no longer require a runtime API or token.
 - PORT-017 supplies a reduced-motion and print fallback for essential reveal content; the owner closed the ticket and waived its remaining interaction-accessibility scope.
 - PORT-027 removed the Journey section and its responsive animation rules. Its retained work, education, and location facts remain represented in About and Experience; Journey-only “Born and raised” and “first freight internship” wording was deliberately removed rather than silently relocated.
 - PORT-028 removed the Now section, its countdown logic, and its responsive rule. Retained status themes remain represented elsewhere; Now-only date/countdown, German-level, and weekly-training claims were deliberately removed from production rather than relocated.
 - Some project-card interactions use clickable `div` elements; graph/network information is hover-oriented.
 - `Marathon.tsx` contains placeholder values; `Terminal.tsx` contains simulated output/history. Both are accurate descriptions of what the current code implements.
+- PORT-039 replaced the stale and fabricated Terminal command output with a concise interactive summary of facts already represented elsewhere.
 - `package-lock.json` and `yarn.lock` both exist while CI uses npm.
 
 ## Historical material

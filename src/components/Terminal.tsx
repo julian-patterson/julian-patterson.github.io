@@ -15,22 +15,23 @@ const commands: Command[] = [
     prompt: "whoami",
     output: [
       "julian patterson",
-      "  role     : software engineer + data scientist",
-      "  status   : final year @ McGill University",
-      "  location : Montréal, QC  →  Hamburg, DE (May 2026)",
-      "  focus    : freight intelligence, graph ML, logistics systems",
+      "  role  : software engineer",
+      "  work  : product infrastructure + logistics tools",
+      "  study : software engineering + statistics @ McGill",
     ],
   },
   {
-    id: "cat-now",
-    prompt: "cat current_obsession.txt",
+    id: "cat-work",
+    prompt: "cat selected_work.txt",
     output: [
-      "Modelling shipping networks as graphs where",
-      "geopolitical events are edge features.",
+      "Prime Freight Logistics",
+      "  pricing, rate processing, and booking workflows",
       "",
-      "The Suez disruption taught everyone that freight",
-      "is a network problem, not a route problem.",
-      "I'm building the model that quantifies that.",
+      "AnyTime Technologies",
+      "  multi-tenant sports-facility booking platform",
+      "",
+      "Hapag-Lloyd",
+      "  AI Hub internship",
     ],
   },
   {
@@ -40,36 +41,12 @@ const commands: Command[] = [
       "python/",
       "typescript/",
       "go/",
-      "rust/                  # weekends",
-      "pytorch-geometric/     # research",
+      "rust/",
+      "pytorch-geometric/",
       "react/",
       "docker/",
       "postgres/",
-      "gsap/                  # apparently",
-    ],
-  },
-  {
-    id: "git-log",
-    prompt: "git log --oneline -6",
-    output: [
-      "a3f9c2b  fix: rate parser edge case for FAK contracts",
-      "82d1e07  feat: add graph propagation layer",
-      "c4a8f91  docs: update thesis notes (3am commit)",
-      "17b3e52  refactor: replace nested loops with vectorised ops",
-      "9e0d4c3  fix: montréal has an accent, always",
-      "f2819ab  chore: add coffee dependency",
-    ],
-  },
-  {
-    id: "ping",
-    prompt: "ping hapag-lloyd.com",
-    output: [
-      "PING hapag-lloyd.com",
-      "  reply from Hamburg, DE  —  T-minus 5 weeks",
-      "  role   : AI & Analytics Intern",
-      "  focus  : demand forecasting, NLP, recommendation systems",
-      "  status : very ready",
-      "^C",
+      "gsap/",
     ],
   },
 ];
@@ -344,7 +321,7 @@ export default function Terminal() {
           color: "var(--text-tertiary)",
         }}
       >
-        Click a command in the sidebar to run it.
+        An interactive summary. Choose a command to explore.
       </p>
 
     </section>

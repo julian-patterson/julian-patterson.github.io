@@ -3,29 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import LetterExplosion from "./LetterExplosion";
+import TextScramble from "./TextScramble";
 import { ArrowRight } from "@carbon/icons-react";
-
-function LiveClock() {
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    const update = () => {
-      const now = new Date();
-      const mtl = new Intl.DateTimeFormat("en-CA", {
-        timeZone: "America/Toronto",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      }).format(now);
-      setTime(mtl);
-    };
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  return <span>{time} MTL</span>;
-}
 
 export default function Hero() {
   const subtitleRef = useRef<HTMLDivElement>(null);
@@ -58,6 +37,7 @@ export default function Hero() {
 
   return (
     <section
+      id="top"
       className="hero-section"
       style={{
         minHeight: "100vh",
@@ -71,8 +51,7 @@ export default function Hero() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr auto",
-          gap: "64px",
+          gridTemplateColumns: "1fr",
           alignItems: "center",
           width: "100%",
         }}
@@ -91,15 +70,17 @@ export default function Hero() {
               marginBottom: "24px",
             }}
           >
-            Software Engineer · Data Scientist
+            <TextScramble text="Software Engineer" className="section-kicker" />
           </p>
 
           {/* Hero name */}
           <h1
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(64px, 8vw, 96px)",
-              lineHeight: 1.0,
+              fontSize: "clamp(58px, 8vw, 96px)",
+              fontWeight: 520,
+              letterSpacing: "-0.055em",
+              lineHeight: 0.94,
               color: "var(--text-primary)",
               marginBottom: "32px",
               overflow: "visible",
@@ -116,7 +97,8 @@ export default function Hero() {
               <span
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(64px, 8vw, 96px)",
+                  fontSize: "clamp(58px, 8vw, 96px)",
+                  fontWeight: 520,
                   color: "var(--accent-navy)",
                   display: "inline-block",
                 }}
@@ -140,10 +122,9 @@ export default function Hero() {
                 marginBottom: "32px",
               }}
             >
-              Building at the intersection of freight intelligence and machine
-              learning.
+              I build practical software for complex operational systems.
               <br />
-              McGill University → Hapag-Lloyd Hamburg.
+              Software engineering, logistics, and product development.
             </p>
 
             {/* Tags */}
@@ -170,20 +151,7 @@ export default function Hero() {
                   gap: "8px",
                 }}
               >
-                Montréal, QC → Hamburg, DE · <LiveClock />
-              </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "12px",
-                  color: "var(--text-secondary)",
-                  border: "1px solid var(--border-strong)",
-                  borderRadius: "0px",
-                  padding: "4px 8px",
-                  backgroundColor: "var(--bg-surface)",
-                }}
-              >
-                Native EN · FR
+                English · Français
               </span>
             </div>
 
@@ -234,24 +202,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right column — atmospheric coordinates */}
-        <div
-          className="hero-coords"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "13px",
-            lineHeight: 2,
-            color: "var(--text-tertiary)",
-            opacity: 0.4,
-            letterSpacing: "0.08em",
-            userSelect: "none",
-            whiteSpace: "pre",
-            textAlign: "center",
-          }}
-          aria-hidden="true"
-        >
-          {`YUL  →  HAM  →  SHA\n45.5°N  53.5°N  31.2°N\n73.6°W  10.0°E 121.5°E`}
-        </div>
       </div>
 
     </section>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ArrowUpRight } from "@carbon/icons-react";
+import TextScramble from "./TextScramble";
 
 const featuredProject = {
   name: "Freight Network Intelligence",
@@ -12,7 +12,7 @@ const featuredProject = {
     "The core insight: a conflict in the Red Sea doesn't only affect Suez Canal routes. It propagates outward with diminishing effect across connected lanes. A graph structure captures this naturally in a way that isolated time-series models cannot.",
   ],
   stack: ["PyTorch Geometric", "AIS Data", "SCFI", "NLP", "Python"],
-  link: { label: "GitHub ↗", href: "#" },
+  link: null,
 };
 
 const projects = [
@@ -21,28 +21,28 @@ const projects = [
     description:
       "Full-stack sports facility booking platform. Multi-tenant architecture, court scheduling, and payment processing.",
     stack: ["React", "Supabase", "GitHub Actions", "Docker"],
-    link: { label: "Live", href: "#" },
+    link: null,
   },
   {
     name: "OpenClaw",
     description:
       "Self-hosted Raspberry Pi personal assistant. Claude API + Telegram interface with Strava, calendar, and task management integrations. Privacy-first: no persistent sensitive data.",
     stack: ["Node.js", "Claude API", "Raspberry Pi", "Telegram Bot API"],
-    link: { label: "GitHub", href: "#" },
+    link: null,
   },
   {
     name: "Transfer CLI",
     description:
       "Go CLI tool using Cobra, SSH, and Git for syncing and transferring repositories over Wi-Fi.",
     stack: ["Go", "Cobra", "SSH", "Git"],
-    link: { label: "GitHub", href: "#" },
+    link: null,
   },
   {
     name: "IoT LED Controller",
     description:
       "Centralized home lighting control system with RGB color management, REST API, and Docker deployment on Raspberry Pi.",
     stack: ["Rust", "Python", "FastAPI", "Docker"],
-    link: { label: "GitHub", href: "#" },
+    link: null,
   },
 ];
 
@@ -91,7 +91,7 @@ export default function Projects() {
           marginBottom: "48px",
         }}
       >
-        Projects
+        <TextScramble text="Projects" className="section-kicker" />
       </p>
 
       {/* Featured project */}
@@ -183,20 +183,15 @@ export default function Projects() {
             ))}
           </div>
 
-          <a
-            href={featuredProject.link.href}
-            target="_blank"
-            rel="noopener noreferrer"
+          <span
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "13px",
-              color: "var(--accent-navy)",
-              textDecoration: "underline",
-              textUnderlineOffset: "3px",
+              color: "var(--text-tertiary)",
             }}
           >
-            {featuredProject.link.label}
-          </a>
+            Case study in progress
+          </span>
         </div>
 
         {/* Decorative Abstract Graph */}
@@ -230,7 +225,7 @@ export default function Projects() {
         className="projects-grid"
       >
         {projects.map((project) => (
-          <div
+          <article
             key={project.name}
             className="carbon-card project-card-anim motion-reveal"
             style={{
@@ -240,25 +235,9 @@ export default function Projects() {
               display: "flex",
               flexDirection: "column",
               position: "relative",
-              cursor: "pointer",
               transition: "border-color 0.2s ease, transform 0.2s ease",
             }}
-            onClick={() => window.open(project.link.href, "_blank")}
           >
-            <div
-              className="card-icon"
-              style={{
-                position: "absolute",
-                top: "24px",
-                right: "24px",
-                opacity: 0,
-                color: "var(--text-primary)",
-                transition: "opacity 0.2s ease",
-              }}
-            >
-              <ArrowUpRight size={20} />
-            </div>
-
             <h3
               style={{
                 fontFamily: "var(--font-body)",
@@ -311,14 +290,12 @@ export default function Projects() {
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "12px",
-                color: "var(--accent-navy)",
-                textDecoration: "underline",
-                textUnderlineOffset: "3px",
+                color: "var(--text-tertiary)",
               }}
             >
-              {project.link.label}
+              Public link pending
             </span>
-          </div>
+          </article>
         ))}
       </div>
 

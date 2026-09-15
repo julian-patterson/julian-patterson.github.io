@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowRight } from "@carbon/icons-react";
+import TextScramble from "./TextScramble";
 
 interface ExperienceEntry {
   date: string;
@@ -17,13 +18,11 @@ interface ExperienceEntry {
 
 const entries: ExperienceEntry[] = [
   {
-    date: "May 2026",
-    role: "AI & Analytics Intern",
+    date: "2026",
+    role: "AI Hub Intern",
     company: "Hapag-Lloyd",
     location: "Hamburg, Germany",
-    tags: ["Demand Forecasting", "NLP", "AWS", "Recommendation Systems"],
-    note:
-      "Upcoming — joining one of the world's largest container shipping companies to work on ML-driven analytics and document automation.",
+    tags: ["Artificial Intelligence", "Logistics"],
   },
   {
     date: "2024 – Present",
@@ -36,6 +35,7 @@ const entries: ExperienceEntry[] = [
       "Built automated Excel parsers processing 2,000+ container rates/month with 100% accuracy — increased rate coverage from 10% to 100%, eliminating 500+ minutes of manual data entry per rate sheet",
       "Architected a React PO management system handling 1,000+ records, cutting booking approval time by 50%",
       "Built a centralized orchestrator with error handling that reduced bug investigation time by 83% (30 min → 5 min)",
+      "Collaborated with four developers, business teams, and clients to gather requirements, resolve issues, and test releases in development and production",
     ],
   },
   {
@@ -47,7 +47,9 @@ const entries: ExperienceEntry[] = [
     bullets: [
       "Founding technical lead for a sports facility booking platform",
       "Designed database schemas for court management, scheduling, and multi-location payment processing",
+      "Built booking workflows for facility data, court availability, and reservation processing with React and Supabase",
       "Implemented CI/CD pipelines via GitHub Actions for automated deployment",
+      "Led backend architecture decisions and established the platform's multi-tenant infrastructure",
     ],
   },
   {
@@ -146,7 +148,7 @@ export default function Experience() {
           marginBottom: "48px",
         }}
       >
-        Experience
+        <TextScramble text="Experience" className="section-kicker" />
       </p>
 
       {/* Entries container — the continuous line lives here */}

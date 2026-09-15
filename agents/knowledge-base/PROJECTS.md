@@ -1,8 +1,8 @@
 # Projects and research
 
-Last synchronized from code: 2026-07-22
+Last synchronized from code: 2026-09-14
 
-All current project links in `src/components/Projects.tsx` are the literal placeholder `#`. This documentation mirrors that code; PORT-012 requests approved projects and real URLs, and PORT-023 performs the resulting section cleanup.
+No project currently renders a link. Freight Network Intelligence is labelled “Case study in progress”; all other project cards say “Public link pending.” PORT-012 still requests approved projects and real URLs, and PORT-023 performs the resulting section cleanup.
 
 ## Freight Network Intelligence
 

@@ -1,6 +1,6 @@
 # Portfolio ticket index
 
-Last updated: 2026-07-24
+Last updated: 2026-09-14
 
 This is the authoritative work queue. Each ticket's scope, approvals, acceptance criteria, validation, and outcome live in its linked Markdown file under `agents/ticket/`. Source under `src/` remains authoritative for the current website; tickets describe requested future changes.
 
@@ -52,6 +52,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-039 — Polish typography and prepare the Next.js portfolio release](ticket/PORT-039.md) | P0 | 2026-09-14 | Grotesque/mono typography, scramble labels, Carbon-inspired polish, copy cleanup, honest project states, and deterministic linting |
 | [PORT-004 — Audit and simplify the section set](ticket/PORT-004.md) | P0 | 2026-07-22 | Owner dispositions recorded; PORT-020–PORT-034 created |
 | [PORT-002 — Eliminate hydration errors](ticket/PORT-002.md) | P0 | 2026-07-23 | Responsive CSS centralized; hydration and root client-render fallback removed |
 | [PORT-014 — Resolve static hosting versus GitHub activity](ticket/PORT-014.md) | P0 | 2026-07-23 | GitHub activity moved to a sanitized build-time static snapshot |

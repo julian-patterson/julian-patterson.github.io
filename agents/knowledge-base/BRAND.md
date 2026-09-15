@@ -1,12 +1,14 @@
 # Brand, audience, and voice
 
-Last decision review: 2026-07-22
+Last decision review: 2026-09-14
 
 ## Confirmed future direction
 
 - Move away from a shipping-dominant identity toward a more general personal brand.
 - Remove generic/generated-feeling sections and copy.
-- Retain the current DM Serif Display, DM Sans, and DM Mono implementation.
+- Use Geist for display/body text and Space Mono for labels and metadata.
+- Use a restrained split-flap/text-scramble reveal on selected labels.
+- Draw selectively from Carbon's icons, 2x spacing, square geometry, focus treatment, and motion principles without adopting the full component library.
 - Treat freight as supporting expertise rather than the entire identity.
 - Refine skills and projects around verified evidence.
 - Follow the section plan in ADR-007 and PORT-020 through PORT-034; the current code remains unchanged until those tickets land.
@@ -37,7 +39,7 @@ Source status: Requested change/context, not final website copy.
 
 ## Visual rules
 
-- Preserve the current serif display, sans-serif body, and restrained monospace metadata roles.
+- Preserve the current grotesque display/body and restrained monospace metadata roles.
 - Preserve generous whitespace and strong hierarchy.
 - Interactions need a purpose and a non-animated/reduced-motion equivalent.
 - Visual identity must not depend on maritime diagrams, coordinate motifs, or shipping-manifest styling unless the owner explicitly retains them.

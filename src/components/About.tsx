@@ -2,12 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import { initScrollReveal } from "@/lib/animations";
+import TextScramble from "./TextScramble";
 
 const metadata = [
-  { label: "STATUS", value: "Final year, McGill University" },
+  { label: "EDUCATION", value: "Software Engineering · McGill University" },
   { label: "ROLE", value: "CTO · AnyTime Technologies" },
-  { label: "NEXT", value: "AI & Analytics Intern · Hapag-Lloyd" },
-  { label: "LOCATION", value: "Montréal → Hamburg (May 2026)" },
+  { label: "EXPERIENCE", value: "Hapag-Lloyd · Prime Freight Logistics" },
   { label: "LANGUAGES", value: "English · French" },
   { label: "INTERESTS", value: "Marathon running · Freight intelligence · Home automation" },
 ];
@@ -51,7 +51,7 @@ export default function About() {
               marginBottom: "24px",
             }}
           >
-            About
+            <TextScramble text="About" className="section-kicker" />
           </p>
           <div
             style={{
@@ -62,15 +62,16 @@ export default function About() {
             }}
           >
             <p style={{ marginBottom: "24px" }}>
-              Software engineer with a statistics minor and an obsession with freight.
-              Two internships inside freight forwarding offices taught me where the real
-              data problems live. I&apos;m drawn to the intersection of machine learning,
-              network science, and global logistics — building tools that make complex
-              systems legible.
+              I&apos;m a software engineering student at McGill University, minoring in
+              statistics. My work spans internal logistics tools, product infrastructure,
+              and applied AI. I like turning complicated operational workflows into
+              software that is easier to understand, operate, and improve.
             </p>
             <p>
-              Fluent in English and French. Currently in Montréal, moving to Hamburg
-              in May 2026 for an AI &amp; Analytics role at Hapag-Lloyd.
+              At Prime Freight Logistics, I built pricing and operations tools used
+              across rate management and booking workflows. At AnyTime Technologies,
+              I lead the technical development of a multi-tenant sports-facility booking
+              platform. I work in English and French.
             </p>
           </div>
         </div>
