@@ -223,6 +223,7 @@ Use `.next-dev/` for `npm run dev`, selected through `NEXT_DIST_DIR`. Keep produ
 - Decider: Julian Patterson
 - Supersedes: ADR-008
 - Typography portion superseded by: [ADR-013](#adr-013); the freight and relocation decision remains accepted
+- Skills Graph exception: [ADR-018](#adr-018) permits one owner-approved freight-domain capability without restoring freight-led identity or relocation framing
 
 ### Context
 
@@ -390,3 +391,31 @@ All three GitHub actions open in safe new tabs, use descriptive accessible names
 - The two standard cards now have approved public destinations without introducing ambiguous whole-card behavior.
 - GitHub remains the single section-level browse destination; adding another service or case-study index requires a new owner decision.
 - PORT-012 and PORT-023 remain blocked because these URL approvals do not settle the projects' statuses, contributions, evidence/outcomes, or the rest of the content audit.
+
+<a id="adr-018"></a>
+## ADR-018 — Use an owner-defined, equal-weight skills graph
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Extends: ADR-013
+- Amends: the Skills Graph-specific scope of ADR-011
+
+### Context
+
+The Skills Graph mixed older technologies, broad domain labels, and unequal node weights that could read as an unapproved proficiency scale. Julian supplied an exact replacement inventory of 37 public skills across Languages, Data & ML, Infrastructure, Frontend, and Domain.
+
+One supplied label, `Freight Forwarding & Container Logistics`, conflicts with ADR-011's blanket removal of freight terminology. The same request explicitly authorizes that phrase as a domain skill, but does not ask to restore freight as the site's identity or the deleted relocation narrative.
+
+### Decision
+
+Render the exact inventory recorded in RQ-005 and `knowledge-base/SKILLS.md`. Give all nodes equal visual weight. Use edge strength only to express technical or domain relationship closeness, never proficiency. Keep every node on mobile and desktop. Desktop uses the force layout with wrapped-label collision space and bounded positions; compact widths use a stable category-aware arrangement in a container-width viewBox so labels remain readable instead of shrinking with an 800-unit canvas.
+
+Expose the five exact category lists through the SVG's accessible description and keep the keyboard-operable legend filters. Restore any selected category filter after temporary node hover, allow background drag-to-pan, and synchronously settle the desktop layout without D3 reveal transitions when reduced motion is requested. Treat `Freight Forwarding & Container Logistics` as a narrow Skills Graph capability exception to ADR-011; freight-led branding, research sections, and relocation copy remain removed.
+
+### Consequences
+
+- The graph publishes 37 owner-approved labels without beginner/intermediate/expert claims or visual ranking.
+- The displayed inventory is publication approval, not proof of supporting evidence, recency, duration, or proficiency; PORT-010 retains that audit.
+- PORT-025 remains blocked on PORT-010 for any broader node-level keyboard, touch, screen-reader, readable-fallback, or live-resize work.
+- Future changes to the inventory, categories, or weighting require another explicit owner update and synchronized code/knowledge-base changes.

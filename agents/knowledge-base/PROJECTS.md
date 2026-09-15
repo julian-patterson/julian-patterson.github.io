@@ -53,7 +53,7 @@ PORT-039 removed the freight research project on 2026-09-07 and promoted then-An
 
 ## Retired from the résumé, still on the site
 
-The résumé record retired **Transfer CLI** and the portfolio website itself from CV use on 2026-07-31. Both remain project cards here; PORT-041 did not remove them because that was a CV-scope decision and no site removal was requested. Note the consequence the record flags: Transfer CLI was Go's only supporting evidence, so removing it would leave the Go skill node unbacked.
+The résumé record retired **Transfer CLI** and the portfolio website itself from CV use on 2026-07-31. Transfer CLI remains a project card here; the portfolio website itself does not. PORT-050 later removed Go from the owner-approved Skills Graph inventory, so the Transfer CLI card no longer serves as a graph-node dependency; its Go stack remains factual project content.
 
 **Freight Lens**, recorded in the résumé record on 2026-09-04, is deliberately absent from this site — it is a freight project and PORT-039 removed that framing.
 

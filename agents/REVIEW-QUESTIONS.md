@@ -94,12 +94,24 @@ Merge the `updated-font` UI work into the current content branch. PORT-045 appli
 <a id="rq-005"></a>
 ## RQ-005 — Skills to emphasize
 
-- Status: Open; decide during ticket
-- Affects: [PORT-010](ticket/PORT-010.md), [PORT-025](ticket/PORT-025.md)
+- Status: Resolved
+- Recorded by: [ADR-018](DECISIONS.md#adr-018)
+- Implemented inventory: [PORT-050](ticket/PORT-050.md)
+- Remaining audit work: [PORT-010](ticket/PORT-010.md), [PORT-025](ticket/PORT-025.md)
 
 ### Owner response — 2026-07-22
 
 Make the skill-emphasis, evidence, grouping, and proficiency-model decision part of the Skills review ticket. PORT-025 should implement the resulting decision.
+
+### Owner response — 2026-09-15
+
+- **Languages:** Python, TypeScript, JavaScript, SQL, HTML / CSS, Java, C
+- **Data & ML:** PyTorch, Pandas / NumPy, NLP, Transformers, CNNs / Computer Vision, LSTM / GRU, Regression & Classification, Agentic AI, Model Context Protocol (MCP)
+- **Infrastructure:** Docker, Google Cloud Platform, Cloud Run, Cloud Tasks, Terraform, GitHub Actions, Supabase, PostgreSQL, REST API Design, Node.js
+- **Frontend:** React, React Native, Material UI, i18next / Localization, Figma / UI Design
+- **Domain:** AI Governance & Risk Assessment, Freight Forwarding & Container Logistics, Booking & Scheduling Systems, Stripe Payment Integration, Technical Leadership & Mentoring, Data Applications
+
+PORT-050 implements these exact 37 labels and groupings. No proficiency scale was supplied, so every node has equal visual weight and edge strength represents relationship closeness only. PORT-010 and PORT-025 retain the broader evidence and interaction-accessibility audit; neither needs another owner approval to start.
 
 <a id="rq-006"></a>
 ## RQ-006 — Approved AnyTime content and URL

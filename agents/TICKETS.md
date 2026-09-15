@@ -6,17 +6,18 @@ This is the authoritative work queue. Each ticket's scope, approvals, acceptance
 
 ## What an agent can work on next
 
-**Next eligible ticket:** [PORT-030 — Retain and polish GitHub Activity](ticket/PORT-030.md)
+**Next eligible ticket:** [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md)
 
 Use the first `Ready` row in the ordered active backlog whose ticket dependencies are `Done`. Ignore `Blocked` and completed tickets. If an `In progress` ticket exists and is not owned by another active agent, continue it first.
 
 Current ready sequence by priority and table order:
 
-1. [PORT-030](ticket/PORT-030.md)
-2. [PORT-035](ticket/PORT-035.md)
-3. [PORT-009](ticket/PORT-009.md)
-4. [PORT-013](ticket/PORT-013.md)
-5. [PORT-018](ticket/PORT-018.md)
+1. [PORT-010](ticket/PORT-010.md)
+2. [PORT-030](ticket/PORT-030.md)
+3. [PORT-035](ticket/PORT-035.md)
+4. [PORT-009](ticket/PORT-009.md)
+5. [PORT-013](ticket/PORT-013.md)
+6. [PORT-018](ticket/PORT-018.md)
 
 ## Ordered active backlog
 
@@ -26,7 +27,7 @@ Current ready sequence by priority and table order:
 | 2 | [PORT-005 — Define a general personal brand](ticket/PORT-005.md) | P0 | Blocked | PORT-004 and owner choice |
 | 3 | [PORT-006 — Centralize repeated site content](ticket/PORT-006.md) | P1 | Blocked | PORT-001 and PORT-005 |
 | 4 | [PORT-008 — Complete responsive and mobile QA](ticket/PORT-008.md) | P1 | Blocked | PORT-020, PORT-021, PORT-022, PORT-023, PORT-024, PORT-025, PORT-030, PORT-034 |
-| 5 | [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md) | P1 | Blocked | owner choices |
+| 5 | [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md) | P1 | Ready | none |
 | 6 | [PORT-011 — Expand and update AnyTime content](ticket/PORT-011.md) | P1 | Blocked | owner content and URL |
 | 7 | [PORT-012 — Update projects and replace placeholder links](ticket/PORT-012.md) | P1 | Blocked | owner content and URLs |
 | 8 | [PORT-020 — Refresh the Hero section](ticket/PORT-020.md) | P1 | Blocked | PORT-001, PORT-005 |
@@ -47,6 +48,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-050 — Replace the skills graph inventory](ticket/PORT-050.md) | P0 | 2026-09-15 | Replaced the graph with the exact 37-skill owner inventory, equal node weight, connected relationships, wrapped labels, and all-node mobile rendering |
 | [PORT-049 — Link the public project repositories](ticket/PORT-049.md) | P0 | 2026-09-15 | Added approved repository actions to Transfer CLI and IoT LED Controller plus a section-level GitHub browse link |
 | [PORT-048 — Add contact icon links to the Hero](ticket/PORT-048.md) | P0 | 2026-09-15 | Added accessible GitHub, email, LinkedIn, and phone icon links beneath the Hero calls to action |
 | [PORT-047 — Add device-aware dark mode](ticket/PORT-047.md) | P0 | 2026-09-15 | Added a device-default light/dark system with a persistent, accessible moon/sun navigation control |

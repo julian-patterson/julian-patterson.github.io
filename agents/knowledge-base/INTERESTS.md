@@ -1,12 +1,12 @@
 # Interests and personal context
 
-Last synchronized from code: 2026-09-07
+Last synchronized from code: 2026-09-15
 
 ## Public interests represented in code
 
 - Marathon running
 - Home automation / Raspberry Pi projects
-- Logistics — stated as a general interest in About and as the `Logistics & Ops` domain node in the skills graph, not as a specialization
+- Logistics — stated as a general interest in About. Separately, PORT-050 publishes the owner-approved `Freight Forwarding & Container Logistics` Skills Graph node as a domain capability, not as site-wide identity or relocation framing.
 - Music/Spotify: TBD
 
 ## Running data

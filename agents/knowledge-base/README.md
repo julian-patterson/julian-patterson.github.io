@@ -49,6 +49,6 @@ Never automatically rewrite time-sensitive code based only on today's date. For 
 - [`EXPERIENCE.md`](EXPERIENCE.md) — roles and approved impact claims
 - [`EDUCATION.md`](EDUCATION.md) — degrees, coursework, activities
 - [`PROJECTS.md`](PROJECTS.md) — projects, research, links, evidence
-- [`SKILLS.md`](SKILLS.md) — skills backed by experience/projects
+- [`SKILLS.md`](SKILLS.md) — owner-approved skills, graph presentation, evidence, and publication notes
 - [`INTERESTS.md`](INTERESTS.md) — running, reading, music, home automation
 - [`BRAND.md`](BRAND.md) — audience, voice, positioning, visual constraints

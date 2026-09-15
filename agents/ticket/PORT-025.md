@@ -4,13 +4,17 @@
 - Priority: P1
 - Source: owner response to RQ-003 and RQ-005 on 2026-07-22
 - Depends on: PORT-010
-- Required approvals: [RQ-005](../REVIEW-QUESTIONS.md#rq-005)
+- Required approvals: none
 - Owner: unassigned
-- Blocker: the skills, evidence, grouping, and proficiency model are still to be decided inside the skills review
+- Blocker: PORT-010 must complete the remaining evidence and interaction-accessibility audit
 
 ## Owner direction
 
 Keep Skills Graph, but update it. Fold the skill-emphasis decision into PORT-010 rather than creating an unsupported list here.
+
+### Owner update — 2026-09-15
+
+PORT-050 already implements the owner-approved inventory, five groupings, equal node weight, relationship-only edges, wrapped labels, a readable stable compact layout, explicit reduced-motion behavior, and all-node mobile rendering. This ticket remains blocked on PORT-010 and owns any broader node keyboard/touch/screen-reader and live-resize work that remains after that audit.
 
 ## Acceptance criteria
 

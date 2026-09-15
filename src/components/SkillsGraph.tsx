@@ -50,127 +50,227 @@ const CAT_LABELS: Record<CategoryId, string> = {
   domain: "Domain",
 };
 
+const CATEGORY_IDS: CategoryId[] = ["languages", "ml", "infra", "frontend", "domain"];
+
 function nodeRadius(w: 1 | 2 | 3) {
   return w === 3 ? 10 : w === 2 ? 7 : 5;
+}
+
+const MAX_LABEL_LINE_LENGTH = 20;
+const COMPACT_LABEL_LINE_LENGTH = 14;
+const COMPACT_GRAPH_BREAKPOINT = 720;
+const COMPACT_MIN_VIEWBOX_WIDTH = 280;
+
+function splitNodeLabel(label: string, maxLineLength = MAX_LABEL_LINE_LENGTH) {
+  return label.split(" ").reduce<string[]>((lines, word) => {
+    const currentLine = lines.at(-1);
+
+    if (!currentLine || `${currentLine} ${word}`.length > maxLineLength) {
+      lines.push(word);
+    } else {
+      lines[lines.length - 1] = `${currentLine} ${word}`;
+    }
+
+    return lines;
+  }, []);
+}
+
+function labelCollisionRadius(label: string) {
+  const longestLine = Math.max(...splitNodeLabel(label).map((line) => line.length));
+  return Math.min(70, Math.max(34, longestLine * 3 + 8));
+}
+
+function layoutCompactNodes(nodes: NodeDatum[], width: number) {
+  const columns = width < 420 ? 2 : width < 620 ? 3 : 4;
+  const labelLineLength = columns === 2 ? COMPACT_LABEL_LINE_LENGTH : columns === 3 ? 16 : 18;
+  const lineHeight = 13;
+  let cursorY = 32;
+
+  CATEGORY_IDS.forEach((category) => {
+    const categoryNodes = nodes.filter((node) => node.category === category);
+
+    for (let index = 0; index < categoryNodes.length; index += columns) {
+      const rowNodes = categoryNodes.slice(index, index + columns);
+      const maxLineCount = Math.max(
+        ...rowNodes.map((node) => splitNodeLabel(node.label, labelLineLength).length)
+      );
+      const firstColumn = (columns - rowNodes.length) / 2;
+
+      rowNodes.forEach((node, columnIndex) => {
+        node.x = (width * (firstColumn + columnIndex + 0.5)) / columns;
+        node.y = cursorY;
+      });
+
+      cursorY += Math.max(52, 38 + maxLineCount * lineHeight);
+    }
+
+    cursorY += 18;
+  });
+
+  return {
+    height: Math.ceil(cursorY + 16),
+    labelLineLength,
+  };
 }
 
 // ── Graph data ─────────────────────────────────────────────────────────────
 
 const RAW_NODES: Omit<NodeDatum, keyof d3.SimulationNodeDatum>[] = [
   // Languages
-  { id: "python", label: "Python", category: "languages", weight: 3 },
-  { id: "typescript", label: "TypeScript", category: "languages", weight: 3 },
-  { id: "javascript", label: "JavaScript", category: "languages", weight: 3 },
+  { id: "python", label: "Python", category: "languages", weight: 2 },
+  { id: "typescript", label: "TypeScript", category: "languages", weight: 2 },
+  { id: "javascript", label: "JavaScript", category: "languages", weight: 2 },
   { id: "sql", label: "SQL", category: "languages", weight: 2 },
-  { id: "go", label: "Go", category: "languages", weight: 2 },
-  { id: "rust", label: "Rust", category: "languages", weight: 1 },
+  { id: "html-css", label: "HTML / CSS", category: "languages", weight: 2 },
+  { id: "java", label: "Java", category: "languages", weight: 2 },
+  { id: "c", label: "C", category: "languages", weight: 2 },
 
   // Data & ML
   { id: "pytorch", label: "PyTorch", category: "ml", weight: 2 },
-  { id: "pyg", label: "PyTorch Geometric", category: "ml", weight: 2 },
-  { id: "sklearn", label: "scikit-learn", category: "ml", weight: 2 },
-  { id: "pandas", label: "Pandas / NumPy", category: "ml", weight: 2 },
+  { id: "pandas-numpy", label: "Pandas / NumPy", category: "ml", weight: 2 },
   { id: "nlp", label: "NLP", category: "ml", weight: 2 },
-  { id: "gnn", label: "Graph Neural Nets", category: "ml", weight: 2 },
-  { id: "timeseries", label: "Time Series", category: "ml", weight: 2 },
-  { id: "agentic", label: "Agentic AI", category: "ml", weight: 3 },
-  { id: "mcp", label: "MCP", category: "ml", weight: 2 },
+  { id: "transformers", label: "Transformers", category: "ml", weight: 2 },
+  {
+    id: "cnn-computer-vision",
+    label: "CNNs / Computer Vision",
+    category: "ml",
+    weight: 2,
+  },
+  { id: "lstm-gru", label: "LSTM / GRU", category: "ml", weight: 2 },
+  {
+    id: "regression-classification",
+    label: "Regression & Classification",
+    category: "ml",
+    weight: 2,
+  },
+  { id: "agentic-ai", label: "Agentic AI", category: "ml", weight: 2 },
+  { id: "mcp", label: "Model Context Protocol (MCP)", category: "ml", weight: 2 },
 
   // Infrastructure
-  { id: "docker", label: "Docker", category: "infra", weight: 3 },
-  { id: "aws", label: "AWS", category: "infra", weight: 2 },
-  { id: "github", label: "GitHub Actions", category: "infra", weight: 2 },
-  { id: "supabase", label: "Supabase", category: "infra", weight: 2 },
-  { id: "linux", label: "Linux / Bash", category: "infra", weight: 2 },
-  { id: "rest", label: "REST APIs", category: "infra", weight: 2 },
-  { id: "node", label: "Node.js", category: "infra", weight: 3 },
-  { id: "gcp", label: "Google Cloud", category: "infra", weight: 2 },
+  { id: "docker", label: "Docker", category: "infra", weight: 2 },
+  { id: "gcp", label: "Google Cloud Platform", category: "infra", weight: 2 },
+  { id: "cloud-run", label: "Cloud Run", category: "infra", weight: 2 },
+  { id: "cloud-tasks", label: "Cloud Tasks", category: "infra", weight: 2 },
   { id: "terraform", label: "Terraform", category: "infra", weight: 2 },
-  { id: "stripe", label: "Stripe", category: "infra", weight: 2 },
+  { id: "github-actions", label: "GitHub Actions", category: "infra", weight: 2 },
+  { id: "supabase", label: "Supabase", category: "infra", weight: 2 },
+  { id: "postgresql", label: "PostgreSQL", category: "infra", weight: 2 },
+  { id: "rest-api-design", label: "REST API Design", category: "infra", weight: 2 },
+  { id: "nodejs", label: "Node.js", category: "infra", weight: 2 },
 
   // Frontend
-  { id: "react", label: "React", category: "frontend", weight: 3 },
-  { id: "nextjs", label: "Next.js", category: "frontend", weight: 3 },
-  { id: "tailwind", label: "Tailwind CSS", category: "frontend", weight: 2 },
-  { id: "gsap", label: "GSAP", category: "frontend", weight: 2 },
+  { id: "react", label: "React", category: "frontend", weight: 2 },
   { id: "reactnative", label: "React Native", category: "frontend", weight: 2 },
-  { id: "figma", label: "Figma / UI Design", category: "frontend", weight: 2 },
+  { id: "material-ui", label: "Material UI", category: "frontend", weight: 2 },
+  {
+    id: "i18next-localization",
+    label: "i18next / Localization",
+    category: "frontend",
+    weight: 2,
+  },
+  { id: "figma-ui-design", label: "Figma / UI Design", category: "frontend", weight: 2 },
 
   // Domain
-  { id: "aigov", label: "AI Governance", category: "domain", weight: 3 },
-  { id: "logistics", label: "Logistics & Ops", category: "domain", weight: 3 },
-  { id: "contracts", label: "Pricing & Contracts", category: "domain", weight: 2 },
-  { id: "scheduling", label: "Scheduling Systems", category: "domain", weight: 2 },
-  { id: "payment", label: "Payment Processing", category: "domain", weight: 1 },
+  {
+    id: "ai-governance-risk-assessment",
+    label: "AI Governance & Risk Assessment",
+    category: "domain",
+    weight: 2,
+  },
+  {
+    id: "freight-container-logistics",
+    label: "Freight Forwarding & Container Logistics",
+    category: "domain",
+    weight: 2,
+  },
+  {
+    id: "booking-scheduling-systems",
+    label: "Booking & Scheduling Systems",
+    category: "domain",
+    weight: 2,
+  },
+  {
+    id: "stripe-payment-integration",
+    label: "Stripe Payment Integration",
+    category: "domain",
+    weight: 2,
+  },
+  {
+    id: "technical-leadership-mentoring",
+    label: "Technical Leadership & Mentoring",
+    category: "domain",
+    weight: 2,
+  },
+  { id: "data-applications", label: "Data Applications", category: "domain", weight: 2 },
 ];
 
 const RAW_EDGES: { source: string; target: string; strength: 1 | 2 | 3 }[] = [
-  // Language → framework dependencies
+  // Language and runtime relationships
   { source: "python", target: "pytorch", strength: 3 },
-  { source: "python", target: "pandas", strength: 3 },
-  { source: "python", target: "sklearn", strength: 3 },
-  { source: "python", target: "nlp", strength: 2 },
-  { source: "python", target: "rest", strength: 2 },
+  { source: "python", target: "pandas-numpy", strength: 3 },
+  { source: "python", target: "agentic-ai", strength: 2 },
+  { source: "python", target: "rest-api-design", strength: 2 },
+  { source: "python", target: "c", strength: 1 },
+  { source: "typescript", target: "javascript", strength: 3 },
   { source: "typescript", target: "react", strength: 3 },
-  { source: "typescript", target: "nextjs", strength: 3 },
+  { source: "typescript", target: "nodejs", strength: 3 },
+  { source: "typescript", target: "mcp", strength: 2 },
   { source: "javascript", target: "react", strength: 3 },
-  { source: "javascript", target: "nextjs", strength: 2 },
-  { source: "rust", target: "docker", strength: 1 },
-  { source: "go", target: "rest", strength: 2 },
-  { source: "sql", target: "supabase", strength: 3 },
+  { source: "javascript", target: "nodejs", strength: 3 },
+  { source: "sql", target: "postgresql", strength: 3 },
+  { source: "html-css", target: "react", strength: 3 },
+  { source: "html-css", target: "material-ui", strength: 2 },
+  { source: "java", target: "rest-api-design", strength: 2 },
 
-  // ML internal connections
-  { source: "pytorch", target: "pyg", strength: 3 },
-  { source: "pytorch", target: "gnn", strength: 3 },
-  { source: "pyg", target: "gnn", strength: 3 },
-  { source: "pandas", target: "sklearn", strength: 2 },
-  { source: "nlp", target: "gnn", strength: 2 },
-  { source: "pandas", target: "timeseries", strength: 3 },
-  { source: "sklearn", target: "timeseries", strength: 2 },
-  { source: "agentic", target: "mcp", strength: 3 },
-  { source: "agentic", target: "nlp", strength: 2 },
-  { source: "agentic", target: "python", strength: 2 },
-  { source: "mcp", target: "typescript", strength: 2 },
+  // Data & ML relationships
+  { source: "pytorch", target: "transformers", strength: 3 },
+  { source: "pytorch", target: "cnn-computer-vision", strength: 3 },
+  { source: "pytorch", target: "lstm-gru", strength: 3 },
+  { source: "pytorch", target: "regression-classification", strength: 2 },
+  { source: "pandas-numpy", target: "regression-classification", strength: 3 },
+  { source: "pandas-numpy", target: "data-applications", strength: 3 },
+  { source: "nlp", target: "transformers", strength: 3 },
+  { source: "nlp", target: "lstm-gru", strength: 3 },
+  { source: "transformers", target: "agentic-ai", strength: 3 },
+  { source: "agentic-ai", target: "mcp", strength: 3 },
+  { source: "ai-governance-risk-assessment", target: "agentic-ai", strength: 3 },
+  { source: "mcp", target: "ai-governance-risk-assessment", strength: 2 },
 
   // Infrastructure connections
-  { source: "docker", target: "aws", strength: 2 },
-  { source: "docker", target: "gcp", strength: 3 },
+  { source: "docker", target: "cloud-run", strength: 3 },
+  { source: "docker", target: "github-actions", strength: 3 },
   { source: "docker", target: "terraform", strength: 2 },
+  { source: "gcp", target: "cloud-run", strength: 3 },
+  { source: "gcp", target: "cloud-tasks", strength: 3 },
   { source: "gcp", target: "terraform", strength: 3 },
-  { source: "gcp", target: "node", strength: 2 },
-  { source: "node", target: "javascript", strength: 3 },
-  { source: "node", target: "typescript", strength: 3 },
-  { source: "node", target: "rest", strength: 2 },
-  { source: "stripe", target: "supabase", strength: 2 },
-  { source: "docker", target: "github", strength: 2 },
-  { source: "docker", target: "linux", strength: 2 },
+  { source: "cloud-run", target: "nodejs", strength: 2 },
+  { source: "cloud-run", target: "rest-api-design", strength: 2 },
+  { source: "cloud-tasks", target: "booking-scheduling-systems", strength: 2 },
+  { source: "terraform", target: "github-actions", strength: 2 },
+  { source: "supabase", target: "postgresql", strength: 3 },
   { source: "supabase", target: "react", strength: 2 },
-  { source: "github", target: "nextjs", strength: 2 },
-  { source: "aws", target: "python", strength: 1 },
-  { source: "rest", target: "react", strength: 2 },
+  { source: "postgresql", target: "rest-api-design", strength: 2 },
+  { source: "nodejs", target: "rest-api-design", strength: 3 },
 
   // Frontend connections
-  { source: "react", target: "nextjs", strength: 3 },
   { source: "react", target: "reactnative", strength: 3 },
-  { source: "react", target: "tailwind", strength: 2 },
-  { source: "nextjs", target: "tailwind", strength: 2 },
-  { source: "nextjs", target: "gsap", strength: 2 },
-  { source: "figma", target: "react", strength: 2 },
-  { source: "figma", target: "tailwind", strength: 2 },
+  { source: "react", target: "material-ui", strength: 3 },
+  { source: "react", target: "i18next-localization", strength: 2 },
+  { source: "react", target: "figma-ui-design", strength: 2 },
+  { source: "reactnative", target: "i18next-localization", strength: 2 },
+  { source: "material-ui", target: "figma-ui-design", strength: 2 },
 
-  // Domain bridges (connects domain knowledge to technical stack)
-  { source: "logistics", target: "contracts", strength: 3 },
-  { source: "logistics", target: "scheduling", strength: 3 },
-  { source: "logistics", target: "python", strength: 1 },
-  { source: "logistics", target: "sql", strength: 1 },
-  { source: "logistics", target: "timeseries", strength: 2 },
-  { source: "contracts", target: "nlp", strength: 2 },
-  { source: "scheduling", target: "supabase", strength: 2 },
-  { source: "scheduling", target: "react", strength: 1 },
-  { source: "payment", target: "supabase", strength: 2 },
-  { source: "payment", target: "stripe", strength: 3 },
-  { source: "aigov", target: "agentic", strength: 3 },
-  { source: "aigov", target: "mcp", strength: 2 },
+  // Domain bridges
+  { source: "ai-governance-risk-assessment", target: "technical-leadership-mentoring", strength: 2 },
+  { source: "freight-container-logistics", target: "booking-scheduling-systems", strength: 3 },
+  { source: "freight-container-logistics", target: "data-applications", strength: 2 },
+  { source: "booking-scheduling-systems", target: "data-applications", strength: 2 },
+  { source: "stripe-payment-integration", target: "supabase", strength: 2 },
+  { source: "stripe-payment-integration", target: "rest-api-design", strength: 3 },
+  { source: "technical-leadership-mentoring", target: "github-actions", strength: 1 },
+  { source: "technical-leadership-mentoring", target: "data-applications", strength: 2 },
+  { source: "data-applications", target: "react", strength: 2 },
+  { source: "data-applications", target: "postgresql", strength: 2 },
 ];
 
 // Build adjacency map from raw edge IDs
@@ -192,16 +292,18 @@ export default function SkillsGraph() {
   const linkElsRef = useRef<d3.Selection<SVGLineElement, EdgeDatum, SVGGElement, unknown> | null>(null);
   const edgesRevealedRef = useRef(false);
   const startedRef = useRef(false);
+  const activeLegendRef = useRef<CategoryId | null>(null);
 
   const [activeLegend, setActiveLegend] = useState<CategoryId | null>(null);
 
-  // ── Apply legend highlight via D3 ──────────────────────────────────────
-  useEffect(() => {
+  const applyLegendHighlight = useCallback((category: CategoryId | null) => {
     const nodeEls = nodeElsRef.current;
     const linkEls = linkElsRef.current;
     if (!nodeEls || !linkEls) return;
 
-    if (activeLegend === null) {
+    linkEls.interrupt();
+
+    if (category === null) {
       nodeEls
         .attr("opacity", 1)
         .select("circle")
@@ -213,28 +315,35 @@ export default function SkillsGraph() {
       }
     } else {
       nodeEls
-        .attr("opacity", (d: NodeDatum) => (d.category === activeLegend ? 1 : 0.12))
+        .attr("opacity", (d: NodeDatum) => (d.category === category ? 1 : 0.12))
         .select("circle")
         .attr("stroke", (d: NodeDatum) =>
-          d.category === activeLegend ? CAT_COLORS[d.category] : CAT_MUTED_COLORS[d.category]
+          d.category === category ? CAT_COLORS[d.category] : CAT_MUTED_COLORS[d.category]
         )
-        .attr("stroke-width", (d: NodeDatum) => (d.category === activeLegend ? 2 : 1.5));
+        .attr("stroke-width", (d: NodeDatum) => (d.category === category ? 2 : 1.5));
       nodeEls
         .select<SVGTextElement>("text")
         .attr("fill", (d: NodeDatum) =>
-          d.category === activeLegend ? "var(--text-primary)" : "var(--graph-muted-text)"
+          d.category === category ? "var(--text-primary)" : "var(--graph-muted-text)"
         );
       if (edgesRevealedRef.current) {
         linkEls
           .attr("opacity", (e: EdgeDatum) => {
             const s = (e.source as NodeDatum).category;
             const t = (e.target as NodeDatum).category;
-            return s === activeLegend && t === activeLegend ? 1 : 0.05;
+            return s === category && t === category ? 1 : 0.05;
           })
+          .attr("stroke", "var(--graph-edge)")
           .attr("stroke-width", 1);
       }
     }
-  }, [activeLegend]);
+  }, []);
+
+  // ── Apply legend highlight via D3 ──────────────────────────────────────
+  useEffect(() => {
+    activeLegendRef.current = activeLegend;
+    applyLegendHighlight(activeLegend);
+  }, [activeLegend, applyLegendHighlight]);
 
   // ── Graph initializer ────────────────────────────────────────────────────
   const initGraph = useCallback(() => {
@@ -243,23 +352,39 @@ export default function SkillsGraph() {
     if (!container || !svgEl || startedRef.current) return;
     startedRef.current = true;
 
-    const isMobile = window.innerWidth < 768;
-    const VW = 800;
-    const VH = isMobile ? 380 : 520;
+    const containerWidth = container.clientWidth;
+    const isCompact = containerWidth < COMPACT_GRAPH_BREAKPOINT;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const VW = isCompact
+      ? Math.max(COMPACT_MIN_VIEWBOX_WIDTH, Math.round(containerWidth))
+      : 800;
 
-    // Filter weight-1 nodes on mobile, and start all at exact center
-    const nodes: NodeDatum[] = RAW_NODES
-      .filter((n) => !isMobile || n.weight > 1)
-      .map((n) => ({
-        ...n,
-        x: VW / 2,
-        y: VH / 2,
-      }));
+    // Every owner-approved skill remains present at every viewport width.
+    const nodes: NodeDatum[] = RAW_NODES.map((n) => ({
+      ...n,
+      x: VW / 2,
+      y: 260,
+    }));
+
+    const compactLayout = isCompact ? layoutCompactNodes(nodes, VW) : null;
+    const VH = compactLayout?.height ?? 520;
+
+    if (!isCompact) {
+      nodes.forEach((node) => {
+        node.x = VW / 2;
+        node.y = VH / 2;
+      });
+    }
 
     const nodeIds = new Set(nodes.map((n) => n.id));
+    const nodesById = new Map(nodes.map((node) => [node.id, node]));
     const edges: EdgeDatum[] = RAW_EDGES
       .filter((e) => nodeIds.has(e.source) && nodeIds.has(e.target))
-      .map((e) => ({ ...e }));
+      .map((e) => ({
+        ...e,
+        source: nodesById.get(e.source)!,
+        target: nodesById.get(e.target)!,
+      }));
 
     // ── SVG setup ──────────────────────────────────────────────────────────
     const svg = d3
@@ -280,15 +405,22 @@ export default function SkillsGraph() {
       .zoom<SVGSVGElement, unknown>()
       .scaleExtent([0.5, 3])
       .filter((event) => {
-        if (event.type === "mousedown") return false;
+        if (event.type === "mousedown") {
+          const target = event.target as Element | null;
+          return event.button === 0 && !target?.closest(".node");
+        }
         return !event.button;
       })
       .on("zoom", (event) => g.attr("transform", event.transform));
 
     svg.call(zoomBehavior);
-    svg.on("dblclick.zoom", () =>
-      svg.transition().duration(350).call(zoomBehavior.transform, d3.zoomIdentity)
-    );
+    svg.on("dblclick.zoom", () => {
+      if (prefersReducedMotion) {
+        svg.call(zoomBehavior.transform, d3.zoomIdentity);
+      } else {
+        svg.transition().duration(350).call(zoomBehavior.transform, d3.zoomIdentity);
+      }
+    });
 
     // Hint label
     const hintText = svg
@@ -299,12 +431,15 @@ export default function SkillsGraph() {
       .attr("font-family", "var(--font-mono)")
       .attr("font-size", "10")
       .attr("fill", "var(--text-tertiary)")
+      .attr("opacity", prefersReducedMotion ? 0 : 1)
       .attr("pointer-events", "none")
-      .text("scroll to zoom · drag to pan");
+      .text(isCompact ? "pinch to zoom · drag to pan" : "scroll to zoom · drag to pan");
 
-    setTimeout(() => {
-      hintText.transition().duration(700).attr("opacity", 0);
-    }, 3000);
+    if (!prefersReducedMotion) {
+      setTimeout(() => {
+        hintText.transition().duration(700).attr("opacity", 0);
+      }, 3000);
+    }
 
     // ── Cluster force ──────────────────────────────────────────────────────
     const centroids: Record<CategoryId, { x: number; y: number }> = {
@@ -341,10 +476,17 @@ export default function SkillsGraph() {
       .force("center", d3.forceCenter(VW / 2, VH / 2))
       .force(
         "collision",
-        d3.forceCollide<NodeDatum>().radius((d) => nodeRadius(d.weight) + 20)
+        d3
+          .forceCollide<NodeDatum>()
+          .radius((d) => labelCollisionRadius(d.label))
+          .iterations(3)
       )
       .force("cluster", clusterForceFn)
       .alphaDecay(0.02);
+
+    if (isCompact || prefersReducedMotion) {
+      simulation.stop();
+    }
 
     simRef.current = simulation;
 
@@ -367,8 +509,14 @@ export default function SkillsGraph() {
       .data(nodes)
       .join("g")
       .attr("class", (d) => `node w${d.weight}`)
+      .attr("data-skill-id", (d) => d.id)
+      .attr("data-category", (d) => d.category)
+      .attr("data-weight", (d) => d.weight)
+      .attr("aria-label", (d) => d.label)
       .attr("cursor", "pointer")
       .style("transition", "opacity 0.2s ease");
+
+    nodeEls.append("title").text((d) => d.label);
 
     nodeEls
       .append("circle")
@@ -378,16 +526,26 @@ export default function SkillsGraph() {
       .attr("stroke-width", 1.5)
       .style("transition", "stroke 0.2s ease, stroke-width 0.2s ease, transform 0.2s ease");
 
-    nodeEls
+    const nodeLabels = nodeEls
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("dy", (d) => nodeRadius(d.weight) + 12)
       .attr("font-family", "var(--font-mono)")
-      .attr("font-size", (d) => (d.weight === 3 ? "11" : "10"))
+      .attr("font-size", isCompact ? "11" : "10")
       .attr("fill", "var(--graph-text)")
       .attr("pointer-events", "none")
-      .style("transition", "fill 0.2s ease")
-      .text((d) => d.label);
+      .style("transition", "fill 0.2s ease");
+
+    nodeLabels.each(function (d) {
+      d3.select(this)
+        .selectAll("tspan")
+        .data(splitNodeLabel(d.label, compactLayout?.labelLineLength))
+        .join("tspan")
+        .attr("x", 0)
+        .attr("dy", (_line, index) =>
+          index === 0 ? `${nodeRadius(d.weight) + 12}px` : "1.15em"
+        )
+        .text((line) => line);
+    });
 
     nodeElsRef.current = nodeEls;
 
@@ -414,9 +572,10 @@ export default function SkillsGraph() {
             n.id === d.id || neighbors.has(n.id)
               ? "var(--text-primary)"
               : "var(--graph-muted-text)"
-          );
+        );
 
         if (edgesRevealedRef.current) {
+          linkEls.interrupt();
           linkEls
             .attr("opacity", (e) => {
               const sId = (e.source as NodeDatum).id;
@@ -438,21 +597,8 @@ export default function SkillsGraph() {
         }
       })
       .on("mouseleave", function () {
-        nodeEls.attr("opacity", 1);
-        nodeEls
-          .select<SVGCircleElement>("circle")
-          .attr("stroke", (n) => CAT_MUTED_COLORS[n.category])
-          .attr("stroke-width", 1.5)
-          .style("transform", "scale(1)");
-
-        nodeEls.select<SVGTextElement>("text").attr("fill", "var(--graph-text)");
-
-        if (edgesRevealedRef.current) {
-          linkEls
-            .attr("opacity", 1)
-            .attr("stroke", "var(--graph-edge)")
-            .attr("stroke-width", 1);
-        }
+        nodeEls.select<SVGCircleElement>("circle").style("transform", "scale(1)");
+        applyLegendHighlight(activeLegendRef.current);
       });
 
     // ── Drag behavior ──────────────────────────────────────────────────────
@@ -474,10 +620,19 @@ export default function SkillsGraph() {
         d.fy = null;
       });
 
-    nodeEls.call(dragBehavior);
+    if (!isCompact && !prefersReducedMotion) {
+      nodeEls.call(dragBehavior);
+    }
 
-    // ── Tick handler ───────────────────────────────────────────────────────
-    simulation.on("tick", () => {
+    const renderGraph = () => {
+      if (!isCompact) {
+        nodes.forEach((node) => {
+          const horizontalPadding = Math.min(72, labelCollisionRadius(node.label) + 8);
+          node.x = Math.max(horizontalPadding, Math.min(VW - horizontalPadding, node.x!));
+          node.y = Math.max(24, Math.min(VH - 44, node.y!));
+        });
+      }
+
       linkEls
         .attr("x1", (d) => (d.source as NodeDatum).x!)
         .attr("y1", (d) => (d.source as NodeDatum).y!)
@@ -485,20 +640,42 @@ export default function SkillsGraph() {
         .attr("y2", (d) => (d.target as NodeDatum).y!);
 
       nodeEls.attr("transform", (d) => `translate(${d.x!},${d.y!})`);
+    };
 
-      if (!edgesRevealedRef.current && simulation.alpha() < 0.3) {
-        edgesRevealedRef.current = true;
-        linkEls.transition().duration(800).attr("opacity", 1);
-      }
-    });
+    const revealEdges = () => {
+      edgesRevealedRef.current = true;
+      applyLegendHighlight(activeLegendRef.current);
+    };
 
-    simulation.on("end", () => {
-      if (!edgesRevealedRef.current) {
-        edgesRevealedRef.current = true;
-        linkEls.attr("opacity", 1);
-      }
-    });
-  }, []);
+    if (isCompact) {
+      renderGraph();
+      revealEdges();
+    } else if (prefersReducedMotion) {
+      simulation.tick(400).alpha(0);
+      renderGraph();
+      revealEdges();
+    } else {
+      // ── Tick handler ─────────────────────────────────────────────────────
+      simulation.on("tick", () => {
+        renderGraph();
+
+        if (!edgesRevealedRef.current && simulation.alpha() < 0.3) {
+          edgesRevealedRef.current = true;
+          if (activeLegendRef.current === null) {
+            linkEls.transition().duration(800).attr("opacity", 1);
+          } else {
+            applyLegendHighlight(activeLegendRef.current);
+          }
+        }
+      });
+
+      simulation.on("end", () => {
+        if (!edgesRevealedRef.current) {
+          revealEdges();
+        }
+      });
+    }
+  }, [applyLegendHighlight]);
 
   // ── ScrollTrigger ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -555,8 +732,20 @@ export default function SkillsGraph() {
         <svg
           ref={svgRef}
           style={{ display: "block", width: "100%", height: "auto" }}
-          aria-label="Interactive force-directed skill graph"
+          role="img"
+          aria-label="Interactive force-directed graph of 37 skills"
+          aria-describedby="skills-graph-description"
         />
+        <div id="skills-graph-description" className="sr-only">
+          {(Object.keys(CAT_LABELS) as CategoryId[]).map((cat) => (
+            <p key={cat}>
+              {CAT_LABELS[cat]}: {RAW_NODES.filter((node) => node.category === cat)
+                .map((node) => node.label)
+                .join(", ")}
+              .
+            </p>
+          ))}
+        </div>
       </div>
 
       {/* Legend */}
@@ -573,7 +762,9 @@ export default function SkillsGraph() {
         {(Object.keys(CAT_LABELS) as CategoryId[]).map((cat) => (
           <button
             key={cat}
+            type="button"
             onClick={() => setActiveLegend((prev) => (prev === cat ? null : cat))}
+            aria-pressed={activeLegend === cat}
             style={{
               display: "flex",
               alignItems: "center",
@@ -604,6 +795,7 @@ export default function SkillsGraph() {
         ))}
         {activeLegend && (
           <button
+            type="button"
             onClick={() => setActiveLegend(null)}
             style={{
               background: "none",

@@ -5,8 +5,8 @@ Last decision review: 2026-09-15
 ## Confirmed direction
 
 - Implemented by PORT-039 on 2026-09-07: the shipping/freight identity is removed from production, not merely de-emphasized. Julian is not applying to freight-specific roles.
-- Freight is now *omitted* framing, not supporting expertise. This tightens the earlier 2026-07-22 position recorded in ADR-008; see ADR-011.
-- Logistics remains as a stated general interest only — About's "soft spot for logistics" line and the `Logistics & Ops` skills node.
+- Freight remains omitted as site-wide identity and framing. PORT-050 adds `Freight Forwarding & Container Logistics` only as one owner-approved domain capability in the Skills Graph; this narrow exception does not restore freight-led branding or relocation copy. See ADR-018's amendment to ADR-011.
+- Logistics remains a stated general interest in About, separately from that skills-graph capability.
 - The `Prime Freight Logistics` and `Hapag-Lloyd` employer names stay as factual employment records with domain-neutral role descriptions. What was removed is the *relocation narrative*, not the work history.
 - Use bundled Geist for display/body text and Space Mono for labels and metadata, as implemented by PORT-045 and recorded in ADR-013.
 - Render the Hero name as stable type with open tracking and intentional space between its two lines; do not animate its individual letters into place.
@@ -16,7 +16,7 @@ Last decision review: 2026-09-15
 - Use a restrained, reduced-motion-aware text scramble on selected section kickers.
 - Draw selectively from Carbon's icons, 2x spacing, square geometry, focus treatment, and motion principles without adopting the full component library.
 - Remove generic/generated-feeling sections and copy.
-- Refine skills and projects around verified evidence.
+- Preserve PORT-050's exact owner-approved 37-skill inventory and five category groupings without implying a proficiency ranking; continue the supporting-evidence audit in PORT-010.
 - Remaining PORT-020 through PORT-034 section work is unchanged except where PORT-039 already deleted the section.
 
 ## Decisions still needed
