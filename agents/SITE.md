@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-07 (PORT-044)
+Last synchronized from code and runtime: 2026-09-15 (PORT-045)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -11,9 +11,11 @@ The source under `src/` is authoritative. This file is a navigational map and au
 - GSAP/ScrollTrigger animation, D3 skills visualization, Carbon icons
 - `next.config.mjs` sets `output: "export"`, `trailingSlash: true`, and an environment-selectable `distDir`
 - `npm run dev` writes `.next-dev/`; `npm run build` keeps the standard `.next/` → `out/` path, preventing concurrent development and production artifacts from corrupting one another
+- `.eslintrc.json` enables Next.js Core Web Vitals linting with matching ESLint 8 and `eslint-config-next` 14 packages in the npm dependency state
 - `.github/workflows/nextjs.yml` builds with Node 20/npm and deploys `out/` to GitHub Pages
 - The Pages build passes its repository-scoped automatic `GITHUB_TOKEN` only to the static build. **This token cannot answer the contribution-calendar query** the activity route makes, which is user-scoped data needing `read:user`; PORT-043 records the diagnosis and the owner steps. No personal token is currently configured, and none is published
-- `src/app/layout.tsx` uses Google-hosted DM Serif Display, DM Sans, and DM Mono through `next/font/google`
+- `src/app/layout.tsx` uses the bundled Geist variable font for display/body text and Space Mono through `next/font/google` for labels and metadata
+- The visual system selectively uses Carbon icons, a 2x spacing rhythm, square geometry, a Carbon-blue focus ring, and productive motion timing without importing the full Carbon React library
 
 Commands currently defined in `package.json`:
 
@@ -62,6 +64,13 @@ PORT-038 cache-recovery change on 2026-07-24:
 - A reported development failure combined 404s for `webpack.js`, `main-app.js`, and `app/page.js` with missing `.next/server` chunks, showing that development and production artifact generations had been mixed.
 - Development now uses `.next-dev/`, while production retains Next.js's standard `.next/` → `out/` pipeline; `npm run clean` removes both build caches before a clean restart.
 - A production build completed while the isolated development server stayed live; the page and all four previously failing chunk paths returned HTTP 200 before and after that build, and the development browser logged no warning/error.
+
+PORT-045 branch reconciliation on 2026-09-15:
+
+- Merges `origin/updated-font` into `remove-hugo-update` while retaining the latter's current copy, seven-section composition, work history, project set, and removals.
+- Applies Geist/Space Mono typography, selected accessible scramble labels, Carbon-inspired focus/selection/motion tokens, Hero and Contact heading refinements, and the `#top` navigation target.
+- Standard project cards no longer open `#` in a new tab; they remain visible with non-interactive pending-link labels. The verified Stride link remains unchanged.
+- Validation results are recorded in PORT-045.
 
 ## Page composition
 
@@ -129,15 +138,15 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 
 - The 390px hero fits, uses the hamburger navigation, and preserves both CTAs.
 - PORT-002 resolved the hydration mismatch previously caused by HTML escaping differences inside rendered component `<style>` text. Component CSS now lives in the static global stylesheet with section-scoped selectors.
-- Both remaining standard project links in `Projects.tsx` use `href: "#"`; the featured Stride card links to `https://strideapp.ca`. PORT-023 owns this cleanup.
-- The GitHub-labelled link in `Contact.tsx` points to the portfolio URL.
+- Both standard project cards in `Projects.tsx` display non-interactive pending-link labels; the featured Stride card links to `https://strideapp.ca`. PORT-023 still owns adding approved destinations.
+- The GitHub-labelled link in `Contact.tsx` points to Julian's GitHub profile.
 - PORT-014 moved GitHub activity to a build-generated static snapshot; the browser and GitHub Pages deployment no longer require a runtime API or token.
 - PORT-017 supplies a reduced-motion and print fallback for essential reveal content; the owner closed the ticket and waived its remaining interaction-accessibility scope.
 - PORT-027 removed the Journey section and its responsive animation rules. Its retained work, education, and location facts remain represented in About and Experience; Journey-only “Born and raised” and “first freight internship” wording was deliberately removed rather than silently relocated.
 - PORT-028 removed the Now section, its countdown logic, and its responsive rule. Retained status themes remain represented elsewhere; Now-only date/countdown, German-level, and weekly-training claims were deliberately removed from production rather than relocated.
 - PORT-041 rebuilt Experience from Julian's canonical résumé record at `/home/julian/Development/resume/content/experience.md`, which is now the upstream source of truth for employment facts. It corrected several stale claims: AnyTime Technologies is renamed **Stride**; Stride runs **May 2025 – present**, not 2024; the title is **Founder & Chief Technology Officer**; Prime Freight ended **March 2026** and its "2024 – Present" was false; McGill is **expected December 2026**; McGill AI Alignment is no longer active and was removed; and the Hero's "Native EN · FR" became "Fluent EN · FR" because the record retired "native". Entries are written at the skills level rather than as itemized accomplishments, so the quantified Prime Freight metrics moved out of the timeline into `Stats`; PORT-024 has since removed `Stats`, so those figures are no longer published anywhere on the site and live only in the résumé record. The record carries binding `NOT CLAIMABLE` / `STATUS` / `ATTRIBUTION` limits — read `knowledge-base/EXPERIENCE.md` before editing any Experience copy.
 - PORT-039 removed the freight identity at Julian's explicit request, and PORT-040 then restored one piece of it. What is gone: the relocation narrative — the `Montréal → Hamburg` location lines, the `YUL → HAM → SHA` hero coordinate motif, the `ping hapag-lloyd.com` terminal command, and all "incoming"/"upcoming" tense. What stands: `Prime Freight Logistics` and `Hapag-Lloyd` as factual employment records in Experience, both with domain-neutral role descriptions. Hapag-Lloyd reads "AI Hub Intern · Hamburg, Germany · May – Aug 2026" and appears in Experience only, not in the Hero, About, Terminal, or site metadata. Logistics survives as a stated interest in About and as the `Logistics & Ops` domain node in `SkillsGraph.tsx`. The freight-specific `AIS Data` and `SCFI Index` skill nodes were replaced by `Time Series`. Verified metric values in Experience and Stats were unchanged by that ticket; only their labels were generalized. `Stats` was removed later the same day by PORT-024.
-- Some project-card interactions use clickable `div` elements; graph/network information is hover-oriented.
+- Standard project cards use semantic `article` elements and do not imitate links while their destinations are unknown; the skills graph remains hover-oriented.
 - PORT-042 removed the Marathon and Terminal sections at Julian's request, together with their dedicated CSS. Their placeholder Strava figures and simulated terminal history are no longer in production. The About card still lists marathon running as an interest, which was deliberate.
 - PORT-024 removed the `Stats` section (`Impact`, `#stats`) at Julian's request, resolving RQ-011 as **remove**. Its six counters and the before/after automation chart are gone, along with the `#stats` grid rules and the `@media (max-width: 480px)` block that held only Stats rules. The underlying Prime Freight figures were never withdrawn as facts — they remain in the résumé record and are simply unpublished.
 - PORT-044 reduced the `Contact.tsx` footer to `© 2026 Julian Patterson` and removed the `OpenClaw` project card. The deleted footer line claimed "Deployed on Vercel", which contradicted ADR-005 and the actual GitHub Pages workflow. The Projects card grid is now `repeat(2, 1fr)` to match the two remaining cards.

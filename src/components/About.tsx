@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { initScrollReveal } from "@/lib/animations";
+import TextScramble from "./TextScramble";
 
 const metadata = [
   { label: "STATUS", value: "Final year, McGill University" },
@@ -50,7 +51,7 @@ export default function About() {
               marginBottom: "24px",
             }}
           >
-            About
+            <TextScramble text="About" className="section-kicker" />
           </p>
           <div
             style={{

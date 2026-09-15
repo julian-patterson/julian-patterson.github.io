@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { initScrollReveal } from "@/lib/animations";
 import { Email, LogoLinkedin, LogoGithub } from "@carbon/icons-react";
+import TextScramble from "./TextScramble";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -34,7 +35,7 @@ export default function Contact() {
           marginBottom: "24px",
         }}
       >
-        Contact
+        <TextScramble text="Contact" className="section-kicker" />
       </p>
 
       <h2
@@ -42,6 +43,8 @@ export default function Contact() {
         style={{
           fontFamily: "var(--font-display)",
           fontSize: "clamp(40px, 5vw, 64px)",
+          fontWeight: 520,
+          letterSpacing: "-0.045em",
           color: "var(--text-primary)",
           marginBottom: "24px",
           lineHeight: 1.1,
@@ -109,7 +112,7 @@ export default function Contact() {
           <span style={{ textDecoration: "underline", textUnderlineOffset: "3px" }}>LinkedIn ↗</span>
         </a>
         <a
-          href="https://julian-patterson.github.io"
+          href="https://github.com/julian-patterson"
           target="_blank"
           rel="noopener noreferrer"
           className="carbon-contact-link"

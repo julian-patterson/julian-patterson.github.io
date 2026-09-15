@@ -1,6 +1,6 @@
 # Brand, audience, and voice
 
-Last decision review: 2026-09-07
+Last decision review: 2026-09-15
 
 ## Confirmed direction
 
@@ -8,7 +8,9 @@ Last decision review: 2026-09-07
 - Freight is now *omitted* framing, not supporting expertise. This tightens the earlier 2026-07-22 position recorded in ADR-008; see ADR-011.
 - Logistics remains as a stated general interest only — About's "soft spot for logistics" line and the `Logistics & Ops` skills node.
 - The `Prime Freight Logistics` and `Hapag-Lloyd` employer names stay as factual employment records with domain-neutral role descriptions. What was removed is the *relocation narrative*, not the work history.
-- Retain the current DM Serif Display, DM Sans, and DM Mono implementation.
+- Use bundled Geist for display/body text and Space Mono for labels and metadata, as implemented by PORT-045 and recorded in ADR-013.
+- Use a restrained, reduced-motion-aware text scramble on selected section kickers.
+- Draw selectively from Carbon's icons, 2x spacing, square geometry, focus treatment, and motion principles without adopting the full component library.
 - Remove generic/generated-feeling sections and copy.
 - Refine skills and projects around verified evidence.
 - Remaining PORT-020 through PORT-034 section work is unchanged except where PORT-039 already deleted the section.
@@ -40,7 +42,7 @@ Source status: Requested change/context, not final website copy.
 
 ## Visual rules
 
-- Preserve the current serif display, sans-serif body, and restrained monospace metadata roles.
+- Preserve the current grotesque display/body and restrained monospace metadata roles.
 - Preserve generous whitespace and strong hierarchy.
 - Interactions need a purpose and a non-animated/reduced-motion equivalent.
 - Visual identity must not depend on maritime diagrams, coordinate motifs, or shipping-manifest styling unless the owner explicitly retains them.

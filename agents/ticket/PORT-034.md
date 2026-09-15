@@ -6,7 +6,7 @@
 - Depends on: PORT-012
 - Required approvals: [RQ-007](../REVIEW-QUESTIONS.md#rq-007)
 - Owner: unassigned
-- Blocker: the GitHub-labelled URL and canonical portfolio domain remain unresolved in PORT-012
+- Blocker: the canonical portfolio domain and final contact-link audit remain unresolved in PORT-012; PORT-045 corrected the GitHub-labelled action to Julian's public GitHub profile
 
 ## Owner direction
 

@@ -1,6 +1,6 @@
 # Profile
 
-Last synchronized from code: 2026-09-07
+Last synchronized from code: 2026-09-15
 
 ## Public identity
 
@@ -38,16 +38,15 @@ Last synchronized from code: 2026-09-07
 - LinkedIn: `https://linkedin.com/in/julian-e-patterson`
   - publication: Public
   - source_status: Canonical code
-- GitHub-labelled contact URL: `https://julian-patterson.github.io`
+- GitHub-labelled contact URL: `https://github.com/julian-patterson`
   - publication: Public
   - source_status: Canonical code
-  - note: this is the URL currently implemented even though its label says "GitHub"
+  - note: corrected by PORT-045 from the portfolio URL to Julian's public GitHub profile
 - Portfolio domains currently represented in code:
   - metadata URL: `https://julianpatterson.ca`
-  - contact URL: `https://julian-patterson.github.io`
   - publication: Public
   - source_status: Canonical code
-  - note: ticket `PORT-011` can reconcile the URLs if Julian requests it
+  - note: ticket `PORT-012` can confirm the canonical public portfolio domain if Julian requests it
 
 ## Bio source material
 

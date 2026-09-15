@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ArrowUpRight } from "@carbon/icons-react";
+import TextScramble from "./TextScramble";
 
 const featuredProject = {
   name: "Stride",
@@ -21,14 +21,12 @@ const projects = [
     description:
       "Go CLI tool using Cobra, SSH, and Git for syncing and transferring repositories over Wi-Fi.",
     stack: ["Go", "Cobra", "SSH", "Git"],
-    link: { label: "GitHub", href: "#" },
   },
   {
     name: "IoT LED Controller",
     description:
       "Centralized home lighting control system with RGB color management, REST API, and Docker deployment on Raspberry Pi.",
     stack: ["Rust", "Python", "FastAPI", "Docker"],
-    link: { label: "GitHub", href: "#" },
   },
 ];
 
@@ -77,7 +75,7 @@ export default function Projects() {
           marginBottom: "48px",
         }}
       >
-        Projects
+        <TextScramble text="Projects" className="section-kicker" />
       </p>
 
       {/* Featured project */}
@@ -192,9 +190,9 @@ export default function Projects() {
         className="projects-grid"
       >
         {projects.map((project) => (
-          <div
+          <article
             key={project.name}
-            className="carbon-card project-card-anim motion-reveal"
+            className="project-card-anim motion-reveal"
             style={{
               backgroundColor: "var(--bg-surface)",
               border: "1px solid var(--border-subtle)",
@@ -202,25 +200,8 @@ export default function Projects() {
               display: "flex",
               flexDirection: "column",
               position: "relative",
-              cursor: "pointer",
-              transition: "border-color 0.2s ease, transform 0.2s ease",
             }}
-            onClick={() => window.open(project.link.href, "_blank")}
           >
-            <div
-              className="card-icon"
-              style={{
-                position: "absolute",
-                top: "24px",
-                right: "24px",
-                opacity: 0,
-                color: "var(--text-primary)",
-                transition: "opacity 0.2s ease",
-              }}
-            >
-              <ArrowUpRight size={20} />
-            </div>
-
             <h3
               style={{
                 fontFamily: "var(--font-body)",
@@ -273,14 +254,12 @@ export default function Projects() {
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "12px",
-                color: "var(--accent-navy)",
-                textDecoration: "underline",
-                textUnderlineOffset: "3px",
+                color: "var(--text-tertiary)",
               }}
             >
-              {project.link.label}
+              Public link pending
             </span>
-          </div>
+          </article>
         ))}
       </div>
 

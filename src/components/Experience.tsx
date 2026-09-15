@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowRight } from "@carbon/icons-react";
+import TextScramble from "./TextScramble";
 
 interface ExperienceEntry {
   date: string;
@@ -150,7 +151,7 @@ export default function Experience() {
           marginBottom: "48px",
         }}
       >
-        Experience
+        <TextScramble text="Experience" className="section-kicker" />
       </p>
 
       {/* Entries container — the continuous line lives here */}

@@ -80,12 +80,16 @@ Freight Explainer, Freight Network, and Reading were removed instead of revised;
 ## RQ-004 — Typography policy
 
 - Status: Resolved
-- Recorded by: [ADR-008](DECISIONS.md#adr-008)
-- Closed ticket: [PORT-007](ticket/PORT-007.md)
+- Recorded by: [ADR-013](DECISIONS.md#adr-013)
+- Closed tickets: [PORT-007](ticket/PORT-007.md), [PORT-045](ticket/PORT-045.md)
 
 ### Owner response — 2026-07-22
 
 Keep the current fonts and their current implementation.
+
+### Owner response — 2026-09-15
+
+Merge the `updated-font` UI work into the current content branch. PORT-045 applies its Geist display/body type, Space Mono metadata type, and selective text-scramble treatment; ADR-013 supersedes the older typography choice while leaving the site's content policy unchanged.
 
 <a id="rq-005"></a>
 ## RQ-005 — Skills to emphasize

@@ -1,6 +1,6 @@
 # Portfolio ticket index
 
-Last updated: 2026-09-07
+Last updated: 2026-09-15
 
 This is the authoritative work queue. Each ticket's scope, approvals, acceptance criteria, validation, and outcome live in its linked Markdown file under `agents/ticket/`. Source under `src/` remains authoritative for the current website; tickets describe requested future changes.
 
@@ -47,6 +47,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-045 — Merge the updated-font UI into the current portfolio](ticket/PORT-045.md) | P0 | 2026-09-15 | Merged the sibling UI history while retaining current content, then corrected its font wiring, scramble accessibility, and 320px Hero layout |
 | [PORT-044 — Remove retired footer metadata and the OpenClaw project](ticket/PORT-044.md) | P2 | 2026-09-07 | Footer reduced to the copyright line; the false Vercel claim and the OpenClaw card removed |
 | [PORT-024 — Decide the future of the Stats section](ticket/PORT-024.md) | P2 | 2026-09-07 | Owner chose remove; the Impact section and its CSS are gone and RQ-011 is resolved |
 | [PORT-042 — Remove the Marathon and Terminal sections](ticket/PORT-042.md) | P1 | 2026-09-07 | "I also run" and "Ask the shell" removed with their CSS; PORT-032 and PORT-033 closed |

@@ -1,8 +1,8 @@
 # Projects and research
 
-Last synchronized from code: 2026-09-07
+Last synchronized from code: 2026-09-15
 
-Both remaining standard project links in `src/components/Projects.tsx` are still the literal placeholder `#`; the featured Stride card links to the verified `https://strideapp.ca` (PORT-041). PORT-044 removed the OpenClaw card on 2026-09-07, leaving Stride plus two standard cards. This documentation mirrors that code; PORT-012 requests approved projects and real URLs, and PORT-023 performs the resulting section cleanup.
+The featured Stride card links to the verified `https://strideapp.ca` (PORT-041). PORT-045 removed the two literal `#` actions from the standard cards; Transfer CLI and IoT LED Controller now display `Public link pending` as non-interactive text until approved URLs are supplied. PORT-044 removed the OpenClaw card on 2026-09-07, leaving Stride plus two standard cards. PORT-012 still requests approved project URLs, and PORT-023 owns the resulting section cleanup.
 
 PORT-039 removed the freight research project on 2026-09-07 and promoted AnyTime Technologies to the featured card; the three remaining cards render in a single row.
 

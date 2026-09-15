@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight } from "@carbon/icons-react";
 import gsap from "gsap";
 import LetterExplosion from "./LetterExplosion";
+import TextScramble from "./TextScramble";
 
 function LiveClock() {
   const [time, setTime] = useState("");
@@ -59,6 +60,7 @@ export default function Hero() {
 
   return (
     <section
+      id="top"
       className="hero-section"
       style={{
         minHeight: "100vh",
@@ -92,15 +94,17 @@ export default function Hero() {
               marginBottom: "24px",
             }}
           >
-            Software Engineer
+            <TextScramble text="Software Engineer" className="section-kicker" />
           </p>
 
           {/* Hero name */}
           <h1
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(64px, 8vw, 96px)",
-              lineHeight: 1.0,
+              fontSize: "clamp(52px, 8vw, 96px)",
+              fontWeight: 520,
+              letterSpacing: "-0.055em",
+              lineHeight: 0.94,
               color: "var(--text-primary)",
               marginBottom: "32px",
               overflow: "visible",
@@ -117,7 +121,8 @@ export default function Hero() {
               <span
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(64px, 8vw, 96px)",
+                  fontSize: "clamp(52px, 8vw, 96px)",
+                  fontWeight: 520,
                   color: "var(--accent-navy)",
                   display: "inline-block",
                 }}
@@ -191,7 +196,7 @@ export default function Hero() {
             {/* CTAs */}
             <div
               className="reveal-item motion-reveal"
-              style={{ display: "flex", gap: "32px" }}
+              style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)" }}
             >
               <button
                 onClick={() => scrollTo("projects")}
@@ -207,6 +212,7 @@ export default function Hero() {
                   display: "flex",
                   alignItems: "center",
                   gap: "4px",
+                  whiteSpace: "nowrap",
                 }}
               >
                 <span
@@ -233,6 +239,7 @@ export default function Hero() {
                   display: "flex",
                   alignItems: "center",
                   gap: "4px",
+                  whiteSpace: "nowrap",
                 }}
               >
                 <span

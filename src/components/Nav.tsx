@@ -91,7 +91,7 @@ export default function Nav() {
           }}
         >
           <a
-            href="#"
+            href="#top"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: "13px",

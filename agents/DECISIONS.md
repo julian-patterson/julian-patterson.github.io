@@ -222,6 +222,7 @@ Use `.next-dev/` for `npm run dev`, selected through `NEXT_DIST_DIR`. Keep produ
 - Date: 2026-09-07
 - Decider: Julian Patterson
 - Supersedes: ADR-008
+- Typography portion superseded by: [ADR-013](#adr-013); the freight and relocation decision remains accepted
 
 ### Context
 
@@ -268,3 +269,29 @@ None of the three is published. The Impact counters and the before/after automat
 - Julian's location is unaffected; it remains in Hero, About, Experience, and site metadata.
 - The Projects grid is `repeat(2, 1fr)` for its two remaining standard cards. Restoring a third card should restore `repeat(3, 1fr)`.
 - The OpenClaw knowledge-base record is retained and labelled as unpublished, so the project can be restored without re-gathering its details.
+
+<a id="adr-013"></a>
+## ADR-013 — Use a grotesque and monospaced typography system
+
+- Status: Accepted
+- Date: 2026-09-15
+- Decider: Julian Patterson
+- Supersedes: the typography portion of ADR-011; ADR-011's content and relocation policy remains accepted
+
+### Context
+
+Julian requested that the visual work from `updated-font` be merged into the content-complete `remove-hugo-update` branch. That work was informed by GT America for large type and Akkurat Mono, Space Mono, or Suisse Int'l Mono for mechanical metadata, plus selective text-scramble motion and parts of Carbon Design System. The named commercial font files were not supplied, while Geist was already bundled in the repository.
+
+### Decision
+
+Use the locally bundled Geist variable font for display and body roles and Space Mono for labels and metadata. Apply the text-scramble effect selectively to section kickers, preserving readable initial markup and disabling the effect for reduced motion. Continue using Carbon icons, a 2x spacing rhythm, square geometry, accessible focus treatment, and restrained motion rather than importing the full Carbon React component library.
+
+The site's current content, employment history, project set, and removed-section decisions remain authoritative and are not replaced by the older content carried on `updated-font`.
+
+### Consequences
+
+- The portfolio has a sans-serif grotesque hierarchy without distributing unlicensed commercial fonts.
+- The mono layer supplies the requested mechanical character without making body copy harder to read.
+- Carbon remains a focused visual influence with a small dependency surface.
+- A future switch to GT America, Akkurat, or Suisse requires owner-supplied webfont licenses and files.
+- PORT-045 reconciles the branch ancestry and the colliding `PORT-039`/`ADR-011` histories under current IDs.
