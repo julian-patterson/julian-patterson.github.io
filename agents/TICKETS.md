@@ -6,18 +6,19 @@ This is the authoritative work queue. Each ticket's scope, approvals, acceptance
 
 ## What an agent can work on next
 
-**Next eligible ticket:** [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md).
+**Current in-progress ticket:** none
+
+**Next eligible ticket:** [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md)
 
 Use the first `Ready` row in the ordered active backlog whose ticket dependencies are `Done`. Ignore `Blocked` and completed tickets. If an `In progress` ticket exists and is not owned by another active agent, continue it first.
 
 Current ready sequence by priority and table order:
 
 1. [PORT-010](ticket/PORT-010.md)
-2. [PORT-030](ticket/PORT-030.md)
-3. [PORT-035](ticket/PORT-035.md)
-4. [PORT-009](ticket/PORT-009.md)
-5. [PORT-013](ticket/PORT-013.md)
-6. [PORT-018](ticket/PORT-018.md)
+2. [PORT-035](ticket/PORT-035.md)
+3. [PORT-009](ticket/PORT-009.md)
+4. [PORT-013](ticket/PORT-013.md)
+5. [PORT-018](ticket/PORT-018.md)
 
 ## Ordered active backlog
 
@@ -26,7 +27,7 @@ Current ready sequence by priority and table order:
 | 1 | [PORT-001 — Review time-sensitive profile content](ticket/PORT-001.md) | P0 | Blocked | PORT-035, owner input |
 | 2 | [PORT-005 — Define a general personal brand](ticket/PORT-005.md) | P0 | Blocked | PORT-004 and owner choice |
 | 3 | [PORT-006 — Centralize repeated site content](ticket/PORT-006.md) | P1 | Blocked | PORT-001 and PORT-005 |
-| 4 | [PORT-008 — Complete responsive and mobile QA](ticket/PORT-008.md) | P1 | Blocked | PORT-020, PORT-021, PORT-022, PORT-023, PORT-024, PORT-025, PORT-030, PORT-034 |
+| 4 | [PORT-008 — Complete responsive and mobile QA](ticket/PORT-008.md) | P1 | Blocked | PORT-020, PORT-021, PORT-022, PORT-023, PORT-024, PORT-025, PORT-034 |
 | 5 | [PORT-010 — Refine skills using code-backed evidence](ticket/PORT-010.md) | P1 | Ready | none |
 | 6 | [PORT-011 — Expand and update AnyTime content](ticket/PORT-011.md) | P1 | Blocked | owner content and URL |
 | 7 | [PORT-012 — Update projects and replace placeholder links](ticket/PORT-012.md) | P1 | Blocked | owner content and URLs |
@@ -35,19 +36,20 @@ Current ready sequence by priority and table order:
 | 10 | [PORT-022 — Update the Experience section](ticket/PORT-022.md) | P1 | Blocked | PORT-001, PORT-011 |
 | 11 | [PORT-023 — Clean up the Projects section](ticket/PORT-023.md) | P1 | Blocked | PORT-011, PORT-012 |
 | 12 | [PORT-025 — Update the Skills Graph section](ticket/PORT-025.md) | P1 | Blocked | PORT-010 |
-| 13 | [PORT-030 — Retain and polish GitHub Activity](ticket/PORT-030.md) | P1 | Ready | PORT-014 |
-| 14 | [PORT-034 — Retain and audit the Contact section](ticket/PORT-034.md) | P1 | Blocked | PORT-012 |
-| 15 | [PORT-043 — Make the GitHub activity heatmap render real data](ticket/PORT-043.md) | P1 | Blocked | owner token and deployment |
-| 16 | [PORT-035 — Run a profile and learning discovery review](ticket/PORT-035.md) | P1 | Ready | none |
-| 17 | [PORT-037 — Establish a shared website and résumé source of truth](ticket/PORT-037.md) | P1 | Blocked | PORT-006 |
-| 18 | [PORT-009 — Replay entrance effects after scroll re-entry](ticket/PORT-009.md) | P2 | Ready | none |
-| 19 | [PORT-013 — Assess a privacy-safe Strava integration](ticket/PORT-013.md) | P2 | Ready | ADR-003 or the current static-export constraint |
-| 20 | [PORT-018 — Standardize on npm](ticket/PORT-018.md) | P2 | Ready | none |
+| 13 | [PORT-034 — Retain and audit the Contact section](ticket/PORT-034.md) | P1 | Blocked | PORT-012 |
+| 14 | [PORT-035 — Run a profile and learning discovery review](ticket/PORT-035.md) | P1 | Ready | none |
+| 15 | [PORT-037 — Establish a shared website and résumé source of truth](ticket/PORT-037.md) | P1 | Blocked | PORT-006 |
+| 16 | [PORT-009 — Replay entrance effects after scroll re-entry](ticket/PORT-009.md) | P2 | Ready | none |
+| 17 | [PORT-013 — Assess a privacy-safe Strava integration](ticket/PORT-013.md) | P2 | Ready | ADR-003 or the current static-export constraint |
+| 18 | [PORT-018 — Standardize on npm](ticket/PORT-018.md) | P2 | Ready | none |
 
 ## Completed tickets
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-054 — Suspend the GitHub contribution section without deleting it](ticket/PORT-054.md) | P0 | 2026-09-16 | Commented out the GitHub Activity import and mount while retaining its component, static data route, workflow support, styles, and restoration path |
+| [PORT-043 — Make the GitHub activity heatmap render real data](ticket/PORT-043.md) | P1 | 2026-09-16 | Closed as superseded by PORT-054; the dormant section no longer needs token-backed activation work |
+| [PORT-030 — Retain and polish GitHub Activity](ticket/PORT-030.md) | P1 | 2026-09-16 | Closed as superseded by PORT-054; the implementation is retained but no longer mounted for visitors |
 | [PORT-053 — Suspend the metro divider without deleting it](ticket/PORT-053.md) | P0 | 2026-09-16 | Commented out the metro divider's import and mount while retaining its component, styles, and restoration path intact |
 | [PORT-052 — Add a metro divider and GraphQL skill](ticket/PORT-052.md) | P0 | 2026-09-15 | Added one responsive, reduced-motion-safe metro divider between About and Experience and added GraphQL as an equal-weight Infrastructure skill directly related to PostgreSQL |
 | [PORT-051 — Refine Hero and section interactions](ticket/PORT-051.md) | P0 | 2026-09-15 | Simplified the Hero action stack, added a state-safe graph recenter control, moved all kicker scrambles to viewport entry, and unboxed the theme toggle |

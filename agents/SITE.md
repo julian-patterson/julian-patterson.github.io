@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-16 (PORT-053)
+Last synchronized from code and runtime: 2026-09-16 (PORT-054)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -13,7 +13,7 @@ The source under `src/` is authoritative. This file is a navigational map and au
 - `npm run dev` writes `.next-dev/`; `npm run build` keeps the standard `.next/` → `out/` path, preventing concurrent development and production artifacts from corrupting one another
 - `.eslintrc.json` enables Next.js Core Web Vitals linting with matching ESLint 8 and `eslint-config-next` 14 packages in the npm dependency state
 - `.github/workflows/nextjs.yml` builds with Node 20/npm and deploys `out/` to GitHub Pages
-- The Pages build passes its repository-scoped automatic `GITHUB_TOKEN` only to the static build. **This token cannot answer the contribution-calendar query** the activity route makes, which is user-scoped data needing `read:user`; PORT-043 records the diagnosis and the owner steps. No personal token is currently configured, and none is published
+- The Pages build passes its repository-scoped automatic `GITHUB_TOKEN` only to the retained static activity route at build time. PORT-054 leaves that route dormant behind an unmounted UI, so the current site needs no personal token and visitor traffic makes no GitHub API requests. Revalidate the query and required permissions before changing the workflow if the section is restored
 - `src/app/layout.tsx` uses the bundled Geist variable font for display/body text and Space Mono through `next/font/google` for labels and metadata
 - The visual system selectively uses Carbon icons, a 2x spacing rhythm, square geometry, a Carbon-blue focus ring, and productive motion timing without importing the full Carbon React library
 - The visual token system supports light and dark palettes; device preference is the default and the navigation exposes a persisted explicit override
@@ -128,12 +128,19 @@ PORT-053 metro-divider suspension on 2026-09-16:
 
 - Comments out the `MetroDivider` import and its single About-to-Experience mount, so the current rendered page has no metro divider or divider animation.
 - Retains `MetroDivider.tsx` and all `.metro-divider*` global styles unchanged for possible future restoration.
-- The seven-section page composition, section spacing, Skills Graph, and all other site behavior remain unchanged.
+- The page composition at that point, section spacing, Skills Graph, and all other site behavior remained unchanged.
 - Validation passed typecheck, lint, production build, agent-system docs, diff, retained-source, and static-export absence checks.
+
+PORT-054 GitHub Activity suspension on 2026-09-16:
+
+- Comments out the `GitHubActivity` import and its single page mount, so the current rendered page has no contribution heatmap or `#activity` anchor.
+- Retains `GitHubActivity.tsx`, the force-static `/data/github-activity` route, workflow wiring, and styles unchanged for possible future restoration.
+- Closes PORT-030 and PORT-043 as superseded; no personal token or activity-polish work is required while the section is dormant.
+- Validation passed typecheck, lint, production build, agent-system docs, diff, retained-source, six-section export, static-route retention, and Activity-absence checks.
 
 ## Page composition
 
-`src/app/page.tsx` mounts 7 sections in this order:
+`src/app/page.tsx` mounts 6 sections in this order:
 
 | Order | Component | Anchor | Purpose/status in current code |
 | --- | --- | --- | --- |
@@ -142,14 +149,15 @@ PORT-053 metro-divider suspension on 2026-09-16:
 | 3 | `Experience` | `#experience` | Work and education timeline; four entries ordered Hapag-Lloyd, Stride, Prime Freight, McGill |
 | 4 | `Projects` | `#projects` | Featured Stride card plus two repository-linked project cards in a two-column grid and a section-level GitHub browse action |
 | 5 | `SkillsGraph` | `#skills` | Interactive D3 graph of 38 equal-weight skills in five owner-approved categories, with an accessible text description, keyboard legend filters, and an explicit recenter control |
-| 6 | `GitHubActivity` | `#activity` | Contribution heatmap backed by a sanitized build-time snapshot at `/data/github-activity`; currently renders the "unavailable" state — see PORT-043 |
-| 7 | `Contact` | `#contact` | Email, LinkedIn, GitHub-labelled URL, footer |
+| 6 | `Contact` | `#contact` | Email, LinkedIn, GitHub-labelled URL, footer |
 
 PORT-024 removed `Stats` (`#stats`) along with its dedicated CSS. PORT-039 removed `FreightExplainer` (`#research`), `FreightNetwork` (`#freight-network`), and `Reading` (`#reading`) along with their dedicated CSS. `page.tsx` no longer carries the "template sections for evaluation" comment that previously grouped `FreightNetwork`, `Marathon`, and `Terminal`.
 
 Navigation exposes only About, Experience, Projects, and Contact, with a mobile full-screen menu.
 
-`MetroDivider` remains implemented but dormant: its import and About-to-Experience mount are commented out in `page.tsx`. It does not render and does not change the seven-section count or navigation structure.
+`MetroDivider` remains implemented but dormant: its import and About-to-Experience mount are commented out in `page.tsx`. It does not render and does not change the current six-section count or navigation structure.
+
+`GitHubActivity` also remains implemented but dormant: its import and mount are commented out in `page.tsx`. Its static data route remains available in the export, but the current page has no activity section or navigation target.
 
 ## Approved future section plan
 
@@ -167,7 +175,7 @@ ADR-007 records Julian's requested direction. This table describes planned work,
 | Journey | Removed from production | `PORT-027` |
 | Now | Removed from production | `PORT-028` |
 | Reading | Removed from production | `PORT-039` |
-| GitHub Activity | Keep as an accountability feature after data-path repair | `PORT-030` |
+| GitHub Activity | Dormant and unmounted; implementation retained for possible restoration | `PORT-054` |
 | Freight Network | Removed from production | `PORT-039` |
 | Marathon | Removed from production | `PORT-042` |
 | Terminal | Removed from production | `PORT-042` |
@@ -203,6 +211,7 @@ These are observed code/runtime facts. Their remediation is indexed in `TICKETS.
 - The featured Stride card links to `https://strideapp.ca`; Transfer CLI links to `https://github.com/julian-patterson/transfer-cli`; IoT LED Controller links to `https://github.com/patterson-project/custom-led-controller`; and the section-level browse action links to Julian's GitHub profile. PORT-023 still owns the broader project-content cleanup.
 - The GitHub-labelled link in `Contact.tsx` points to Julian's GitHub profile.
 - PORT-014 moved GitHub activity to a build-generated static snapshot; the browser and GitHub Pages deployment no longer require a runtime API or token.
+- PORT-054 later commented out the page-level GitHub Activity import and mount. The component and static snapshot route remain in source, but the current page does not request or render them; PORT-030 and PORT-043 are closed as superseded.
 - PORT-017 supplies a reduced-motion and print fallback for essential reveal content; the owner closed the ticket and waived its remaining interaction-accessibility scope.
 - PORT-027 removed the Journey section and its responsive animation rules. Its retained work, education, and location facts remain represented in About and Experience; Journey-only “Born and raised” and “first freight internship” wording was deliberately removed rather than silently relocated.
 - PORT-028 removed the Now section, its countdown logic, and its responsive rule. Retained status themes remain represented elsewhere; Now-only date/countdown, German-level, and weekly-training claims were deliberately removed from production rather than relocated.

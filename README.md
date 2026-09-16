@@ -41,7 +41,7 @@ Development artifacts live in `.next-dev/`; production keeps Next.js's standard 
 
 `next.config.mjs` exports the app to `out/`. A push to `main` triggers the GitHub Pages workflow, which installs with `npm ci`, builds, uploads `out/`, and deploys it.
 
-The current GitHub activity implementation calls a Next.js API route even though GitHub Pages is static. `PORT-014` tracks that architecture mismatch.
+GitHub activity data is generated as a sanitized static snapshot during the build. The `GitHubActivity` UI and snapshot route remain in source, but the section is not mounted under `PORT-054`.
 
 ## Agent workflow
 

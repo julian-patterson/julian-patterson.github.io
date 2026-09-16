@@ -1,12 +1,12 @@
 # PORT-043 — Make the GitHub activity heatmap render real data
 
-- Status: Blocked
+- Status: Done
 - Priority: P1
 - Source: owner request on 2026-09-07 for directions on completing the GitHub section
 - Depends on: owner token and deployment
 - Required approvals: none
 - Owner: Julian (token creation and deployment are owner-only actions)
-- Blocker: the section needs a user-scoped GitHub token that only Julian can create, and the site is not deployed from `main` yet
+- Completed: 2026-09-16
 
 ## Context
 
@@ -62,4 +62,8 @@ curl -s -H "Authorization: Bearer $TOKEN" -X POST -d '{"query":"query{user(login
 
 ## Validation record
 
-Not run yet. Diagnosis performed 2026-09-07: the live site was confirmed to be the old Hugo build, and `/data/github-activity` was confirmed to return 404 there. The token-permission cause is a reasoned diagnosis from the route's code path and GitHub's token model, **not an observed failure** — the workflow has never run against this code. Confirm with the curl command above before concluding.
+Not applicable after supersession. Diagnosis performed 2026-09-07: the live site was confirmed to be the old Hugo build, and `/data/github-activity` was confirmed to return 404 there. The token-permission cause was a reasoned diagnosis, not an observed failure; it is retained here as history and should be revalidated if the section is restored.
+
+## Closure
+
+Superseded by [PORT-054](PORT-054.md) on 2026-09-16. The component and static route remain available, but Julian asked to comment the visible contribution graph out, so token and deployment activation are no longer current work.

@@ -137,6 +137,7 @@ Store ticket details in `agents/ticket/PORT-###.md`. Keep `agents/TICKETS.md` as
 - Date: 2026-07-22
 - Decider: Julian Patterson
 - Supersedes: the undecided section proposal in PORT-004
+- GitHub Activity portion superseded by: [ADR-023](#adr-023)
 
 ### Decision
 
@@ -518,3 +519,26 @@ Do not render `MetroDivider` in the current page composition. Comment out its im
 - The current site has no visual divider or divider animation between About and Experience.
 - The dormant component is excluded from the active page module while its source and CSS remain available.
 - Restoring the divider requires an explicit owner request and uncommenting the retained import and mount; no reconstruction is needed.
+
+<a id="adr-023"></a>
+## ADR-023 — Keep the GitHub contribution section dormant
+
+- Status: Accepted
+- Date: 2026-09-16
+- Decider: Julian Patterson
+- Supersedes: ADR-007's direction to retain GitHub Activity
+
+### Context
+
+After reviewing how the contribution heatmap would be activated and how its static traffic model works, Julian asked to comment the section out without deleting its implementation.
+
+### Decision
+
+Do not render `GitHubActivity` in the current page composition. Comment out its import and single mount in `src/app/page.tsx`. Retain the component, force-static `/data/github-activity` route, workflow wiring, styles, and earlier implementation history unchanged for possible restoration. Do not pursue token configuration or polish work while the section is dormant.
+
+### Consequences
+
+- The current site has six rendered sections and no `#activity` anchor or contribution heatmap.
+- The static activity route remains part of the export, but no page visitor fetches it through the dormant component.
+- PORT-030 and PORT-043 close as superseded rather than requiring token or interaction work.
+- Restoring the section requires an explicit owner request and uncommenting the retained import and mount.

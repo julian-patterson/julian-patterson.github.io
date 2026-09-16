@@ -58,7 +58,7 @@ Approve the primary audience, final positioning sentence, voice, primary call to
 ## RQ-003 — Extra sections
 
 - Status: Resolved
-- Recorded by: [ADR-007](DECISIONS.md#adr-007)
+- Recorded by: [ADR-007](DECISIONS.md#adr-007), amended by [ADR-023](DECISIONS.md#adr-023)
 - Parent ticket: [PORT-004](ticket/PORT-004.md)
 - Implementation tickets: [PORT-020](ticket/PORT-020.md) through [PORT-034](ticket/PORT-034.md)
 
@@ -75,6 +75,10 @@ Approve the primary audience, final positioning sentence, voice, primary call to
 ### Owner response — 2026-09-07
 
 Freight Explainer, Freight Network, and Reading were removed instead of revised; see [ADR-011](DECISIONS.md#adr-011) and [PORT-039](ticket/PORT-039.md). The rest of the 2026-07-22 disposition stands.
+
+### Owner response — 2026-09-16
+
+Comment out the GitHub contribution graph without deleting its implementation. PORT-054 suspends the section and closes PORT-030 and PORT-043 as superseded; ADR-023 supersedes the earlier direction to keep GitHub Activity visible.
 
 <a id="rq-004"></a>
 ## RQ-004 — Typography policy

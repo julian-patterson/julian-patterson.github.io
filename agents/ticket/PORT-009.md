@@ -13,7 +13,7 @@ Content should appear while scrolling down. After it leaves the viewport by scro
 
 ## Update — 2026-09-15
 
-[PORT-051](PORT-051.md) makes the seven section-kicker scrambles wait for a genuine viewport-entry transition and replay after leaving and re-entering their activation zone. This ticket remains open for the broader GSAP content-reveal behavior, fast scrolling, anchor navigation, and browser-history cases.
+[PORT-051](PORT-051.md) implemented seven section-kicker scrambles that wait for a genuine viewport-entry transition and replay after leaving and re-entering their activation zone. After [PORT-054](PORT-054.md), six kickers are mounted and the retained GitHub Activity kicker is dormant. This ticket remains open for the broader GSAP content-reveal behavior, fast scrolling, anchor navigation, and browser-history cases.
 
 ## Acceptance criteria
 

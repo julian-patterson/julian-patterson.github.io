@@ -5,7 +5,7 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import SkillsGraph from "@/components/SkillsGraph";
-import GitHubActivity from "@/components/GitHubActivity";
+// import GitHubActivity from "@/components/GitHubActivity"; // Retained for possible reactivation; see PORT-054.
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <SkillsGraph />
-        <GitHubActivity />
+        {/* <GitHubActivity /> */}
         <Contact />
       </main>
     </>

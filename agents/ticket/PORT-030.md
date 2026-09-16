@@ -1,11 +1,12 @@
 # PORT-030 — Retain and polish GitHub Activity
 
-- Status: Ready
+- Status: Done
 - Priority: P1
 - Source: owner response to RQ-003 on 2026-07-22
 - Depends on: PORT-014
 - Required approvals: none
 - Owner: unassigned
+- Completed: 2026-09-16
 
 ## Owner direction
 
@@ -25,4 +26,8 @@ The data path this ticket polishes does not currently return data. [PORT-043](PO
 
 ## Validation record
 
-Not run yet.
+Not applicable; PORT-054 retains the implementation but comments the section out of the page.
+
+## Closure
+
+Superseded by [PORT-054](PORT-054.md) on 2026-09-16. Julian asked to comment out the contribution graph rather than activate or polish it. The unchecked acceptance criteria remain as the historical scope of the abandoned direction.
