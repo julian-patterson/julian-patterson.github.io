@@ -1,6 +1,6 @@
 # Portfolio ticket index
 
-Last updated: 2026-09-15
+Last updated: 2026-09-16
 
 This is the authoritative work queue. Each ticket's scope, approvals, acceptance criteria, validation, and outcome live in its linked Markdown file under `agents/ticket/`. Source under `src/` remains authoritative for the current website; tickets describe requested future changes.
 
@@ -48,6 +48,7 @@ Current ready sequence by priority and table order:
 
 | Ticket | Priority | Completed | Outcome |
 | --- | --- | --- | --- |
+| [PORT-053 — Suspend the metro divider without deleting it](ticket/PORT-053.md) | P0 | 2026-09-16 | Commented out the metro divider's import and mount while retaining its component, styles, and restoration path intact |
 | [PORT-052 — Add a metro divider and GraphQL skill](ticket/PORT-052.md) | P0 | 2026-09-15 | Added one responsive, reduced-motion-safe metro divider between About and Experience and added GraphQL as an equal-weight Infrastructure skill directly related to PostgreSQL |
 | [PORT-051 — Refine Hero and section interactions](ticket/PORT-051.md) | P0 | 2026-09-15 | Simplified the Hero action stack, added a state-safe graph recenter control, moved all kicker scrambles to viewport entry, and unboxed the theme toggle |
 | [PORT-050 — Replace the skills graph inventory](ticket/PORT-050.md) | P0 | 2026-09-15 | Replaced the graph with the exact 37-skill owner inventory, equal node weight, connected relationships, wrapped labels, and all-node mobile rendering |

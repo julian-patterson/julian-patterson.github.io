@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import MetroDivider from "@/components/MetroDivider";
+// import MetroDivider from "@/components/MetroDivider"; // Retained for possible reactivation; see PORT-053.
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import SkillsGraph from "@/components/SkillsGraph";
@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <MetroDivider />
+        {/* <MetroDivider /> */}
         <Experience />
         <Projects />
         <SkillsGraph />

@@ -1,6 +1,6 @@
 # Brand, audience, and voice
 
-Last decision review: 2026-09-15
+Last decision review: 2026-09-16
 
 ## Confirmed direction
 
@@ -14,7 +14,7 @@ Last decision review: 2026-09-15
 - Keep explicit repository actions on the two standard project cards and one compact `View more on GitHub` action beneath their grid; preserve the cards as semantic articles rather than making each whole card a link.
 - Offer complete light and dark palettes, defaulting to the visitor's device preference until they explicitly choose a theme from the navigation control. Keep that 44px control borderless and transparent while preserving its visible keyboard focus ring.
 - Use a restrained, reduced-motion-aware text scramble on all seven section kickers. Ignore the initial observer sample so off-screen labels animate on actual viewport entry; keep the accessible label and reduced-motion rendering static.
-- Use exactly one compact, unlabeled metro-route divider between About and Experience: one navy angular line, square stations, and a brass interchange. It is decorative rather than a return to transit- or freight-led identity, and must have static reduced-motion, print, and no-JavaScript fallbacks.
+- Keep the completed metro-route divider implementation dormant and unmounted, as requested in PORT-053. Preserve its component and styles for possible future reuse, but render no route graphic between About and Experience unless Julian explicitly restores it.
 - Draw selectively from Carbon's icons, 2x spacing, square geometry, focus treatment, and motion principles without adopting the full component library.
 - Remove generic/generated-feeling sections and copy.
 - Preserve PORT-052's amended owner-approved 38-skill inventory and five category groupings without implying a proficiency ranking; keep GraphQL as an equal-weight Infrastructure node directly related to PostgreSQL, and continue the supporting-evidence audit in PORT-010.

@@ -451,7 +451,8 @@ Use the accessible text scramble for all seven section kickers. Ignore each obse
 <a id="adr-020"></a>
 ## ADR-020 — Use one decorative metro divider between About and Experience
 
-- Status: Accepted
+- Status: Superseded
+- Superseded by: [ADR-022](#adr-022)
 - Date: 2026-09-15
 - Decider: Julian Patterson
 - Extends: ADR-013 and ADR-019
@@ -495,3 +496,25 @@ Add `GraphQL` to the Infrastructure category with the same node weight as every 
 - All 38 nodes remain one connected component and carry equal visual weight.
 - ADR-018 remains the historical authority for the original 37-skill replacement; this decision and PORT-052 are the authority for the GraphQL amendment.
 - PORT-010 retains the supporting-evidence audit, and PORT-025 retains its broader interaction-accessibility and live-resize scope.
+
+<a id="adr-022"></a>
+## ADR-022 — Keep the metro divider implementation dormant
+
+- Status: Accepted
+- Date: 2026-09-16
+- Decider: Julian Patterson
+- Supersedes: ADR-020's requirement to render the divider
+
+### Context
+
+After reviewing the implemented metro divider, Julian asked to comment it out without deleting it so it can be reconsidered later.
+
+### Decision
+
+Do not render `MetroDivider` in the current page composition. Comment out its import and its single mount between About and Experience in `src/app/page.tsx`. Retain the component, global styles, responsive geometry, motion behavior, accessibility treatment, and PORT-052 implementation history unchanged for straightforward restoration.
+
+### Consequences
+
+- The current site has no visual divider or divider animation between About and Experience.
+- The dormant component is excluded from the active page module while its source and CSS remain available.
+- Restoring the divider requires an explicit owner request and uncommenting the retained import and mount; no reconstruction is needed.

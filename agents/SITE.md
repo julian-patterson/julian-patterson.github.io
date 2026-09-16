@@ -1,6 +1,6 @@
 # Current website map and review
 
-Last synchronized from code and runtime: 2026-09-15 (PORT-052)
+Last synchronized from code and runtime: 2026-09-16 (PORT-053)
 
 The source under `src/` is authoritative. This file is a navigational map and audit record, not a replacement for reading the relevant code.
 
@@ -124,6 +124,13 @@ PORT-052 metro divider and GraphQL amendment on 2026-09-15:
 - Adds GraphQL as the eleventh equal-weight Infrastructure skill with a direct strong PostgreSQL edge. The current graph has 38 nodes and 58 edges in one connected component, split 7 / 9 / 11 / 5 / 6 across the five categories.
 - Validation passed typecheck, lint, production build, agent-system docs, diff, graph-data, static-export, responsive-source, and accessibility-source checks; the local development route returned HTTP 200.
 
+PORT-053 metro-divider suspension on 2026-09-16:
+
+- Comments out the `MetroDivider` import and its single About-to-Experience mount, so the current rendered page has no metro divider or divider animation.
+- Retains `MetroDivider.tsx` and all `.metro-divider*` global styles unchanged for possible future restoration.
+- The seven-section page composition, section spacing, Skills Graph, and all other site behavior remain unchanged.
+- Validation passed typecheck, lint, production build, agent-system docs, diff, retained-source, and static-export absence checks.
+
 ## Page composition
 
 `src/app/page.tsx` mounts 7 sections in this order:
@@ -142,7 +149,7 @@ PORT-024 removed `Stats` (`#stats`) along with its dedicated CSS. PORT-039 remov
 
 Navigation exposes only About, Experience, Projects, and Contact, with a mobile full-screen menu.
 
-`MetroDivider` is a decorative, non-section interstitial mounted between About and Experience; it does not change the seven-section count or navigation structure.
+`MetroDivider` remains implemented but dormant: its import and About-to-Experience mount are commented out in `page.tsx`. It does not render and does not change the seven-section count or navigation structure.
 
 ## Approved future section plan
 
